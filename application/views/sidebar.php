@@ -125,6 +125,12 @@
             </li>
           </ul>
         </li>
+
+          <li class="<?php if( $this->uri->segment(1)=="support"){echo 'active';} ?>">
+            <a href="<?= base_url('support'); ?>">
+              <i class="fa fa-user"></i><span>IT Support</span>
+            </a>
+          </li>
         
 		
         
