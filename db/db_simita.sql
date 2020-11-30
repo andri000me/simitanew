@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 20 Nov 2020 pada 09.06
+-- Waktu pembuatan: 30 Nov 2020 pada 04.16
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 7.3.2
 
@@ -2491,6 +2491,27 @@ INSERT INTO `network_device` (`id_network_device`, `id_merek`, `device_type`, `n
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `pegawai`
+--
+
+CREATE TABLE `pegawai` (
+  `pegawai_id` int(11) NOT NULL,
+  `nip` varchar(16) DEFAULT NULL,
+  `nama` varchar(64) DEFAULT NULL,
+  `email` varchar(64) DEFAULT NULL,
+  `no_hp` char(12) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `pegawai`
+--
+
+INSERT INTO `pegawai` (`pegawai_id`, `nip`, `nama`, `email`, `no_hp`) VALUES
+(2, '123456789', 'Alfahri Harriza', 'fahrial.ramadhan98@gmail.com', '085261090890');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `printer`
 --
 
@@ -3954,6 +3975,12 @@ ALTER TABLE `network_device`
   ADD KEY `id_laptop` (`id_network_device`);
 
 --
+-- Indeks untuk tabel `pegawai`
+--
+ALTER TABLE `pegawai`
+  ADD PRIMARY KEY (`pegawai_id`);
+
+--
 -- Indeks untuk tabel `printer`
 --
 ALTER TABLE `printer`
@@ -4053,6 +4080,12 @@ ALTER TABLE `monitor`
 --
 ALTER TABLE `network_device`
   MODIFY `id_network_device` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=143;
+
+--
+-- AUTO_INCREMENT untuk tabel `pegawai`
+--
+ALTER TABLE `pegawai`
+  MODIFY `pegawai_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `printer`

@@ -48,6 +48,18 @@
                     <li class="<?php if( $this->uri->segment(2)=="unit_sumut2_view"){echo 'active';}?>"><a href="<?php echo site_url('admin/unit_sumut2_view'); ?>"><i class="fa fa-circle-o"></i> Wilayah STI Sumut 2</a></li>
                   </ul>
                 </li>
+
+                  <li class="<?php if( $this->uri->segment(1)=="support"){echo 'active';} ?>">
+                  <a href="<?= base_url('support'); ?>"><i class="fa fa-users"></i> IT Support
+                    <span class="pull-right-container"></span>
+                  </a>
+                </li>
+
+                 <li class="<?php if( $this->uri->segment(1)=="pegawai"){echo 'active';} ?>">
+                  <a href="<?= base_url('pegawai'); ?>"><i class="fa fa-users"></i> Pegawai
+                    <span class="pull-right-container"></span>
+                  </a>
+                </li>
                 
                 <li class="<?php if( $this->uri->segment(2)=="users_view"){echo 'active';}?>">
                       <a href="<?php echo site_url('admin/users_view'); ?>"><i class="fa fa-users"></i> User
@@ -70,6 +82,7 @@
                   </a>
                 </li>
               </li>
+
             </ul>
           </li>
 		
@@ -124,19 +137,7 @@
               </li>
             </li>
           </ul>
-        </li>
-
-          <li class="<?php if( $this->uri->segment(1)=="support"){echo 'active';} ?>">
-            <a href="<?= base_url('support'); ?>">
-              <i class="fa fa-user"></i><span>IT Support</span>
-            </a>
-          </li>
-        
-		
-        
-        
-        
-        
+        </li>     
        
       </ul>
     </section>
