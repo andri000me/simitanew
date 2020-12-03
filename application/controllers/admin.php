@@ -40,6 +40,13 @@ class admin extends CI_Controller {
 			$data['dashboard_merek_laptop_toshiba'] = $this->admin_model->dashboard_merek_laptop_toshiba();
 			$data['dashboard_merek_laptop_apple'] = $this->admin_model->dashboard_merek_laptop_apple();
 			$data['dashboard_merek_laptop_lenovo'] = $this->admin_model->dashboard_merek_laptop_lenovo();
+			$data['dashboard_merek_pc'] = $this->admin_model->dashboard_merek_pc();
+			$data['dashboard_merek_printer'] = $this->admin_model->dashboard_merek_printer();
+			$data['dashboard_merek_network_device'] = $this->admin_model->dashboard_merek_network_device();
+			$data['dashboard_merek_server'] = $this->admin_model->dashboard_merek_server();
+			$data['dashboard_merek_vicon'] = $this->admin_model->dashboard_merek_vicon();
+			$data['dashboard_status_kepemilikan_sewa'] = $this->admin_model->dashboard_status_kepemilikan_sewa();
+			$data['dashboard_status_kepemilikan_pln'] = $this->admin_model->dashboard_status_kepemilikan_pln();
 		    $this->load->view('header');
             $this->load->view('sidebar');
             $this->load->view('admin/index',$data);
