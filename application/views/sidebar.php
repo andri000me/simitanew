@@ -74,9 +74,16 @@
                     </span>
                   </a> 
                 </li>
-                
+
                 <li class="<?php if( $this->uri->segment(2)=="merek_view"){echo 'active';}?>"> 
                   <a href="<?php echo site_url('admin/merek_view'); ?>"><i class="fa fa-book"></i> Merek Perangkat
+                    <span class="pull-right-container">
+                    </span>
+                  </a>
+                </li>
+
+                <li class="<?php if( $this->uri->segment(1)=="kpi"){echo 'active';}?>"> 
+                  <a href="<?php echo site_url('kpi'); ?>"><i class="fa fa-book"></i> KPI
                     <span class="pull-right-container">
                     </span>
                   </a>
