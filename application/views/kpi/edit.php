@@ -15,6 +15,7 @@
 
    <!-- Main content -->
    <section class="content">
+     <?= $this->session->flashdata('pesan'); ?>
      <div class="row">
        <!-- left column -->
        <div class="col-md-12">
@@ -23,8 +24,8 @@
 
          <!-- Form Element sizes -->
          <div class="box box-success">
-           <form class="form-horizontal" method="post" action="" enctype="multipart/form-data">
-             <input type="hidden" name="kpi_id" value="<?= $kpi['kpi_id']; ?>">
+           <form class="form-horizontal" method="post" action="<?php echo base_url(); ?>kpi/action_kpi_edit?kpi_id=<?php echo $kpinya['kpi_id']; ?>" enctype="multipart/form-data">
+             <input type="hidden" name="kpi_id" value="<?= $kpinya['kpi_id']; ?>">
 
              <div class="box-header with-border">
                <h3 class="box-title">Edit Data</h3>
@@ -34,7 +35,23 @@
                  <div class="form-group">
                    <label for="indikator_kpi" class="col-sm-3 control-label">Indikator KPI</label>
                    <div class="col-sm-5">
-                     <input type="text" class="form-control" id="indikator_kpi" name="indikator_kpi" required value="<?= $kpi['indikator_kpi']; ?>" />
+                     <input type="text" class="form-control" id="indikator_kpi" name="indikator_kpi" required value="<?= $kpinya['indikator_kpi']; ?>" />
+                   </div>
+                 </div>
+               </div>
+               <div class="col-lg-10">
+                 <div class="form-group">
+                   <label for="pic" class="col-sm-3 control-label">PIC</label>
+                   <div class="col-sm-5">
+                     <select class="form-control select2" id="pic" name="pic" style="width: 100%;" required>
+                       <option value="<?php echo $kpinya['pic']; ?>" selected="selected"><?php echo $kpinya['nama_pj']; ?></option>
+                       <option value=""> -- Pilih Pegawai Lain -- </option>
+                       <?php foreach ($list_pegawai->result_array() as $data) { ?>
+                         <option value="<?php echo $data['pegawai_id']; ?>"><?php echo $data['nama']; ?></option>
+                       <?php
+                        }
+                        ?>
+                     </select>
                    </div>
                  </div>
                </div>
@@ -42,7 +59,15 @@
                  <div class="form-group">
                    <label for="satuan" class="col-sm-3 control-label">Satuan</label>
                    <div class="col-sm-5">
-                     <input type="text" class="form-control" id="satuan" name="satuan" required value="<?= $kpi['satuan']; ?>" />
+                     <select class="form-control select2" name="satuan" style="width: 100%;" required>
+                       <option value="<?php echo $kpinya['pic']; ?>" selected="selected"><?php echo $kpinya['satuan']; ?></option>
+                       <option value=""> -- Pilih Satuan -- </option>
+                       <option value="%">%</option>
+                       <option value="Unit">Unit</option>
+                       <option value="Dokumen">Dokumen</option>
+                       <option value="Level">Level</option>
+                       <option value="Skor">Skor</option>
+                     </select>
                    </div>
                  </div>
                </div>
@@ -50,7 +75,7 @@
                  <div class="form-group">
                    <label for="bobot" class="col-sm-3 control-label">Bobot</label>
                    <div class="col-sm-5">
-                     <input type="number" class="form-control" id="bobot" name="bobot" required value="<?= $kpi['bobot']; ?>" />
+                     <input type="number" class="form-control" id="bobot" name="bobot" required value="<?= $kpinya['bobot']; ?>" />
                    </div>
                  </div>
                </div>
@@ -58,7 +83,7 @@
                  <div class="form-group">
                    <label for="target" class="col-sm-3 control-label">Target</label>
                    <div class="col-sm-5">
-                     <input type="number" step="0.0001" class="form-control" id="target" name="target" required value="<?= $kpi['target']; ?>" />
+                     <input type="number" step="0.0001" class="form-control" id="target" name="target" required value="<?= $kpinya['target']; ?>" />
                    </div>
                  </div>
                </div>
@@ -66,7 +91,7 @@
                  <div class="form-group">
                    <label for="realisasi" class="col-sm-3 control-label">Realisasi</label>
                    <div class="col-sm-5">
-                     <input type="number" step="0.0001" class="form-control" id="realisasi" name="realisasi" required value="<?= $kpi['realisasi']; ?>" />
+                     <input type="number" step="0.0001" class="form-control" id="realisasi" name="realisasi" required value="<?= $kpinya['realisasi']; ?>" />
                    </div>
                  </div>
                </div>
@@ -74,7 +99,7 @@
                  <div class="form-group">
                    <label for="skor" class="col-sm-3 control-label">Skor</label>
                    <div class="col-sm-5">
-                     <input type="number" step="0.0001" class="form-control" id="skor" name="skor" required value="<?= $kpi['skor']; ?>" />
+                     <input type="number" step="0.0001" class="form-control" id="skor" name="skor" required value="<?= $kpinya['skor']; ?>" />
                    </div>
                  </div>
                </div>
@@ -82,15 +107,20 @@
                  <div class="form-group">
                    <label for="waktu" class="col-sm-3 control-label">Waktu Penilaian KPI</label>
                    <div class="col-sm-5">
-                     <input type="date" class="form-control" id="waktu" name="waktu" required value="<?= $kpi['waktu']; ?>" />
+                     <input type="date" class="form-control" id="waktu" name="waktu" required value="<?= $kpinya['waktu']; ?>" />
                    </div>
                  </div>
                </div>
                <div class="col-lg-10">
                  <div class="form-group">
-                   <label for="keterangan" class="col-sm-3 control-label">Keterangan</label>
+                   <label for="status" class="col-sm-3 control-label">Status</label>
                    <div class="col-sm-5">
-                     <input type="text" class="form-control" id="keterangan" name="keterangan" required value="<?= $kpi['keterangan']; ?>" />
+                     <select class="form-control select2" id="status" name="status" style="width: 100%;" required>
+                       <option value="<?php echo $kpinya['status']; ?>" selected="selected"><?php echo $kpinya['status']; ?></option>
+                       <option value=""> -- Pilih Status -- </option>
+                       <option value="Open">Open</option>
+                       <option value="Closed">Closed</option>
+                     </select>
                    </div>
                  </div>
                </div>

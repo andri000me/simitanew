@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2020 at 02:58 PM
+-- Generation Time: Dec 10, 2020 at 09:52 AM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.3.6
 
@@ -1822,44 +1822,45 @@ INSERT INTO `komputer` (`id_komputer`, `id_merek`, `spesifikasi`, `ip_address`, 
 CREATE TABLE `kpi` (
   `kpi_id` int(11) NOT NULL,
   `indikator_kpi` varchar(100) NOT NULL,
+  `pic` int(11) NOT NULL,
   `satuan` varchar(16) NOT NULL,
   `bobot` int(11) NOT NULL,
   `target` float NOT NULL,
   `realisasi` float NOT NULL,
   `skor` float NOT NULL,
   `waktu` date NOT NULL,
-  `keterangan` varchar(16) NOT NULL
+  `status` varchar(16) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `kpi`
 --
 
-INSERT INTO `kpi` (`kpi_id`, `indikator_kpi`, `satuan`, `bobot`, `target`, `realisasi`, `skor`, `waktu`, `keterangan`) VALUES
-(6, 'Kepuasan Pelanggan', '%', 6, 87, 88.1, 6, '2015-01-05', 'Baik'),
-(7, 'Penambahan Jumlah Pelanggan', 'Juta Plg', 3, 3.6, 3.67, 3, '2015-01-05', 'Baik'),
-(8, 'SAIDI', 'Menit/Plg', 6, 300, 318.6, 5.6, '2015-01-05', 'Masalah'),
-(9, 'SAIFI', 'Kali/Plg', 7, 5.5, 5.97, 6.4, '2015-01-05', 'Masalah'),
-(10, 'Fuel Mix BBM Termasuk IPP', '%', 6, 8.5, 8.22, 6, '2015-01-05', 'Baik'),
-(11, 'Penambahan Kapasitas Pembangkit (COD)', 'GW', 5, 3.87, 2.05, 2.7, '2015-01-05', 'Masalah'),
-(12, 'Kapasitas Pembangkit Sewa BBM', 'GW', 2, 4.39, 2.64, 2, '2015-01-05', 'Baik'),
-(13, 'EAF PLTU', '%', 4, 81, 82, 4, '2015-01-05', 'Baik'),
-(14, 'Susut Jaringan', '%', 3, 8.45, 9.77, 2.5, '2015-01-05', 'Masalah'),
-(15, 'Human Capital Readiness', 'Level', 5, 3.7, 3.8, 5, '2015-01-05', 'Baik'),
-(16, 'Organization Capital Readiness', 'Level', 5, 3.7, 3.72, 5, '2015-01-05', 'Baik'),
-(17, 'Produktifitas Pegawai', 'MWh/Peg', 7, 5.129, 4.915, 6.7, '2015-01-05', 'Hati-Hati'),
-(18, 'Biaya Non Fuel', 'Rp/kWh', 6, 222, 227.9, 5.8, '2015-01-05', 'Hati-Hati'),
-(19, 'BPP (Biaya Pokok Penyediaan)', 'Rp/kWh', 8, 1.419, 1.3, 8, '2015-01-05', 'Baik'),
-(20, 'EBITDA Margin', '%', 2, 18.8, 17.9, 1.5, '2015-01-05', 'Masalah'),
-(21, 'Program(Realisasi program terkontrak UIP) tanpa luncuran', '%', 4, 100, 94.7, 3.8, '2015-01-05', 'Masalah'),
-(22, 'Fisik (realisasi bayar/pagu disburse)', '%', 4, 75, 70.04, 3.7, '2015-01-05', 'Masalah'),
-(23, 'Jumlah Pembangkit yang masuk kriteria PROPER dari hasil sampling Kementrian Lingkungan Hidup', '%', 2, 65, 72.4, 2, '2015-01-05', 'Baik'),
-(24, 'Peningkatan tingkat PROPER unit', 'Unit', 2, 6, 10, 2, '2015-01-05', 'Baik'),
-(25, 'Skor Penilaian Kinerja Unggul BUMN', 'Skor', 3, 576, 587, 3, '2015-01-05', 'Baik'),
-(26, 'Skor GSG', 'Skor', 3, 86, 86, 3, '2015-01-05', 'Baik'),
-(27, 'Pengelolaan risiko', 'Level', 3, 3.5, 3.4, 2.9, '2015-01-05', 'Hati-Hati'),
-(28, 'Pemenuhan Portal BUMN', '%', 2, 100, 100, 2, '2015-01-05', 'Baik'),
-(29, 'Penyelesaian temuan auditor (BPK)', '%', 2, 100, 100, 2, '2015-01-05', 'Baik');
+INSERT INTO `kpi` (`kpi_id`, `indikator_kpi`, `pic`, `satuan`, `bobot`, `target`, `realisasi`, `skor`, `waktu`, `status`) VALUES
+(0, 'Penyelesaian temuan auditor (BPK)', 2, '%', 2, 100, 100, 2, '2015-01-05', 'Closed'),
+(6, 'Kepuasan Pelanggan', 2, '%', 6, 87, 88.1, 6, '2015-01-05', 'Closed'),
+(7, 'Penambahan Jumlah Pelanggan', 3, 'Unit', 3, 3.6, 3.67, 3, '2015-01-05', 'Closed'),
+(8, 'SAIDI', 2, 'Level', 6, 300, 318.6, 5.6, '2015-01-05', 'Closed'),
+(9, 'SAIFI', 3, 'Unit', 7, 5.5, 5.97, 6.4, '2015-01-05', 'Closed'),
+(10, 'Fuel Mix BBM Termasuk IPP', 2, '%', 6, 8.5, 8.22, 6, '2015-01-05', 'Closed'),
+(11, 'Penambahan Kapasitas Pembangkit (COD)', 2, 'Unit', 5, 3.87, 2.05, 2.7, '2015-01-05', 'Closed'),
+(12, 'Kapasitas Pembangkit Sewa BBM', 3, 'Level', 2, 4.39, 2.64, 2, '2015-01-05', 'Closed'),
+(13, 'EAF PLTU', 3, '%', 4, 81, 82, 4, '2015-01-05', 'Open'),
+(14, 'Susut Jaringan', 3, '%', 3, 8.45, 9.77, 2.5, '2015-01-05', 'Open'),
+(15, 'Human Capital Readiness', 2, 'Level', 5, 3.7, 3.8, 5, '2015-01-05', 'Open'),
+(16, 'Organization Capital Readiness', 2, 'Level', 5, 3.7, 3.72, 5, '2015-01-05', 'Open'),
+(17, 'Produktifitas Pegawai', 2, 'Dokumen', 7, 5.129, 4.915, 6.7, '2015-01-05', 'Open'),
+(18, 'Biaya Non Fuel', 3, 'Dokumen', 6, 222, 227.9, 5.8, '2015-01-05', 'Open'),
+(19, 'BPP (Biaya Pokok Penyediaan)', 2, 'Dokumen', 8, 1.419, 1.3, 8, '2015-01-05', 'Open'),
+(20, 'EBITDA Margin', 2, '%', 2, 18.8, 17.9, 1.5, '2015-01-05', 'Open'),
+(21, 'Program(Realisasi program terkontrak UIP) tanpa luncuran', 2, '%', 4, 100, 94.7, 3.8, '2015-01-05', 'Closed'),
+(22, 'Fisik (realisasi bayar/pagu disburse)', 2, '%', 4, 75, 70.04, 3.7, '2015-01-05', 'Open'),
+(23, 'Jumlah Pembangkit yang masuk kriteria PROPER dari hasil sampling Kementrian Lingkungan Hidup', 2, '%', 2, 65, 72.4, 2, '2015-01-05', 'Closed'),
+(24, 'Peningkatan tingkat PROPER unit', 3, 'Unit', 2, 6, 10, 2, '2015-01-05', 'Open'),
+(25, 'Skor Penilaian Kinerja Unggul BUMN', 2, 'Skor', 3, 576, 587, 3, '2015-01-05', 'Open'),
+(26, 'Skor GSG', 3, 'Skor', 3, 86, 86, 3, '2015-01-05', 'Closed'),
+(27, 'Pengelolaan risiko', 3, 'Level', 3, 3.5, 3.4, 2.9, '2015-01-05', 'Open'),
+(28, 'Pemenuhan Portal BUMN', 2, '%', 2, 100, 100, 2, '2015-01-05', 'Closed');
 
 -- --------------------------------------------------------
 
@@ -2555,7 +2556,8 @@ CREATE TABLE `pegawai` (
 --
 
 INSERT INTO `pegawai` (`pegawai_id`, `nip`, `nama`, `email`, `no_hp`) VALUES
-(2, '123456789', 'Alfahri Harriza', 'fahrial.ramadhan98@gmail.com', '085261090890');
+(2, '123456789', 'Alfahri Harriza', 'fahrial.ramadhan98@gmail.com', '085261090890'),
+(3, '1234567890123456', 'Nur Afifah', 'afifah@gmail.com', '081234567890');
 
 -- --------------------------------------------------------
 
@@ -4115,7 +4117,7 @@ ALTER TABLE `komputer`
 -- AUTO_INCREMENT for table `kpi`
 --
 ALTER TABLE `kpi`
-  MODIFY `kpi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `kpi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `laptop`
@@ -4145,7 +4147,7 @@ ALTER TABLE `network_device`
 -- AUTO_INCREMENT for table `pegawai`
 --
 ALTER TABLE `pegawai`
-  MODIFY `pegawai_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `pegawai_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `printer`

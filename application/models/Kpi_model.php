@@ -6,23 +6,38 @@ class kpi_model extends CI_Model
 
 	public function getData()
 	{
-		$this->db->select('*');
-		$this->db->from('kpi');
-		$query = $this->db->get();
-		return $query->result_array();
+		$get = $this->db->query("SELECT a.*,(SELECT nama FROM pegawai WHERE pegawai_id = a.`pic`) AS nama_pj FROM kpi a ORDER BY a.kpi_id DESC ");
+		return $get;
+	}
+
+	public function get_kpi_open()
+	{
+		$get = $this->db->query("SELECT a.*,(SELECT nama FROM pegawai WHERE pegawai_id = a.`pic`) AS nama_pj FROM kpi a WHERE a.status = 'Open' ORDER BY a.kpi_id DESC LIMIT 5 ");
+		return $get;
+	}
+
+	function list_pegawai()
+	{
+		$get = $this->db->query("SELECT 
+		  * 
+		FROM
+		  pegawai 
+		ORDER BY pegawai_id DESC");
+		return $get;
 	}
 
 	public function addData()
 	{
 		$data = [
 			'indikator_kpi' => htmlspecialchars($this->input->post('indikator_kpi'), true),
+			'pic' => htmlspecialchars($this->input->post('pic'), true),
 			'satuan' => htmlspecialchars($this->input->post('satuan'), true),
 			'bobot' => htmlspecialchars($this->input->post('bobot'), true),
 			'target' => htmlspecialchars($this->input->post('target'), true),
 			'realisasi' => htmlspecialchars($this->input->post('realisasi'), true),
 			'skor' => htmlspecialchars($this->input->post('skor'), true),
 			'waktu' => htmlspecialchars($this->input->post('waktu'), true),
-			'keterangan' => htmlspecialchars($this->input->post('keterangan'), true)
+			'status' => htmlspecialchars($this->input->post('status'), true)
 		];
 
 		$this->db->insert('kpi', $data);
@@ -30,20 +45,24 @@ class kpi_model extends CI_Model
 
 	public function getDataById($id)
 	{
-		return $this->db->get_where('kpi', ['kpi_id' => $id])->row_array();
+		$get = $this->db->query("SELECT a.*,(SELECT nama FROM pegawai WHERE pegawai_id = a.`pic`) AS nama_pj FROM kpi a WHERE a.kpi_id = $id");
+		if ($get->num_rows() == 1) {
+			return $get->row_array();
+		}
 	}
 
 	public function editData()
 	{
 		$data = [
 			'indikator_kpi' => htmlspecialchars($this->input->post('indikator_kpi'), true),
+			'pic' => htmlspecialchars($this->input->post('pic'), true),
 			'satuan' => htmlspecialchars($this->input->post('satuan'), true),
 			'bobot' => htmlspecialchars($this->input->post('bobot'), true),
 			'target' => htmlspecialchars($this->input->post('target'), true),
 			'realisasi' => htmlspecialchars($this->input->post('realisasi'), true),
 			'skor' => htmlspecialchars($this->input->post('skor'), true),
 			'waktu' => htmlspecialchars($this->input->post('waktu'), true),
-			'keterangan' => htmlspecialchars($this->input->post('keterangan'), true)
+			'status' => htmlspecialchars($this->input->post('status'), true)
 		];
 
 		$this->db->where('kpi_id', $this->input->post('kpi_id'));

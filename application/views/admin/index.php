@@ -81,6 +81,68 @@
 
     <!-- Main content -->
     <div class="row">
+      <div class="col-xs-12">
+        <!-- TABEL KPI YANG OPEN -->
+        <div class="box">
+          <div class="box-header">
+            <h3 class="box-title">KPI berstatus Open</h3>
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body">
+            <table id="example1" class="table table-hover">
+              <thead>
+                <tr>
+                  <th class="center">No.</th>
+                  <th class="text-center">Indikator</th>
+                  <th class="text-center">PIC</th>
+                  <th class="text-center">Satuan</th>
+                  <th class="text-center">Bobot</th>
+                  <th class="text-center">Target</th>
+                  <th class="text-center">Realisasi</th>
+                  <th class="text-center">Skor</th>
+                  <th class="text-center">Waktu</th>
+                  <th class="text-center">Status</th>
+                  <th class="text-center">Actions</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <?php
+                $no = 1;
+                foreach ($kpi_open->result_array() as $data) :
+                ?>
+                  <tr>
+                    <td class="text-center"><?= $no ?></td>
+                    <td><?= $data['indikator_kpi']; ?></td>
+                    <td><?= $data['nama_pj']; ?></td>
+                    <td class="text-center"><?= $data['satuan']; ?></td>
+                    <td class="text-center"><?= $data['bobot']; ?></td>
+                    <td class="text-center"><?= $data['target']; ?></td>
+                    <td class="text-center"><?= $data['realisasi']; ?></td>
+                    <td class="text-center"><?= $data['skor']; ?></td>
+                    <td class="text-center"><?= $data['waktu']; ?></td>
+                    <td class="text-center"><?= $data['status']; ?></td>
+                    <td class="text-center">
+                      <div class="hidden-sm hidden-xs action-buttons">
+                        <a class="green" value="<?php echo $data['kpi_id']; ?>" href="<?php echo base_url() . "kpi/kpi_edit?kpi_id=" . $data['kpi_id'] ?>"><i class="fa fa-pencil bigger-130"></i></a>
+                        &nbsp;
+                        <a class="red" href="<?= base_url(); ?>kpi/deleteData/<?= $data['kpi_id']; ?>" onclick="return confirm('Anda Yakin Menghapus Data Ini?');">
+                          <i class="fa fa-trash-o bigger-130"></i>
+                        </a>
+                      </div>
+                    </td>
+                  </tr>
+                <?php
+                  $no++;
+                endforeach;
+                ?>
+
+              </tbody>
+
+            </table>
+          </div>
+        </div>
+      </div>
       <div class="col-md-6">
         <!-- BAR CHART JUMLAH KEPEMILIKAN ASET-->
         <div class="box box-danger">
@@ -118,13 +180,13 @@
         </div>
         <!-- /.box -->
       </div>
-      
+
       <div class="col-md-6">
         <!-- DONUT CHART MERK PC-->
         <div class="box box-danger">
           <div class="box-header with-border">
             <h3 class="box-title">Merek Komputer yang Paling Banyak Digunakan di Sumatera Utara</h3>
-            
+
 
             <div class="box-tools pull-right">
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -144,7 +206,7 @@
         <div class="box box-danger">
           <div class="box-header with-border">
             <h3 class="box-title">Merk Printer yang Paling Banyak Digunakan di Sumatera Utara</h3>
-            
+
 
             <div class="box-tools pull-right">
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
