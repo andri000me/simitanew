@@ -9,7 +9,8 @@ class admin extends CI_Controller {
         $this->load->database();
         $this->load->helper(array('form', 'url'));
         $this->load->library(array('form_validation', 'session','enkripsi'));
-        $this->load->model(array('admin_model'));
+		$this->load->model(array('admin_model'));
+		$this->load->model('Kpi_model', 'kpi');
 		
 		
     }
@@ -47,6 +48,7 @@ class admin extends CI_Controller {
 			$data['dashboard_merek_vicon'] = $this->admin_model->dashboard_merek_vicon();
 			$data['dashboard_status_kepemilikan_sewa'] = $this->admin_model->dashboard_status_kepemilikan_sewa();
 			$data['dashboard_status_kepemilikan_pln'] = $this->admin_model->dashboard_status_kepemilikan_pln();
+			$data['kpi_open'] = $this->kpi->get_kpi_open();
 		    $this->load->view('header');
             $this->load->view('sidebar');
             $this->load->view('admin/index',$data);

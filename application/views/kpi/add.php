@@ -23,7 +23,7 @@
 
          <!-- Form Element sizes -->
          <div class="box box-success">
-           <form class="form-horizontal" method="post" action="<?php echo base_url(); ?>kpi/addData" enctype="multipart/form-data">
+           <form class="form-horizontal" method="post" action="<?php echo base_url(); ?>kpi/action_kpi_add" enctype="multipart/form-data">
 
              <div class="box-header with-border">
                <h3 class="box-title">Add Data</h3>
@@ -39,9 +39,31 @@
                </div>
                <div class="col-lg-10">
                  <div class="form-group">
+                   <label for="pic" class="col-sm-3 control-label">PIC</label>
+                   <div class="col-sm-5">
+                     <select class="form-control select2" name="pic" style="width: 100%;" required>
+                       <option selected="selected" value=""> -- Pilih Pegawai -- </option>
+                       <?php foreach ($list_pegawai->result_array() as $data) { ?>
+                         <option value="<?php echo $data['pegawai_id']; ?>"><?php echo $data['nama']; ?></option>
+                       <?php
+                        }
+                        ?>
+                     </select>
+                   </div>
+                 </div>
+               </div>
+               <div class="col-lg-10">
+                 <div class="form-group">
                    <label for="satuan" class="col-sm-3 control-label">Satuan</label>
                    <div class="col-sm-5">
-                     <input type="text" class="form-control" id="satuan" name="satuan" required />
+                     <select class="form-control select2" name="satuan" style="width: 100%;" required>
+                       <option selected="selected" value=""> -- Pilih Satuan -- </option>
+                         <option value="%">%</option>
+                         <option value="Unit">Unit</option>
+                         <option value="Dokumen">Dokumen</option>
+                         <option value="Level">Level</option>
+                         <option value="Skor">Skor</option>
+                     </select>
                    </div>
                  </div>
                </div>
@@ -87,14 +109,16 @@
                </div>
                <div class="col-lg-10">
                  <div class="form-group">
-                   <label for="keterangan" class="col-sm-3 control-label">Keterangan</label>
+                   <label for="status" class="col-sm-3 control-label">Status</label>
                    <div class="col-sm-5">
-                     <input type="text" class="form-control" id="keterangan" name="keterangan" required />
+                     <select class="form-control select2" name="status" id="status" style="width: 100%;" required>
+                       <option selected="selected" value=""> -- Pilih Status -- </option>
+                       <option value="Open">Open</option>
+                       <option value="Closed">Closed</option>
+                     </select>
                    </div>
                  </div>
                </div>
-
-
 
              </div>
              <!-- /.box-body -->

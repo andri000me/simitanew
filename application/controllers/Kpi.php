@@ -26,13 +26,29 @@ class Kpi extends CI_Controller
 		}
 	}
 
-	public function addData()
+	public function kpi_add()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$data['list_pegawai'] = $this->kpi->list_pegawai();
+			$this->load->view('header');
+			$this->load->view('sidebar');
+			$this->load->view('kpi/add', $data);
+			$this->load->view('footer');
+		}
+	}
+
+	public function action_kpi_add()
 	{
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
 			$this->form_validation->set_rules('indikator_kpi', 'Nama KPI', 'required', [
 				'required' => 'Indikator KPI harus di isi!'
+			]);
+			$this->form_validation->set_rules('pic', 'PIC', 'required', [
+				'required' => 'PIC KPI harus di isi!'
 			]);
 			$this->form_validation->set_rules('indikator_kpi', 'Satuan', 'required', [
 				'required' => 'Satuan KPI harus di isi!'
@@ -57,8 +73,8 @@ class Kpi extends CI_Controller
 				'required' => 'Waktu Penilaian KPI harus di isi!',
 				'required' => 'Waktu Penilaian KPI harus di isi dengan tanggal, bulan, dan tahun!'
 			]);
-			$this->form_validation->set_rules('keterangan', 'Keterangan', 'required', [
-				'required' => 'Keterangan KPI harus di isi!'
+			$this->form_validation->set_rules('status', 'status', 'required', [
+				'required' => 'Status KPI harus di isi!'
 			]);
 
 			if ($this->form_validation->run() == false) {
@@ -78,15 +94,34 @@ class Kpi extends CI_Controller
 		}
 	}
 
-	public function editData($id)
+	public function kpi_edit()
 	{
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
+			$kpi_id = $this->input->get('kpi_id');
+			$data['list_pegawai'] = $this->kpi->list_pegawai();
+            $data['kpinya'] = $this->kpi->getDataById($kpi_id);
+			$this->load->view('header');
+			$this->load->view('sidebar');
+			$this->load->view('kpi/edit', $data);
+			$this->load->view('footer');
+		}
+	}
+
+	public function action_kpi_edit()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$kpi_id = $this->input->post("kpi_id");
 			$this->form_validation->set_rules('indikator_kpi', 'Nama KPI', 'required', [
 				'required' => 'Indikator KPI harus di isi!'
 			]);
-			$this->form_validation->set_rules('indikator_kpi', 'Satuan', 'required', [
+			$this->form_validation->set_rules('pic', 'PIC', 'required', [
+				'required' => 'PIC KPI harus di isi!'
+			]);
+			$this->form_validation->set_rules('satuan', 'Satuan', 'required', [
 				'required' => 'Satuan KPI harus di isi!'
 			]);
 			$this->form_validation->set_rules('bobot', 'Bobot', 'required|numeric', [
@@ -109,16 +144,17 @@ class Kpi extends CI_Controller
 				'required' => 'Waktu Penilaian KPI harus di isi!',
 				'required' => 'Waktu Penilaian KPI harus di isi dengan tanggal, bulan, dan tahun!'
 			]);
-			$this->form_validation->set_rules('keterangan', 'Keterangan', 'required', [
-				'required' => 'Keterangan KPI harus di isi!'
+			$this->form_validation->set_rules('status', 'status', 'required', [
+				'required' => 'Status KPI harus di isi!'
 			]);
 
 			if ($this->form_validation->run() == false) {
-				$data['kpi'] = $this->kpi->getDataById($id);
-				$this->load->view('header');
-				$this->load->view('sidebar');
-				$this->load->view('kpi/edit', $data);
-				$this->load->view('footer');
+				$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible text-center " role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                    </button>
+                    Pastikan seluruh data terisi
+                  </div>');
+				redirect(base_url() . "kpi/kpi_edit?kpi_id=".$kpi_id);
 			} else {
 				$this->kpi->editData();
 				$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible text-center " role="alert">

@@ -31,13 +31,14 @@
                  <tr>
                    <th class="center">No.</th>
                    <th class="text-center">Indikator</th>
+                   <th class="text-center">PIC</th>
                    <th class="text-center">Satuan</th>
                    <th class="text-center">Bobot</th>
                    <th class="text-center">Target</th>
                    <th class="text-center">Realisasi</th>
                    <th class="text-center">Skor</th>
                    <th class="text-center">Waktu</th>
-                   <th class="text-center">Keterangan</th>
+                   <th class="text-center">Status</th>
                    <th class="text-center">Actions</th>
                  </tr>
                </thead>
@@ -45,23 +46,24 @@
                <tbody>
                  <?php
                   $no = 1;
-                  foreach ($kpi as $kpi) :
+                  foreach ($kpi->result_array() as $data) :
                   ?>
                    <tr>
                      <td class="text-center"><?= $no ?></td>
-                     <td><?= $kpi['indikator_kpi']; ?></td>
-                     <td class="text-center"><?= $kpi['satuan']; ?></td>
-                     <td class="text-center"><?= $kpi['bobot']; ?></td>
-                     <td class="text-center"><?= $kpi['target']; ?></td>
-                     <td class="text-center"><?= $kpi['realisasi']; ?></td>
-                     <td class="text-center"><?= $kpi['skor']; ?></td>
-                     <td class="text-center"><?= $kpi['waktu']; ?></td>
-                     <td class="text-center"><?= $kpi['keterangan']; ?></td>
+                     <td><?= $data['indikator_kpi']; ?></td>
+                     <td><?= $data['nama_pj']; ?></td>
+                     <td class="text-center"><?= $data['satuan']; ?></td>
+                     <td class="text-center"><?= $data['bobot']; ?></td>
+                     <td class="text-center"><?= $data['target']; ?></td>
+                     <td class="text-center"><?= $data['realisasi']; ?></td>
+                     <td class="text-center"><?= $data['skor']; ?></td>
+                     <td class="text-center"><?= $data['waktu']; ?></td>
+                     <td class="text-center"><?= $data['status']; ?></td>
                      <td class="text-center">
                        <div class="hidden-sm hidden-xs action-buttons">
-                         <a class="green" href="<?= base_url(); ?>kpi/editData/<?= $kpi['kpi_id']; ?>"><i class="fa fa-pencil bigger-130"></i></a>
+                         <a class="green" value="<?php echo $data['kpi_id']; ?>" href="<?php echo base_url() . "kpi/kpi_edit?kpi_id=".$data['kpi_id']?>"><i class="fa fa-pencil bigger-130"></i></a>
                          &nbsp;
-                         <a class="red" href="<?= base_url(); ?>kpi/deleteData/<?= $kpi['kpi_id']; ?>" onclick="return confirm('Anda Yakin Menghapus Data Ini?');">
+                         <a class="red" href="<?= base_url(); ?>kpi/deleteData/<?= $data['kpi_id']; ?>" onclick="return confirm('Anda Yakin Menghapus Data Ini?');">
                            <i class="fa fa-trash-o bigger-130"></i>
                          </a>
                        </div>
@@ -77,7 +79,7 @@
              </table>
              <div class="row">
                <div id="default-buttons" class="col-sm-6">
-                 <a class="btn btn-primary" href="<?= base_url('kpi/addData'); ?>">Add Data</a>
+                 <a class="btn btn-primary" href="<?php echo site_url('kpi/kpi_add'); ?>">Add Data</a>
                </div>
              </div>
            </div>
