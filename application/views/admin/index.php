@@ -74,6 +74,36 @@
         </div>
       </div>
       <!-- ./col -->
+      <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-purple">
+          <div class="inner">
+            <h3><?php echo $menghitung_jumlah_perangkat['jumlah_it_support']; ?></h3>
+
+            <p>Orang</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-wifi"></i>
+          </div>
+          <a href="<?php echo site_url('support/index'); ?>" class="small-box-footer">IT Support di Sumatra Utara <i class="fa fa-users"></i></a>
+        </div>
+      </div>
+      <!-- ./col -->
+      <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-blue">
+          <div class="inner">
+            <h3><?php echo $menghitung_jumlah_perangkat['jumlah_pegawai']; ?></h3>
+
+            <p>Orang</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-wifi"></i>
+          </div>
+          <a href="<?php echo site_url('pegawai/index'); ?>" class="small-box-footer">Pegawai di Sumatra Utara <i class="fa fa-users"></i></a>
+        </div>
+      </div>
+      <!-- ./col -->
     </div>
 
     <!-- /.row -->

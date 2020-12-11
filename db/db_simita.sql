@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2020 at 02:58 PM
--- Server version: 10.3.15-MariaDB
--- PHP Version: 7.3.6
+-- Waktu pembuatan: 11 Des 2020 pada 03.53
+-- Versi server: 10.1.36-MariaDB
+-- Versi PHP: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `aplikasi_lokal`
+-- Struktur dari tabel `aplikasi_lokal`
 --
 
 CREATE TABLE `aplikasi_lokal` (
@@ -39,7 +39,7 @@ CREATE TABLE `aplikasi_lokal` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `aplikasi_lokal`
+-- Dumping data untuk tabel `aplikasi_lokal`
 --
 
 INSERT INTO `aplikasi_lokal` (`id_aplikasi_lokal`, `nama_aplikasi`, `link_aplikasi`, `username`, `password`, `jenis_database`, `id_unit`) VALUES
@@ -69,7 +69,7 @@ INSERT INTO `aplikasi_lokal` (`id_aplikasi_lokal`, `nama_aplikasi`, `link_aplika
 -- --------------------------------------------------------
 
 --
--- Table structure for table `hi`
+-- Struktur dari tabel `hi`
 --
 
 CREATE TABLE `hi` (
@@ -86,7 +86,7 @@ CREATE TABLE `hi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `hi`
+-- Dumping data untuk tabel `hi`
 --
 
 INSERT INTO `hi` (`id_hi`, `id_hi_standard`, `bobot_kondisi`, `bobot_port`, `bobot_urgensi`, `bobot_standard`, `bobot_lifetime`, `bobot_gangguan`, `updated_at`, `status`) VALUES
@@ -105,7 +105,7 @@ INSERT INTO `hi` (`id_hi`, `id_hi_standard`, `bobot_kondisi`, `bobot_port`, `bob
 -- --------------------------------------------------------
 
 --
--- Table structure for table `hi_standard`
+-- Struktur dari tabel `hi_standard`
 --
 
 CREATE TABLE `hi_standard` (
@@ -119,7 +119,7 @@ CREATE TABLE `hi_standard` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `hi_standard`
+-- Dumping data untuk tabel `hi_standard`
 --
 
 INSERT INTO `hi_standard` (`id_hi_standard`, `bobot_kondisi`, `bobot_port`, `bobot_urgensi`, `bobot_standard`, `bobot_lifetime`, `bobot_gangguan`) VALUES
@@ -138,7 +138,7 @@ INSERT INTO `hi_standard` (`id_hi_standard`, `bobot_kondisi`, `bobot_port`, `bob
 -- --------------------------------------------------------
 
 --
--- Table structure for table `it_support`
+-- Struktur dari tabel `it_support`
 --
 
 CREATE TABLE `it_support` (
@@ -150,7 +150,7 @@ CREATE TABLE `it_support` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `it_support`
+-- Dumping data untuk tabel `it_support`
 --
 
 INSERT INTO `it_support` (`id`, `nama`, `no_hp`, `email`, `penempatan`) VALUES
@@ -159,7 +159,7 @@ INSERT INTO `it_support` (`id`, `nama`, `no_hp`, `email`, `penempatan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `komputer`
+-- Struktur dari tabel `komputer`
 --
 
 CREATE TABLE `komputer` (
@@ -175,7 +175,7 @@ CREATE TABLE `komputer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `komputer`
+-- Dumping data untuk tabel `komputer`
 --
 
 INSERT INTO `komputer` (`id_komputer`, `id_merek`, `spesifikasi`, `ip_address`, `nama_pengguna`, `id_unit`, `status_kepemilikan`, `tahun`, `id_vendor`) VALUES
@@ -1816,7 +1816,7 @@ INSERT INTO `komputer` (`id_komputer`, `id_merek`, `spesifikasi`, `ip_address`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kpi`
+-- Struktur dari tabel `kpi`
 --
 
 CREATE TABLE `kpi` (
@@ -1832,7 +1832,7 @@ CREATE TABLE `kpi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `kpi`
+-- Dumping data untuk tabel `kpi`
 --
 
 INSERT INTO `kpi` (`kpi_id`, `indikator_kpi`, `satuan`, `bobot`, `target`, `realisasi`, `skor`, `waktu`, `keterangan`) VALUES
@@ -1864,7 +1864,7 @@ INSERT INTO `kpi` (`kpi_id`, `indikator_kpi`, `satuan`, `bobot`, `target`, `real
 -- --------------------------------------------------------
 
 --
--- Table structure for table `laptop`
+-- Struktur dari tabel `laptop`
 --
 
 CREATE TABLE `laptop` (
@@ -1880,7 +1880,7 @@ CREATE TABLE `laptop` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `laptop`
+-- Dumping data untuk tabel `laptop`
 --
 
 INSERT INTO `laptop` (`id_laptop`, `id_merek`, `spesifikasi`, `ip_address`, `nama_pengguna`, `id_unit`, `status_kepemilikan`, `tahun`, `id_vendor`) VALUES
@@ -2252,7 +2252,7 @@ INSERT INTO `laptop` (`id_laptop`, `id_merek`, `spesifikasi`, `ip_address`, `nam
 -- --------------------------------------------------------
 
 --
--- Table structure for table `merek`
+-- Struktur dari tabel `merek`
 --
 
 CREATE TABLE `merek` (
@@ -2262,7 +2262,7 @@ CREATE TABLE `merek` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `merek`
+-- Dumping data untuk tabel `merek`
 --
 
 INSERT INTO `merek` (`id_merek`, `merek`, `kategori`) VALUES
@@ -2359,7 +2359,7 @@ INSERT INTO `merek` (`id_merek`, `merek`, `kategori`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `monitor`
+-- Struktur dari tabel `monitor`
 --
 
 CREATE TABLE `monitor` (
@@ -2375,7 +2375,7 @@ CREATE TABLE `monitor` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `network_device`
+-- Struktur dari tabel `network_device`
 --
 
 CREATE TABLE `network_device` (
@@ -2394,7 +2394,7 @@ CREATE TABLE `network_device` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `network_device`
+-- Dumping data untuk tabel `network_device`
 --
 
 INSERT INTO `network_device` (`id_network_device`, `id_merek`, `device_type`, `nama_pengguna`, `id_unit`, `status_kepemilikan`, `username`, `password`, `tahun`, `id_vendor`, `ip_address`, `id_hi`) VALUES
@@ -2539,7 +2539,7 @@ INSERT INTO `network_device` (`id_network_device`, `id_merek`, `device_type`, `n
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pegawai`
+-- Struktur dari tabel `pegawai`
 --
 
 CREATE TABLE `pegawai` (
@@ -2551,7 +2551,7 @@ CREATE TABLE `pegawai` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pegawai`
+-- Dumping data untuk tabel `pegawai`
 --
 
 INSERT INTO `pegawai` (`pegawai_id`, `nip`, `nama`, `email`, `no_hp`) VALUES
@@ -2560,7 +2560,7 @@ INSERT INTO `pegawai` (`pegawai_id`, `nip`, `nama`, `email`, `no_hp`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `printer`
+-- Struktur dari tabel `printer`
 --
 
 CREATE TABLE `printer` (
@@ -2574,7 +2574,7 @@ CREATE TABLE `printer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `printer`
+-- Dumping data untuk tabel `printer`
 --
 
 INSERT INTO `printer` (`id_printer`, `id_merek`, `nama_pengguna`, `id_unit`, `status_kepemilikan`, `tahun`, `id_vendor`) VALUES
@@ -3456,7 +3456,29 @@ INSERT INTO `printer` (`id_printer`, `id_merek`, `nama_pengguna`, `id_unit`, `st
 -- --------------------------------------------------------
 
 --
--- Table structure for table `role`
+-- Struktur dari tabel `report_kerusakan`
+--
+
+CREATE TABLE `report_kerusakan` (
+  `id_report` int(13) NOT NULL,
+  `nama_item` varchar(125) NOT NULL,
+  `merek_item` varchar(125) NOT NULL,
+  `kondisi_item` text NOT NULL,
+  `tanggal_pelaporan` date NOT NULL,
+  `pengguna` varchar(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `report_kerusakan`
+--
+
+INSERT INTO `report_kerusakan` (`id_report`, `nama_item`, `merek_item`, `kondisi_item`, `tanggal_pelaporan`, `pengguna`) VALUES
+(1, 'PC/Komputer', 'BROTHER', 'LCD Pecah', '2020-12-11', 'PC FASOP SCADA');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `role`
 --
 
 CREATE TABLE `role` (
@@ -3465,7 +3487,7 @@ CREATE TABLE `role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `role`
+-- Dumping data untuk tabel `role`
 --
 
 INSERT INTO `role` (`id_role`, `nama_role`) VALUES
@@ -3475,7 +3497,7 @@ INSERT INTO `role` (`id_role`, `nama_role`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `server`
+-- Struktur dari tabel `server`
 --
 
 CREATE TABLE `server` (
@@ -3491,7 +3513,7 @@ CREATE TABLE `server` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `server`
+-- Dumping data untuk tabel `server`
 --
 
 INSERT INTO `server` (`id_server`, `id_merek`, `keterangan`, `ip_address`, `nama_pengguna`, `id_unit`, `username`, `password`, `tahun`) VALUES
@@ -3542,7 +3564,76 @@ INSERT INTO `server` (`id_server`, `id_merek`, `keterangan`, `ip_address`, `nama
 -- --------------------------------------------------------
 
 --
--- Table structure for table `unit`
+-- Struktur dari tabel `tambak`
+--
+
+CREATE TABLE `tambak` (
+  `id_tambak` int(11) NOT NULL,
+  `alamat` varchar(255) NOT NULL,
+  `x` varchar(255) NOT NULL,
+  `y` varchar(255) NOT NULL,
+  `gambar` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tambak`
+--
+
+INSERT INTO `tambak` (`id_tambak`, `alamat`, `x`, `y`, `gambar`) VALUES
+(1, 'Gg. Tower Sari, Rumbai', '101.420111 ', '0.573415', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547016974/IMG_2406.jpg'),
+(2, 'Jl. Limbungan Kec. Rumbai Pesisir', '101.4546', '0.567', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547017251/IMG_2408.jpg'),
+(3, 'Jl. Limbungan Kec. Rumbai Pesisir', '101.4577', '0.5661', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547017621/IMG_2414.jpg'),
+(4, 'Jl. Mulia Jaya  Kec. Rumbai Pesisir', '101.4607', '0.5654', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547017785/IMG_2416.jpg'),
+(5, 'Jl. Pembina Graha Kec. Rumbai Pesisir', '101.4812', '0.5741', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547017906/IMG_2418.jpg'),
+(6, 'Jl. Lingkar Danau Buatan Kec. Rumbai Pesisir', '101.484', '0.5774', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547018018/IMG_2420.jpg'),
+(7, 'Jl. Lingkar Danau Buatan Kec. Rumbai Pesisir', '101.4829', '0.5772', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547018128/IMG_2423.jpg'),
+(8, 'Jl. Lingkar Danau Buatan Kec. Rumbai Pesisir', '101.4815', '0.5792', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547018213/IMG_2425.jpg'),
+(9, 'Jl. Raja Panjang Okura Kec. Rumbai Pesisir', '101.4822', '0.5797', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547018297/IMG_2427.jpg'),
+(10, 'Jl. Raja Panjang Okura Kec. Rumbai Pesisir', '101.4841', '0.5806', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547018440/IMG_2430.jpg'),
+(11, 'Jl. Raja Panjang Okura Kec. Rumbai Pesisir', '101.4845', '0.5801', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547018556/IMG_2432.jpg'),
+(12, 'Jl. Raja Panjang Okura Kec. Rumbai Pesisir', '101.4857', '0.5811', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547018642/IMG_2435.jpg'),
+(13, 'Jl. Raja Panjang Okura Kec. Rumbai Pesisir', '101.5056', '0.592', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547018753/IMG_2440.jpg'),
+(14, 'Jl. Raja Panjang Okura Kec. Rumbai Pesisir', '101.504', '0.592', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547018863/IMG_2442.jpg'),
+(15, 'Jl. Raja Panjang Okura Kec. Rumbai Pesisir', '101.4832', '0.5797', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547018981/IMG_2445.jpg'),
+(16, 'Jl. Raja Panjang Okura Kec. Rumbai Pesisir', '101.4825', '0.5807', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547019064/IMG_2448.jpg'),
+(17, 'Jl. Raja Panjang Okura Kec. Rumbai Pesisir', '101.483', '0.5796', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547019160/IMG_2451.jpg'),
+(18, 'Jl. Raja Panjang Okura Kec. Rumbai Pesisir', '101.4828', '0.5798', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547019278/IMG_2454.jpg'),
+(19, 'Jl. Tebing Tinggi Okura Kec. Rumbai Pesisir', '101.4786', '0.5791', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547019449/IMG_2457.jpg'),
+(20, 'Jl. Danau Buatan Kec. Rumbai Pesisir', '101.4791', '0.5824', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547019530/IMG_2460.jpg'),
+(21, 'Jl. Danau Buatan Kec. Rumbai Pesisir', '101.4803', '0.582', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547019615/IMG_2464.jpg'),
+(22, 'Jl. Danau Buatan Kec. Rumbai Pesisir', '101.4779', '0.5825', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547019696/IMG_2467.jpg'),
+(23, 'Jl. Danau Buatan Kec. Rumbai Pesisir', '101.4812', '0.5831', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547019747/IMG_2469.jpg'),
+(24, 'Jl. Danau Buatan Kec. Rumbai Pesisir', '101.4817', '0.5848', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547019821/IMG_2472.jpg'),
+(25, 'Jl. Danau Buatan Kec. Rumbai Pesisir', '101.4273', '0.577', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547019890/IMG_2476.jpg'),
+(26, 'Jl. Palas Mekar Kec. Rumbai', '101.4121', '0.5738', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547019980/IMG_2478.jpg'),
+(27, 'Jl. Palas Mekar Kec. Rumbai', '101.408', '0.5773', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547020054/IMG_2480.jpg'),
+(28, 'Jl. Siak Besar', '101.4329', '0.5439', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547020125/IMG_2485.jpg'),
+(29, 'Jl. Lembah Damai Kec. Rumbai Pesisir ', '101.4468', '0.5728', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547020196/IMG_2488.jpg'),
+(30, 'Jl. Lembah Damai Kec. Rumbai Pesisir ', '101.4448', '0.5764', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547020265/IMG_2491.jpg'),
+(31, 'Jl. Lembah Damai Kec. Rumbai Pesisir', '101.4446', '0.5771', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547020362/IMG_2494.jpg'),
+(32, 'Jl. Lembah Damai Kec. Rumbai Pesisir', '101.4447', '0.5778', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547020437/IMG_2497.jpg'),
+(33, 'Jl. Lembah Damai Kec. Rumbai Pesisir', '101.4446', '0.5782', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547020526/IMG_2500.jpg'),
+(34, 'Jl. Pramuka Kec. Rumbai Pesisir', '101.4449', '0.5788', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547020692/IMG_2502.jpg'),
+(35, 'Jl. Pramuka Kec. Rumbai Pesisir', '101.4541', '0.5733', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547020773/IMG_2505.jpg'),
+(36, 'Jl. Pramuka Kec. Rumbai Pesisir', '101.4536', '0.5749', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547020845/IMG_2507.jpg'),
+(37, 'Jl. Pramuka Kec. Rumbai Pesisir', '101.4507', '0.5731', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547020964/IMG_2509.jpg'),
+(38, 'Jl. Pramuka Kec. Rumbai Pesisir', '101.4513', '0.5738', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547021018/IMG_2511.jpg'),
+(39, 'Jl. Pramuka Kec. Rumbai Pesisir', '101.4538', '0.5787', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547021083/IMG_2515.jpg'),
+(40, 'Jl. Pramuka Kec. Rumbai Pesisir', '101.4541', '0.5783', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547021167/IMG_2517.jpg'),
+(41, 'Jl. Pramuka Kec. Rumbai Pesisir', '101.4567', '0.5822', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547021227/IMG_2519.jpg'),
+(42, 'Jl. Umban Sari Atas Kec. Rumbai', '101.4155', '0.5815', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547021342/IMG_2576.jpg'),
+(43, 'Jl. Umban Sari Atas Kec. Rumbai', '101.4157', '0.5792', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547021463/IMG_2574.jpg'),
+(44, 'Jl. Umban Sari Atas Kec. Rumbai', '101.4156', '0.58', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547021551/IMG_2572.jpg'),
+(45, 'Jl. Umban Sari Atas Kec. Rumbai', '101.4115', '0.5689', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547021646/IMG_2570.jpg'),
+(46, 'Jl. Umban Sari Atas Kec. Rumbai', '101.4048', '0.5552', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547021714/IMG_2568.jpg'),
+(47, 'Jl. Umban Sari Atas Kec. Rumbai', '101.4128', '0.5486', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547021797/IMG_2566.jpg'),
+(48, 'Jl. Umban Sari Atas Kec. Rumbai', '101.4158', '0.58', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547021989/IMG_2578.jpg'),
+(49, 'Jl. Umban Sari Atas Kec. Rumbai', '101.4155', '0.5806', 'https://res.cloudinary.com/ddynrqxhf/image/upload/v1547022124/IMG_2564.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `unit`
 --
 
 CREATE TABLE `unit` (
@@ -3554,7 +3645,7 @@ CREATE TABLE `unit` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `unit`
+-- Dumping data untuk tabel `unit`
 --
 
 INSERT INTO `unit` (`id_unit`, `nama_unit`, `alamat_unit`, `wilayah_kerja`, `sub_unit`) VALUES
@@ -3886,7 +3977,7 @@ INSERT INTO `unit` (`id_unit`, `nama_unit`, `alamat_unit`, `wilayah_kerja`, `sub
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -3897,7 +3988,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `users`
+-- Dumping data untuk tabel `users`
 --
 
 INSERT INTO `users` (`id_users`, `username`, `password`, `id_role`) VALUES
@@ -3910,7 +4001,7 @@ INSERT INTO `users` (`id_users`, `username`, `password`, `id_role`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `vendor`
+-- Struktur dari tabel `vendor`
 --
 
 CREATE TABLE `vendor` (
@@ -3921,7 +4012,7 @@ CREATE TABLE `vendor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `vendor`
+-- Dumping data untuk tabel `vendor`
 --
 
 INSERT INTO `vendor` (`id_vendor`, `nama_vendor`, `alamat_vendor`, `telepon`) VALUES
@@ -3933,7 +4024,7 @@ INSERT INTO `vendor` (`id_vendor`, `nama_vendor`, `alamat_vendor`, `telepon`) VA
 -- --------------------------------------------------------
 
 --
--- Table structure for table `vicon`
+-- Struktur dari tabel `vicon`
 --
 
 CREATE TABLE `vicon` (
@@ -3948,7 +4039,7 @@ CREATE TABLE `vicon` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `vicon`
+-- Dumping data untuk tabel `vicon`
 --
 
 INSERT INTO `vicon` (`id_vicon`, `id_merek`, `type`, `tahun`, `no_seri`, `ip_address`, `mac_address`, `id_unit`) VALUES
@@ -3969,222 +4060,246 @@ INSERT INTO `vicon` (`id_vicon`, `id_merek`, `type`, `tahun`, `no_seri`, `ip_add
 --
 
 --
--- Indexes for table `aplikasi_lokal`
+-- Indeks untuk tabel `aplikasi_lokal`
 --
 ALTER TABLE `aplikasi_lokal`
   ADD KEY `id_laptop` (`id_aplikasi_lokal`);
 
 --
--- Indexes for table `hi`
+-- Indeks untuk tabel `hi`
 --
 ALTER TABLE `hi`
   ADD PRIMARY KEY (`id_hi`);
 
 --
--- Indexes for table `hi_standard`
+-- Indeks untuk tabel `hi_standard`
 --
 ALTER TABLE `hi_standard`
   ADD PRIMARY KEY (`id_hi_standard`);
 
 --
--- Indexes for table `it_support`
+-- Indeks untuk tabel `it_support`
 --
 ALTER TABLE `it_support`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `komputer`
+-- Indeks untuk tabel `komputer`
 --
 ALTER TABLE `komputer`
   ADD KEY `id_laptop` (`id_komputer`);
 
 --
--- Indexes for table `kpi`
+-- Indeks untuk tabel `kpi`
 --
 ALTER TABLE `kpi`
   ADD PRIMARY KEY (`kpi_id`);
 
 --
--- Indexes for table `laptop`
+-- Indeks untuk tabel `laptop`
 --
 ALTER TABLE `laptop`
   ADD KEY `id_laptop` (`id_laptop`);
 
 --
--- Indexes for table `merek`
+-- Indeks untuk tabel `merek`
 --
 ALTER TABLE `merek`
   ADD KEY `id_merek` (`id_merek`);
 
 --
--- Indexes for table `monitor`
+-- Indeks untuk tabel `monitor`
 --
 ALTER TABLE `monitor`
   ADD KEY `id_laptop` (`id_monitor`);
 
 --
--- Indexes for table `network_device`
+-- Indeks untuk tabel `network_device`
 --
 ALTER TABLE `network_device`
   ADD KEY `id_laptop` (`id_network_device`);
 
 --
--- Indexes for table `pegawai`
+-- Indeks untuk tabel `pegawai`
 --
 ALTER TABLE `pegawai`
   ADD PRIMARY KEY (`pegawai_id`);
 
 --
--- Indexes for table `printer`
+-- Indeks untuk tabel `printer`
 --
 ALTER TABLE `printer`
   ADD KEY `id_laptop` (`id_printer`);
 
 --
--- Indexes for table `role`
+-- Indeks untuk tabel `report_kerusakan`
+--
+ALTER TABLE `report_kerusakan`
+  ADD PRIMARY KEY (`id_report`);
+
+--
+-- Indeks untuk tabel `role`
 --
 ALTER TABLE `role`
   ADD KEY `id_role` (`id_role`);
 
 --
--- Indexes for table `server`
+-- Indeks untuk tabel `server`
 --
 ALTER TABLE `server`
   ADD KEY `id_laptop` (`id_server`);
 
 --
--- Indexes for table `unit`
+-- Indeks untuk tabel `tambak`
+--
+ALTER TABLE `tambak`
+  ADD PRIMARY KEY (`id_tambak`);
+
+--
+-- Indeks untuk tabel `unit`
 --
 ALTER TABLE `unit`
   ADD PRIMARY KEY (`id_unit`);
 
 --
--- Indexes for table `users`
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id_users`),
   ADD KEY `ID_ROLE` (`id_role`);
 
 --
--- Indexes for table `vendor`
+-- Indeks untuk tabel `vendor`
 --
 ALTER TABLE `vendor`
   ADD KEY `id_vendor` (`id_vendor`);
 
 --
--- Indexes for table `vicon`
+-- Indeks untuk tabel `vicon`
 --
 ALTER TABLE `vicon`
   ADD KEY `id_vicon` (`id_vicon`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `aplikasi_lokal`
+-- AUTO_INCREMENT untuk tabel `aplikasi_lokal`
 --
 ALTER TABLE `aplikasi_lokal`
   MODIFY `id_aplikasi_lokal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
--- AUTO_INCREMENT for table `hi`
+-- AUTO_INCREMENT untuk tabel `hi`
 --
 ALTER TABLE `hi`
   MODIFY `id_hi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `hi_standard`
+-- AUTO_INCREMENT untuk tabel `hi_standard`
 --
 ALTER TABLE `hi_standard`
   MODIFY `id_hi_standard` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `it_support`
+-- AUTO_INCREMENT untuk tabel `it_support`
 --
 ALTER TABLE `it_support`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `komputer`
+-- AUTO_INCREMENT untuk tabel `komputer`
 --
 ALTER TABLE `komputer`
   MODIFY `id_komputer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1632;
 
 --
--- AUTO_INCREMENT for table `kpi`
+-- AUTO_INCREMENT untuk tabel `kpi`
 --
 ALTER TABLE `kpi`
   MODIFY `kpi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
--- AUTO_INCREMENT for table `laptop`
+-- AUTO_INCREMENT untuk tabel `laptop`
 --
 ALTER TABLE `laptop`
   MODIFY `id_laptop` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=365;
 
 --
--- AUTO_INCREMENT for table `merek`
+-- AUTO_INCREMENT untuk tabel `merek`
 --
 ALTER TABLE `merek`
   MODIFY `id_merek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
--- AUTO_INCREMENT for table `monitor`
+-- AUTO_INCREMENT untuk tabel `monitor`
 --
 ALTER TABLE `monitor`
   MODIFY `id_monitor` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `network_device`
+-- AUTO_INCREMENT untuk tabel `network_device`
 --
 ALTER TABLE `network_device`
   MODIFY `id_network_device` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=143;
 
 --
--- AUTO_INCREMENT for table `pegawai`
+-- AUTO_INCREMENT untuk tabel `pegawai`
 --
 ALTER TABLE `pegawai`
   MODIFY `pegawai_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `printer`
+-- AUTO_INCREMENT untuk tabel `printer`
 --
 ALTER TABLE `printer`
   MODIFY `id_printer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=438;
 
 --
--- AUTO_INCREMENT for table `role`
+-- AUTO_INCREMENT untuk tabel `report_kerusakan`
+--
+ALTER TABLE `report_kerusakan`
+  MODIFY `id_report` int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `role`
 --
 ALTER TABLE `role`
   MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `server`
+-- AUTO_INCREMENT untuk tabel `server`
 --
 ALTER TABLE `server`
   MODIFY `id_server` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
--- AUTO_INCREMENT for table `unit`
+-- AUTO_INCREMENT untuk tabel `tambak`
+--
+ALTER TABLE `tambak`
+  MODIFY `id_tambak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+
+--
+-- AUTO_INCREMENT untuk tabel `unit`
 --
 ALTER TABLE `unit`
   MODIFY `id_unit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=351;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
   MODIFY `id_users` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `vendor`
+-- AUTO_INCREMENT untuk tabel `vendor`
 --
 ALTER TABLE `vendor`
   MODIFY `id_vendor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `vicon`
+-- AUTO_INCREMENT untuk tabel `vicon`
 --
 ALTER TABLE `vicon`
   MODIFY `id_vicon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;

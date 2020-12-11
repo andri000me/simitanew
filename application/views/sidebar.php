@@ -84,10 +84,17 @@
 
                 <li class="<?php if( $this->uri->segment(1)=="kpi"){echo 'active';}?>"> 
                   <a href="<?php echo site_url('kpi'); ?>"><i class="fa fa-book"></i> KPI
+                  </span>
+                  </a>
+                </li>
+                  
+                <li class="<?php if( $this->uri->segment(2)=="getLaporan"){echo 'active';}?>"> 
+                  <a href="<?php echo site_url('laporan/getLaporan'); ?>"><i class="fa fa-book"></i> Laporan Kerusakan
                     <span class="pull-right-container">
                     </span>
                   </a>
                 </li>
+
               </li>
 
             </ul>

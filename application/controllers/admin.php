@@ -77,6 +77,17 @@ class admin extends CI_Controller {
  
 					$this->session->set_userdata($data_session);
 					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/index>";
+				}
+				elseif (($role == 2)) {
+					//echo "<script>alert('Anda Berhasil Login dengan Hak Akses User')</script>";
+					$data_session = array(
+						'nama' => $username,
+						'status' => "login"
+						);
+ 
+					$this->session->set_userdata($data_session);
+					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "user/index>";
+					
 				} else {
 					echo "<script>alert('Gagal Login, Periksa Username dan Password Anda')</script>";
 					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";

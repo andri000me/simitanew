@@ -863,7 +863,15 @@ FROM
 						  (SELECT 
 							COUNT(id_network_device) 
 						  FROM
-							network_device) AS jumlah_network_device 
+							network_device) AS jumlah_network_device ,
+						  (SELECT 
+							COUNT(id) 
+						  FROM
+							it_support) AS jumlah_it_support ,
+						  (SELECT 
+							COUNT(pegawai_id) 
+						  FROM
+							pegawai) AS jumlah_pegawai
 						FROM
 						  laptop a");
     if ($get->num_rows() == 1) {
