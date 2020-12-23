@@ -30,14 +30,6 @@
           <h3 class="box-title">Add Data</h3>
         </div>
         <div class="box-body">
-            <div class="col-lg-10">
-                        <div class="form-group">
-                           
-                            <div class="col-sm-5">
-             <input type="hidden" class="form-control" id="id_report" name="id_report" required/>
-                            </div>
-                        </div>
-                    </div>
                     <div class="col-lg-10">
                         <div class="form-group">
                             <label for="nama" class="col-sm-3 control-label">Nama Item</label>

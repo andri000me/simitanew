@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class admin extends CI_Controller {
+class Admin extends CI_Controller {
 	public $data = array();
 
     public function __construct() {

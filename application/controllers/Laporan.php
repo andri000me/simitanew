@@ -47,13 +47,12 @@ class Laporan extends CI_Controller {
 		if($this->session->userdata('status') != "login"){
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-			$id_report = $this->input->post('id_report');
 			$nama_item = $this->input->post('nama_item');
 			$merek_item = $this->input->post('merek_item');
 			$kondisi_item = $this->input->post('kondisi_item');
 			$tanggal_pelaporan = $this->input->post('tanggal_pelaporan');
 			$pengguna = $this->input->post('pengguna');
-			$data = array('id_report' => $id_report,
+			$data = array(
 			'nama_item' => $nama_item
 			,'merek_item' => $merek_item
 			,'kondisi_item' => $kondisi_item

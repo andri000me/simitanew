@@ -1,6 +1,6 @@
 <?php
 
-class admin_model extends CI_Model
+class Admin_model extends CI_Model
 {
 
   public function __construct()
@@ -859,7 +859,7 @@ FROM
 						  (SELECT 
 							COUNT(id_server) 
 						  FROM
-							SERVER) AS jumlah_server,
+							server) AS jumlah_server,
 						  (SELECT 
 							COUNT(id_network_device) 
 						  FROM
