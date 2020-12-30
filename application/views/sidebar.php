@@ -152,7 +152,12 @@
             </li>
           </ul>
         </li>     
-       
+        
+        <li class="<?php if( $this->uri->segment(2)=="lgangguan_view" || $this->uri->segment(2)=="lgangguan_add" || $this->uri->segment(2)=="lgangguan_edit"){echo 'active';}?>">
+            <a href="<?php echo site_url('admin/lgangguan_view'); ?>">
+              <i class="fa fa-book"></i> <span>Log Gangguan</span>
+            </a>
+          </li>
       </ul>
     </section>
     <!-- /.sidebar -->

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 23, 2020 at 04:16 AM
+-- Generation Time: Dec 30, 2020 at 04:02 PM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.3.6
 
@@ -2253,6 +2253,38 @@ INSERT INTO `laptop` (`id_laptop`, `id_merek`, `spesifikasi`, `ip_address`, `nam
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `log_gangguan`
+--
+
+CREATE TABLE `log_gangguan` (
+  `log_id` int(11) NOT NULL,
+  `no_tiket` varchar(30) NOT NULL,
+  `nama_service` text NOT NULL,
+  `sid` varchar(20) NOT NULL,
+  `layanan` varchar(20) NOT NULL,
+  `status_log` varchar(11) NOT NULL,
+  `tiket_open` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `tiket_close` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `durasi` time NOT NULL,
+  `penyebab` text NOT NULL,
+  `action` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `log_gangguan`
+--
+
+INSERT INTO `log_gangguan` (`log_id`, `no_tiket`, `nama_service`, `sid`, `layanan`, `status_log`, `tiket_open`, `tiket_close`, `durasi`, `penyebab`, `action`) VALUES
+(7, 'TIK/2009/100471', '[UIW SUMUT],  -,  -,  -,  Indonesia,  - - ULP PANGURURAN, -, -, -, Indonesia\r\n', '990000020276912', 'IP VPN', 'Closed', '2020-12-29 11:06:44', '2020-12-30 02:24:42', '15:17:58', '\"1. GANGGUAN PUTUS KABEL FO DIJARAK 500 METER DARI POP PANGURURAN KE ARAH POP GI TELE AKIBAT TERTARIK KENDARAAN (PU) \r\n2. GANGGUAN SOFTWARE PADA PERANGKAT SWITCH DI SISI POP PANGURURAN\"', 'PENYAMBUNGAN KABEL FO\r\n'),
+(9, 'TIK/2009/96369', '[UIP3BS - UPT SIANTAR - SCADA]-GI SEI MANGKEI (SCADA)\r\n', '990000320452064', 'IPVPN', 'Closed', '2020-12-30 03:02:28', '2020-12-30 03:03:00', '00:00:32', 'GANGGUAN MODUL POWER DISISI GI SEI MANGKEI\r\n', 'PERBAIKAN MODUL POWER\r\n'),
+(11, 'TIK/2011/129712', '[UIW SUMUT],  -,  -,  -,  Indonesia,  - - ULP PANCUR BATU, -, -, -, Indonesia\r\n', '10000027240015', 'Metronet', 'Open', '2020-12-30 04:02:55', '0000-00-00 00:00:00', '11:10:07', '1. GANGGUAN PUTUS CORE DIJARAK 15 KM DAN 15,1 KM DARI POP KITSBU KEARAH LASTMILE AKIBAT CRACK\r\n2. GANGGUAN PERANGKAT MODUL SFP DI LASTMILE\r\n', 'PENYAMBUNGAN CORE DAN PERBAIKAN PERANGKAT MODUL SFP DI LASTMILE\r\n'),
+(13, 'TIK/2011/130192', '[UIP3BS - UPT SIANTAR - SCADA]-GI DOLOK SANGGUL (SCADA)\r\n', '990000320449035', 'IPVPN', 'Closed', '2020-11-20 12:05:36', '2020-11-20 14:10:30', '02:04:54', 'GANGGUAN SOFTWARE DISISI LASTMILE\r\n', 'PERBAIKAN SOFTWARE\r\n'),
+(14, 'TIK/2011/127935', '[UIP3BS - UPT PEMATANG SIANTAR] GI SUBULUSALAM Kota Subulussalam Nanggro Aceh Darussalam ,Indonesia ,-   \r\n', '1000095406', 'IPVPN', 'Closed', '2020-11-24 02:14:20', '2020-11-24 03:01:20', '00:47:00', 'GANGGUAN JALUR SEGMENT PEKANBARU - GARUDASAKTI\r\n', 'PERBAIKAN JALUR SEGMENT PEKANBARU - GARUDASAKTI\r\n'),
+(15, 'TIK/2009/100872', '[UIP3BS - UPT PEMATANG SIANTAR], GI PENYABUNGAN\r\n', '1000095407', 'Metronet', 'Open', '2020-12-30 15:01:03', '2020-12-30 14:59:54', '00:01:09', 'GANGGUAN  JALUR AREA PANYAMBUNGAN - POP KOTANOPAN  IMPACT PUTUS KABEL FO DIJARAK 8 KM DARI ARAH POP KOTANOPAN.\r\n', 'REROUTE JALUR\r\n');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `merek`
 --
 
@@ -4103,6 +4135,12 @@ ALTER TABLE `laptop`
   ADD KEY `id_laptop` (`id_laptop`);
 
 --
+-- Indexes for table `log_gangguan`
+--
+ALTER TABLE `log_gangguan`
+  ADD KEY `log_id` (`log_id`);
+
+--
 -- Indexes for table `merek`
 --
 ALTER TABLE `merek`
@@ -4226,6 +4264,12 @@ ALTER TABLE `kpi`
 --
 ALTER TABLE `laptop`
   MODIFY `id_laptop` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=365;
+
+--
+-- AUTO_INCREMENT for table `log_gangguan`
+--
+ALTER TABLE `log_gangguan`
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `merek`

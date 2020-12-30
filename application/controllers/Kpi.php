@@ -44,13 +44,13 @@ class Kpi extends CI_Controller
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-			$this->form_validation->set_rules('indikator_kpi', 'Nama KPI', 'required', [
+			$this->form_validation->set_rules('indikator_kpi', 'Indikator KPI', 'required', [
 				'required' => 'Indikator KPI harus di isi!'
 			]);
 			$this->form_validation->set_rules('pic', 'PIC', 'required', [
 				'required' => 'PIC KPI harus di isi!'
 			]);
-			$this->form_validation->set_rules('indikator_kpi', 'Satuan', 'required', [
+			$this->form_validation->set_rules('satuan', 'Satuan', 'required', [
 				'required' => 'Satuan KPI harus di isi!'
 			]);
 			$this->form_validation->set_rules('bobot', 'Bobot', 'required|numeric', [

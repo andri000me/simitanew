@@ -953,6 +953,117 @@ FROM
     return $get;
   }
 
+  //LOG GANGGUAN
+  function tampil_lgangguan()
+  {
+    $get = $this->db->query("SELECT a.* FROM log_gangguan a ORDER BY a.log_id DESC ");
+    return $get;
+  }
+
+  public function add_lgangguan_data($data)
+  {
+    $input = $this->db->insert('log_gangguan', $data);
+    return $input;
+  }
+
+  function get_lgangguan($value, $column)
+  {
+    $get = $this->db->query("SELECT a.* FROM log_gangguan a WHERE a.$column =$value");
+    if ($get->num_rows() == 1) {
+      return $get->row_array();
+    }
+  }
+
+  function update_lgangguan($data, $log_id)
+  {
+    $update = $this->db->update('log_gangguan', $data, array('log_id' => $log_id));
+    return $update;
+  }
+
+  function lgangguan_delete($id)
+  {
+    $delete = $this->db->delete('log_gangguan', array('log_id' => $id));
+    return $delete;
+  }
+
+  public function lgangguan_filter($no_tiket, $year, $month)
+  {
+    $input_data = 0;
+    if (!empty($no_tiket)) {
+      if (!empty($year)) {
+        if (!empty($month)) {
+          $input_data = 3;
+        } else {
+          $input_data = 2;
+        }
+      } else if (!empty($month)) {
+        if (!empty($year)) {
+          $input_data = 3;
+        } else {
+          $input_data = 2;
+        }
+      } else {
+        $input_data = 1;
+      }
+    } else if (!empty($year)) {
+      if (!empty($no_tiket)) {
+        if (!empty($month)) {
+          $input_data = 3;
+        } else {
+          $input_data = 2;
+        }
+      } else if (!empty($month)) {
+        if (!empty($no_tiket)) {
+          $input_data = 3;
+        } else {
+          $input_data = 2;
+        }
+      } else {
+        $input_data = 1;
+      }
+    } else if (!empty($month)) {
+      if (!empty($year)) {
+        if (!empty($no_tiket)) {
+          $input_data = 3;
+        } else {
+          $input_data = 2;
+        }
+      } else if (!empty($no_tiket)) {
+        if (!empty($year)) {
+          $input_data = 3;
+        } else {
+          $input_data = 2;
+        }
+      } else {
+        $input_data = 1;
+      }
+    }
+    switch ($input_data) {
+      case 3:
+        $get = $this->db->query("SELECT a.* FROM log_gangguan a WHERE a.no_tiket = '$no_tiket' AND (YEAR(a.tiket_open) = $year OR YEAR(a.tiket_close) = $year) AND (MONTH(a.tiket_open) = $month OR MONTH(a.tiket_close) = $month)");
+        break;
+      case 2:
+        if (!empty($no_tiket) && !empty($year)) {
+          $get = $this->db->query("SELECT a.* FROM log_gangguan a WHERE a.no_tiket = '$no_tiket' AND (YEAR(a.tiket_open) = $year OR YEAR(a.tiket_close) = $year)");
+        } else if (!empty($no_tiket) && !empty($month)) {
+          $get = $this->db->query("SELECT a.* FROM log_gangguan a WHERE a.no_tiket = '$no_tiket' AND (MONTH(a.tiket_open) = $month OR MONTH(a.tiket_close) = $month)");
+        } else if (!empty($year) && !empty($month)) {
+          $get = $this->db->query("SELECT a.* FROM log_gangguan a WHERE (YEAR(a.tiket_open) = $year OR YEAR(a.tiket_close) = $year) AND (MONTH(a.tiket_open) = $month OR MONTH(a.tiket_close) = $month)");
+        }
+        break;
+      case 1:
+        if (!empty($no_tiket)) {
+          $get = $this->db->query("SELECT a.* FROM log_gangguan a WHERE a.no_tiket = '$no_tiket'");
+        } else if (!empty($year)) {
+          $get = $this->db->query("SELECT a.* FROM log_gangguan a WHERE YEAR(a.tiket_open) = $year OR YEAR(a.tiket_close) = $year");
+        } else if (!empty($month)) {
+          $get = $this->db->query("SELECT a.* FROM log_gangguan a WHERE MONTH(a.tiket_open) = $month OR MONTH(a.tiket_close) = $month");
+        }
+        break;
+    }
+    return $get;
+  }
+
   function dashboard_merek_laptop_dell()
   {
     $get = $this->db->query("SELECT 
@@ -1087,30 +1198,30 @@ FROM
 
   function dashboard_status_kepemilikan_sewa()
   {
-    $laptop = $this->db->query("SELECT COUNT(*) as jumlah FROM laptop WHERE status_kepemilikan = 'Sewa'"); 
+    $laptop = $this->db->query("SELECT COUNT(*) as jumlah FROM laptop WHERE status_kepemilikan = 'Sewa'");
     $komputer = $this->db->query("SELECT COUNT(*) as jumlah FROM komputer WHERE status_kepemilikan = 'Sewa'");
     $printer = $this->db->query("SELECT COUNT(*) as jumlah FROM printer WHERE status_kepemilikan = 'Sewa'");
     $monitor = $this->db->query("SELECT COUNT(*) as jumlah FROM monitor WHERE status_kepemilikan = 'Sewa'");
     $networkDevice = $this->db->query("SELECT COUNT(*) as jumlah FROM network_device WHERE status_kepemilikan = 'Sewa'");
 
     $combine = array_merge_recursive($laptop->row_array(), $komputer->row_array(), $printer->row_array(), $monitor->row_array(), $networkDevice->row_array());
-    foreach($combine as $c){
-      $tes = "[ ".$c[0].", ".$c[1].", ".$c[2].", ".$c[3].", ".$c[4]." ]";
+    foreach ($combine as $c) {
+      $tes = "[ " . $c[0] . ", " . $c[1] . ", " . $c[2] . ", " . $c[3] . ", " . $c[4] . " ]";
     }
     return $tes;
   }
 
   function dashboard_status_kepemilikan_pln()
   {
-    $laptop = $this->db->query("SELECT COUNT(*) as jumlah FROM laptop WHERE status_kepemilikan = 'Aset PLN'"); 
+    $laptop = $this->db->query("SELECT COUNT(*) as jumlah FROM laptop WHERE status_kepemilikan = 'Aset PLN'");
     $komputer = $this->db->query("SELECT COUNT(*) as jumlah FROM komputer WHERE status_kepemilikan = 'Aset PLN'");
     $printer = $this->db->query("SELECT COUNT(*) as jumlah FROM printer WHERE status_kepemilikan = 'Aset PLN'");
     $monitor = $this->db->query("SELECT COUNT(*) as jumlah FROM monitor WHERE status_kepemilikan = 'Aset PLN'");
     $networkDevice = $this->db->query("SELECT COUNT(*) as jumlah FROM network_device WHERE status_kepemilikan = 'Aset PLN'");
 
     $combine = array_merge_recursive($laptop->row_array(), $komputer->row_array(), $printer->row_array(), $monitor->row_array(), $networkDevice->row_array());
-    foreach($combine as $c){
-      $tes = "[ ".$c[0].", ".$c[1].", ".$c[2].", ".$c[3].", ".$c[4]." ]";
+    foreach ($combine as $c) {
+      $tes = "[ " . $c[0] . ", " . $c[1] . ", " . $c[2] . ", " . $c[3] . ", " . $c[4] . " ]";
     }
     return $tes;
   }
