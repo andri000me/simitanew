@@ -83,7 +83,7 @@
             <p>Orang</p>
           </div>
           <div class="icon">
-            <i class="ion ion-wifi"></i>
+            <i class="ion ion-person"></i>
           </div>
           <a href="<?php echo site_url('support/index'); ?>" class="small-box-footer">IT Support di Sumatra Utara <i class="fa fa-users"></i></a>
         </div>
@@ -98,7 +98,7 @@
             <p>Orang</p>
           </div>
           <div class="icon">
-            <i class="ion ion-wifi"></i>
+            <i class="ion ion-person"></i>
           </div>
           <a href="<?php echo site_url('pegawai/index'); ?>" class="small-box-footer">Pegawai di Sumatra Utara <i class="fa fa-users"></i></a>
         </div>

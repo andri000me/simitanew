@@ -411,7 +411,7 @@ class Admin extends CI_Controller
 	{
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
-		} else {
+		} else {			
 			$data['list_unit'] = $this->admin_model->list_unit();
 			$data['list_merek_laptop'] = $this->admin_model->list_merek_laptop();
 			$data['list_vendor'] = $this->admin_model->list_vendor();
@@ -428,28 +428,42 @@ class Admin extends CI_Controller
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
+			
+			$this->form_validation->set_rules('serial_number','serial_number','required|is_unique[laptop.serial_number]');
 
+			if ($this->form_validation->run() == false){
+				echo "<script>alert('Serial Number sudah terdaftar')</script>";
+				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/laptop_add>";
+			}
+			else {
 			$id_merek = $this->input->post('id_merek');
 			$spesifikasi = $this->input->post('spesifikasi');
 			$nama_pengguna = $this->input->post('nama_pengguna');
+			$laptop_name = $this->input->post('laptop_name');
+			$serial_number = $this->input->post('serial_number');
 			$ip_address = $this->input->post('ip_address');
 			$id_unit = $this->input->post('id_unit');
 			$status_kepemilikan = $this->input->post('status_kepemilikan');
 			$tahun = $this->input->post('tahun');
 			$id_vendor = $this->input->post('id_vendor');
+
 			$data = array(
 				'id_merek' => $id_merek,
 				'spesifikasi' => $spesifikasi, 'nama_pengguna' => $nama_pengguna, 'ip_address' => $ip_address,
 				'id_unit' => $id_unit,
 				'tahun' => $tahun,
 				'id_vendor' => $id_vendor,
-				'status_kepemilikan' => $status_kepemilikan,
+				'laptop_name' => $laptop_name,
+				'serial_number' => $serial_number,
 			);
 			$insert = $this->admin_model->add_laptop_data($data);
 			if ($insert) {
 				echo "<script>alert('Berhasil Menambah Data')</script>";
 				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/laptop_view>";
 			}
+				
+			}
+			
 		}
 	}
 
@@ -478,36 +492,91 @@ class Admin extends CI_Controller
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
+			$id_laptop = $this->input->get('id_laptop');
+			$current_laptop = $this->admin_model->get_laptop($id_laptop);
+			$this->form_validation->set_rules('serial_number','Serial_number','required|is_unique[laptop.serial_number]');
+			
 
-			$id_laptop = $this->input->post('id_laptop');
-			$id_merek = $this->input->post('id_merek');
-			$spesifikasi = $this->input->post('spesifikasi');
-			$nama_pengguna = $this->input->post('nama_pengguna');
-			$ip_address = $this->input->post('ip_address');
-			$id_unit = $this->input->post('id_unit');
-			$tahun = $this->input->post('tahun');
-			$status_kepemilikan = $this->input->post('status_kepemilikan');
-			if ($status_kepemilikan == 'Aset PLN') {
-				$id_vendor = '0';
-			} else {
-				$id_vendor = $this->input->post('id_vendor');
+			 if ($this->form_validation->run() == false && $this->input->post('serial_number') == $current_laptop['serial_number'] ) {
+
+				$id_laptop = $this->input->post('id_laptop');
+				$id_merek = $this->input->post('id_merek');
+				$spesifikasi = $this->input->post('spesifikasi');
+				$nama_pengguna = $this->input->post('nama_pengguna');
+				$ip_address = $this->input->post('ip_address');
+				$id_unit = $this->input->post('id_unit');
+				$tahun = $this->input->post('tahun');
+				$laptop_name = $this->input->post('laptop_name');
+				$serial_number = $this->input->post('serial_number');
+				$status_kepemilikan = $this->input->post('status_kepemilikan');
+				if ($status_kepemilikan == 'Aset PLN') {
+					$id_vendor = '0';
+				} else {
+					$id_vendor = $this->input->post('id_vendor');
+				}
+				$data = array(
+					'id_merek' => $id_merek,
+					'spesifikasi' => $spesifikasi, 'nama_pengguna' => $nama_pengguna, 'ip_address' => $ip_address,
+					'id_unit' => $id_unit,
+					'id_vendor' => $id_vendor,
+					'tahun' => $tahun,
+					'status_kepemilikan' => $status_kepemilikan,
+					'laptop_name' => $laptop_name,
+					'serial_number' => $serial_number,
+				);
+				$update = $this->admin_model->update_laptop($data, $id_laptop);
+				if ($update) {
+					echo "<script>alert('Berhasil Mengubah Data')</script>";
+					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/laptop_view?id_laptop=" . $id_laptop . ">";
+				}
 			}
-			$data = array(
-				'id_merek' => $id_merek,
-				'spesifikasi' => $spesifikasi, 'nama_pengguna' => $nama_pengguna, 'ip_address' => $ip_address,
-				'id_unit' => $id_unit,
-				'id_vendor' => $id_vendor,
-				'tahun' => $tahun,
-				'status_kepemilikan' => $status_kepemilikan,
-			);
-			$update = $this->admin_model->update_laptop($data, $id_laptop);
-			if ($update) {
-				echo "<script>alert('Berhasil Mengubah Data')</script>";
-				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/laptop_view?id_laptop=" . $id_laptop . ">";
+			elseif ($this->form_validation->run() == false){
+				echo "<script>alert('Serial Number sudah terdaftar')</script>";
+				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/laptop_edit?id_laptop=" . $id_laptop . ">";
 			}
+			else {
+				$id_laptop = $this->input->post('id_laptop');
+				$id_merek = $this->input->post('id_merek');
+				$spesifikasi = $this->input->post('spesifikasi');
+				$nama_pengguna = $this->input->post('nama_pengguna');
+				$ip_address = $this->input->post('ip_address');
+				$id_unit = $this->input->post('id_unit');
+				$tahun = $this->input->post('tahun');
+				$laptop_name = $this->input->post('laptop_name');
+				$serial_number = $this->input->post('serial_number');
+				$status_kepemilikan = $this->input->post('status_kepemilikan');
+				if ($status_kepemilikan == 'Aset PLN') {
+					$id_vendor = '0';
+				} else {
+					$id_vendor = $this->input->post('id_vendor');
+				}
+				$data = array(
+					'id_merek' => $id_merek,
+					'spesifikasi' => $spesifikasi, 'nama_pengguna' => $nama_pengguna, 'ip_address' => $ip_address,
+					'id_unit' => $id_unit,
+					'id_vendor' => $id_vendor,
+					'tahun' => $tahun,
+					'status_kepemilikan' => $status_kepemilikan,
+					'laptop_name' => $laptop_name,
+					'serial_number' => $serial_number,
+				);
+				$update = $this->admin_model->update_laptop($data, $id_laptop);
+				if ($update) {
+					echo "<script>alert('Berhasil Mengubah Data')</script>";
+					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/laptop_view?id_laptop=" . $id_laptop . ">";
+				}
+			}
+			
 		}
 	}
 
+
+	public function serial_number($sr){
+	
+	
+		
+	
+	}
 	public function laptop_delete()
 	{
 		if ($this->session->userdata('status') != "login") {
@@ -517,7 +586,7 @@ class Admin extends CI_Controller
 			$id_laptop = $this->input->get('id_laptop');
 			$delete = $this->admin_model->laptop_delete($id_laptop);
 			if ($delete) {
-				echo "<script>alert('Berhasil Menghapus Data')</script>";
+				echo "<>alert('Berhasil Menghapus Data')</>";
 				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/laptop_view>";
 			}
 		}

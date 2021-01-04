@@ -30,10 +30,8 @@
                 <thead>
                   <tr>
                     <th class="center">No.</th>
-                    <th class="text-center">ID</th>
                     <th class="text-center">Nama Item</th>
                     <th class="text-center">Merek</th>
-                    
                     <th class="text-center">Kondisi</th>
                     <th class="text-center">Tanggal Pelaporan</th>
                     <th class="text-center">Pengguna</th>
@@ -48,12 +46,12 @@
                   ?>
                     <tr>
                       <td class="text-center"><?= $no ?></td>
-                      <td class="text-center"><?= $laporan['id_report']; ?></td>
+                    
                       <td class="text-center"><?= $laporan['nama_item']; ?></td>
                       <td class="text-center"><?= $laporan['merek_item']; ?></td>
                       
                       <td class="text-center"><?= $laporan['kondisi_item']; ?></td>
-                      <td class="text-center"><?= $laporan['tanggal_pelaporan']; ?></td>
+                      <td class="text-center"><?= date("d/F/Y",strtotime($laporan['tanggal_pelaporan'])); ?></td>
                       <td class="text-center"><?= $laporan['pengguna']; ?></td>
                       <td class="text-center">
                         <a href="<?= base_url(); ?>laporan/deleteData/<?= $laporan['id_report']; ?>"

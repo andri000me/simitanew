@@ -47,6 +47,15 @@
                             </div>
                         </div>
 						<br><br><br>
+            <div class="col-lg-10">
+                            <div class="form-group">
+                                <label for="nama_pengguna" class="col-sm-3 control-label">Nama Laptop</label>
+                                <div class="col-sm-5">
+								 <input type="text" class="form-control" id="laptop_name" name="laptop_name" value="<?php echo $laptopnya['laptop_name']; ?>" required/>
+                                </div>
+                            </div>
+                        </div>
+                        <br><br><br>
 						<div class="col-lg-10">
                             <div class="form-group">
                                 <label for="spesifikasi" class="col-sm-3 control-label">Spesifikasi</label>
@@ -70,6 +79,15 @@
                                 <label for="ip_address" class="col-sm-3 control-label">IP Address</label>
                                 <div class="col-sm-5">
 								 <input type="text" class="form-control" id="ip_address" name="ip_address" value="<?php echo $laptopnya['ip_address']; ?>" required/>
+                                </div>
+                            </div>
+                        </div>
+                        <br><br><br>
+						<div class="col-lg-10">
+                            <div class="form-group">
+                                <label for="ip_address" class="col-sm-3 control-label">Serial Number </label>
+                                <div class="col-sm-5">
+								 <input type="text" class="form-control" id="serial_number" name="serial_number" value="<?php echo $laptopnya['serial_number']; ?>" required/>
                                 </div>
                             </div>
                         </div>

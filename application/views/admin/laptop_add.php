@@ -20,7 +20,7 @@
         <!-- left column -->
         <div class="col-md-12">
           <!-- general form elements -->
-         
+      
 
           <!-- Form Element sizes -->
           <div class="box box-success">
@@ -45,7 +45,16 @@
 									</select>  </div>
                             </div>
                         </div>
-						<br><br><br>
+            <div class="col-lg-10">
+                            <div class="form-group">
+                                <label for="nama_pengguna" class="col-sm-3 control-label">Nama Laptop</label>
+                                <div class="col-sm-5">
+								 <input type="text" class="form-control" id="laptop_name" name="laptop_name" placeholder="Input Nama Laptop.." required/>
+                                </div>
+                            </div>
+                        </div>
+
+
 						<div class="col-lg-10">
                             <div class="form-group">
                                 <label for="spesifikasi" class="col-sm-3 control-label">Spesifikasi</label>
@@ -69,19 +78,30 @@ Hardisk :
 						<br><br><br>
 						<div class="col-lg-10">
                             <div class="form-group">
-                   
                                 <label for="ip_address" class="col-sm-3 control-label">IP Address</label>
                                 <div class="col-sm-5">
-								 <div class="input-group">
-									  <div class="input-group-addon">
-										<i class="fa fa-laptop"></i>
-									  </div>
-									  <input type="text" id="ip_address" name="ip_address" class="form-control" data-inputmask="'alias': 'ip'" data-mask>
-									</div>
-							</div>
-                            </div>
-												
-                        </div>
+                                  <div class="input-group">
+                                      <div class="input-group-addon">
+                                      <i class="fa fa-laptop"></i>
+                                      </div>
+                                      <input type="text" id="ip_address" name="ip_address" class="form-control" data-inputmask="'alias': 'ip'" data-mask>
+                                    </div>
+                                </div>
+                            </div>		
+            </div>
+						<div class="col-lg-10">
+                            <div class="form-group">
+                                <label for="ip_address" class="col-sm-3 control-label">Serial Number</label>
+                                <div class="col-sm-5">
+                                  <div class="input-group">
+                                      <div class="input-group-addon">
+                                      <i class="fa fa-laptop"></i>
+                                      </div>
+                                      <input type="text" id="serial_number" name="serial_number" class="form-control" data-inputmask="'alias': 'serial_number'" data-mask>
+                                    </div>
+                                </div>
+                            </div>		
+            </div>
 						<br><br><br>
 						<div class="col-lg-10">
                             <div class="form-group">

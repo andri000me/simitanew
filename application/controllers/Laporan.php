@@ -12,7 +12,9 @@ class Laporan extends CI_Controller {
 		$this->load->model('Laporan_model', 'laporan');
 		$this->load->model('Admin_model', 'admin');
     }
-    
+	
+	
+	//GET DATA
     function getLaporan(){
 	if($this->session->userdata('status') != "login"){
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
@@ -27,6 +29,9 @@ class Laporan extends CI_Controller {
 
 	}
 
+
+
+	//TAMBAH DATA
 	public function addData()
 	{
 		if($this->session->userdata('status') != "login"){
@@ -66,6 +71,11 @@ class Laporan extends CI_Controller {
 		}
 	}
 
+
+
+
+	
+	//EDIT DATA
 	public function editData($id) {
 		if($this->session->userdata('status') != "login"){
 				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
@@ -101,6 +111,8 @@ class Laporan extends CI_Controller {
 
 	
 
+
+	//DELETE DATA
     function deleteData($id){
 	if($this->session->userdata('status') != "login"){
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
