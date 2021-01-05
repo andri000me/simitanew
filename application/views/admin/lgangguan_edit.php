@@ -52,7 +52,7 @@
                                 <div class="form-group">
                                     <label for="sid" class="col-sm-3 control-label">SID</label>
                                     <div class="col-sm-5">
-                                        <input type="text" class="form-control" id="sid" name="sid" value="<?php echo $lgangguannya['sid']; ?>" required />
+                                        <input type="number" class="form-control" id="sid" name="sid" value="<?php echo $lgangguannya['sid']; ?>" required />
                                     </div>
                                 </div>
                             </div>
@@ -97,6 +97,28 @@
                                             <option value="Open">Open</option>
                                             <option value="Closed">Closed</option>
                                         </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-10">
+                                <div class="form-group">
+                                    <label for="tiket_open" class="col-sm-3 control-label">Tiket Open</label>
+                                    <div class="col-sm-5">
+                                        <input type="datetime-local" class="form-control" id="tiket_open" name="tiket_open" value="<?php 
+                                        $db_open = date_create($lgangguannya['tiket_open']);
+                                        $dt_open= $db_open->format('Y-m-d\TH:i:s'); 
+                                        echo $dt_open; ?>" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-10">
+                                <div class="form-group">
+                                    <label for="tiket_close" class="col-sm-3 control-label">Tiket Close</label>
+                                    <div class="col-sm-5">
+                                        <input type="datetime-local" class="form-control" id="tiket_close" name="tiket_close" value="<?php 
+                                        $db_close = date_create($lgangguannya['tiket_close']);
+                                        $dt_close= $db_close->format('Y-m-d\TH:i:s'); 
+                                        echo $dt_close; ?>" required />
                                     </div>
                                 </div>
                             </div>

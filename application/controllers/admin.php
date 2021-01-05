@@ -2010,16 +2010,14 @@ class Admin extends CI_Controller
 				$wilayah = $this->input->post('wilayah');
 				$layanan = $this->input->post('layanan');
 				$status_log = $this->input->post('status_log');
+				$tiket_open = $this->input->post('tiket_open');
+				$tiket_close = $this->input->post('tiket_close');
 				$stop_clock = $this->input->post('stop_clock');
 				$penyebab = $this->input->post('penyebab');
 				$action = $this->input->post('action');
 
-				date_default_timezone_set('Asia/Jakarta');
-				$now = date('Y-m-d H:i:s');
-				$tiket_open = $now;
-				$tiket_close = $now;
-				$before = date_create($now);
-				$after = date_create($now);
+				$before = date_create($tiket_open);
+				$after = date_create($tiket_close);
 				$diff = date_diff($before, $after, FALSE);
 				$printdiff = $diff->format("%Y-%m-%d %H:%i:%s");
 				$datediff = date_create($printdiff);
@@ -2118,25 +2116,14 @@ class Admin extends CI_Controller
 				$wilayah = $this->input->post('wilayah');
 				$layanan = $this->input->post('layanan');
 				$status_log = $this->input->post('status_log');
+				$tiket_open = $this->input->post('tiket_open');
+				$tiket_close = $this->input->post('tiket_close');
 				$stop_clock = $this->input->post('stop_clock');
 				$penyebab = $this->input->post('penyebab');
 				$action = $this->input->post('action');
 
-				date_default_timezone_set('Asia/Jakarta');
-				$now = date('Y-m-d H:i:s');
-
-				if ($status_log == "Open") {
-					$tiket_open = $now;
-					$tiket_close = $this->input->post('tiket_close');
-					$before = date_create($now);
-					$after = date_create($tiket_close);
-				} else {
-					$tiket_open = $this->input->post('tiket_open');
-					$tiket_close = $now;
-					$before =  date_create($tiket_open);
-					$after = date_create($now);
-				}
-
+				$before = date_create($tiket_open);
+				$after = date_create($tiket_close);
 				$diff = date_diff($before, $after, FALSE);
 				$printdiff = $diff->format("%Y-%m-%d %H:%i:%s");
 				$datediff = date_create($printdiff);

@@ -95,6 +95,22 @@
                             </div>
                             <div class="col-lg-10">
                                 <div class="form-group">
+                                    <label for="tiket_open" class="col-sm-3 control-label">Tiket Open</label>
+                                    <div class="col-sm-5">
+                                        <input type="datetime-local" class="form-control" id="tiket_open" name="tiket_open" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-10">
+                                <div class="form-group">
+                                    <label for="tiket_close" class="col-sm-3 control-label">Tiket Close</label>
+                                    <div class="col-sm-5">
+                                        <input type="datetime-local" class="form-control" id="tiket_close" name="tiket_close" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-10">
+                                <div class="form-group">
                                     <label for="stop_clock" class="col-sm-3 control-label">Stop Clock (menit)</label>
                                     <div class="col-sm-5">
                                         <input type="number" class="form-control" id="stop_clock" name="stop_clock" required />
