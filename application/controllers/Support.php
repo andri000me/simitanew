@@ -12,6 +12,18 @@ class Support extends CI_Controller {
 		$this->load->model('Support_model', 'support');
 	}
 
+	public function index_dashboard()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$this->load->view('header');
+			$this->load->view('sidebar');
+			$this->load->view('support/dashboard');			
+			$this->load->view('footer');
+		}
+	}
+
 	public function index()
 	{
 		if($this->session->userdata('status') != "login"){

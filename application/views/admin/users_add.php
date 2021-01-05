@@ -56,7 +56,9 @@
 							<select class="form-control" id="role" name="role" required>	
 							<option>--Pilih Role--</option>
 							<option value="1">Admin</option>
-							<option value="2">User</option>
+							<option value="2">EOS ICON+</option>
+              <option value="3">IT Support</option>
+              <option value="4">Pegawai STI</option>
 							
 							</select>	
 								 

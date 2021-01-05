@@ -81,7 +81,15 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="<?php echo base_url(); ?>public/assets/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Admin SIMITA</span>
+              <?php if($this->session->userdata('role') == 1) { ?>
+                <span class="hidden-xs">Admin SIMITA</span>
+              <?php } else if($this->session->userdata('role') == 2) { ?>
+                <span class="hidden-xs">EOS ICON+ SIMITA</span>
+              <?php } else if($this->session->userdata('role') == 3) { ?>
+                <span class="hidden-xs">IT Support SIMITA</span>
+              <?php } else if($this->session->userdata('role') == 4) { ?>
+                <span class="hidden-xs">Pegawai STI SIMITA</span>
+              <?php } ?>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -89,7 +97,15 @@
                 <img src="<?php echo base_url(); ?>public/assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Administrator SIMITA
+                  <?php if($this->session->userdata('role') == 1) { ?>
+                    Administrator SIMITA
+                  <?php } else if($this->session->userdata('role') == 2) { ?>
+                    EOS ICON+ SIMITA
+                  <?php } else if($this->session->userdata('role') == 3) { ?>
+                    IT Support SIMITA
+                  <?php } else if($this->session->userdata('role') == 4) { ?>
+                    Pegawai STI SIMITA
+                  <?php } ?>
                   <small>PLN STI SUMUT</small>
                 </p>
               </li>

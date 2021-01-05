@@ -56,6 +56,19 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-lg-10">
+                                <div class="form-group">
+                                    <label for="wilayah" class="col-sm-3 control-label">Wilayah</label>
+                                    <div class="col-sm-5">
+                                        <select class="form-control select2" name="wilayah" id="wilayah" style="width: 100%;"required>
+                                            <option value="<?php echo $lgangguannya['wilayah']; ?>" selected="selected"><?php echo $lgangguannya['wilayah']; ?></option>
+                                            <option value=""> -- Pilih Wilayah -- </option>
+                                            <option value="STI Sumut 1">STI Sumut 1</option>
+                                            <option value="STI Sumut 2">STI Sumut 2</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
                             <br><br><br>
                             <div class="col-lg-10">
                                 <div class="form-group">
@@ -67,6 +80,8 @@
                                             <option value="IPVPN">IPVPN</option>
                                             <option value="Metronet">Metronet</option>
                                             <option value="VSAT">VSAT</option>
+                                            <option value="Clear Channel">Clear Channel</option>
+                                            <option value="Internet">Internet</option>
                                         </select>
                                     </div>
                                 </div>
@@ -82,6 +97,14 @@
                                             <option value="Open">Open</option>
                                             <option value="Closed">Closed</option>
                                         </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-10">
+                                <div class="form-group">
+                                    <label for="stop_clock" class="col-sm-3 control-label">Stop Clock (menit)</label>
+                                    <div class="col-sm-5">
+                                        <input type="text" class="form-control" id="stop_clock" name="stop_clock" value="<?php echo $lgangguannya['stop_clock']; ?>" required />
                                     </div>
                                 </div>
                             </div>

@@ -60,7 +60,7 @@
 				  if ($data['id_role'] == 1){ ?>
 				  <span class="label label-success"><?php echo $data['nama_role']; ?></span>
 					<?php
-				  } else  if ($data['id_role'] == 2){
+				  } else{
 					  ?>
 				  <span class="label label-primary"><?php echo $data['nama_role']; ?></span>
 				  <?php

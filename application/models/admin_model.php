@@ -12,13 +12,13 @@ class Admin_model extends CI_Model
   function tampil_hi()
   {
     $get = $this->db->query("SELECT 
-          a.id_hi,a.id_unit,hi.updated_at,(SELECT nama_unit FROM unit WHERE id_unit = a.`id_unit`) AS nama_unitnya, 
-          ROUND((SUM(hi.bobot_kondisi) + SUM(hi.bobot_urgensi) + SUM(hi.bobot_urgensi) - SUM(hi.bobot_standard) - SUM(hi.bobot_lifetime) - SUM(hi.bobot_gangguan)) / (SUM(hi_standard.bobot_kondisi) + SUM(hi_standard.bobot_urgensi) + SUM(hi_standard.bobot_urgensi))*100) AS total_hi
-          FROM network_device a
-          JOIN hi ON a.id_hi = hi.id_hi
-          JOIN hi_standard ON hi.id_hi_standard = hi_standard.id_hi_standard
-          WHERE hi.status = '1'
-          GROUP BY a.id_unit DESC ");
+      a.id_hi,a.id_unit,hi.updated_at,(SELECT nama_unit FROM unit WHERE id_unit = a.`id_unit`) AS nama_unitnya, 
+      ROUND((SUM(hi.bobot_kondisi) + SUM(hi.bobot_urgensi) + SUM(hi.bobot_urgensi) - SUM(hi.bobot_standard) - SUM(hi.bobot_lifetime) - SUM(hi.bobot_gangguan)) / (SUM(hi_standard.bobot_kondisi) + SUM(hi_standard.bobot_urgensi) + SUM(hi_standard.bobot_urgensi))*100) AS total_hi
+      FROM network_device a
+      JOIN hi ON a.id_hi = hi.id_hi
+      JOIN hi_standard ON hi.id_hi_standard = hi_standard.id_hi_standard
+      WHERE hi.status = '1'
+      GROUP BY a.id_unit DESC ");
     return $get;
   }
   function tampil_non_hi()
@@ -29,21 +29,21 @@ class Admin_model extends CI_Model
   function get_hi_unit($id_unit)
   {
     $get = $this->db->query("SELECT 
-          a.id_network_device,a.id_hi,a.id_unit,a.device_type,hi.*,merek.merek,(SELECT nama_unit FROM unit WHERE id_unit = a.`id_unit`) AS nama_unitnya,
-          ROUND((hi.bobot_kondisi + hi.bobot_urgensi + hi.bobot_urgensi - hi.bobot_standard - hi.bobot_lifetime - hi.bobot_gangguan) /( hi_standard.bobot_kondisi + hi_standard.bobot_urgensi + hi_standard.bobot_urgensi)*100) AS hi_device
-          FROM network_device a
-          JOIN merek ON a.id_merek = merek.id_merek
-          JOIN hi ON a.id_hi = hi.id_hi
-          JOIN hi_standard ON hi.id_hi_standard = hi_standard.id_hi_standard
-          WHERE id_unit = $id_unit 
-          AND hi.status = '1'");
+      a.id_network_device,a.id_hi,a.id_unit,a.device_type,hi.*,merek.merek,(SELECT nama_unit FROM unit WHERE id_unit = a.`id_unit`) AS nama_unitnya,
+      ROUND((hi.bobot_kondisi + hi.bobot_urgensi + hi.bobot_urgensi - hi.bobot_standard - hi.bobot_lifetime - hi.bobot_gangguan) /( hi_standard.bobot_kondisi + hi_standard.bobot_urgensi + hi_standard.bobot_urgensi)*100) AS hi_device
+      FROM network_device a
+      JOIN merek ON a.id_merek = merek.id_merek
+      JOIN hi ON a.id_hi = hi.id_hi
+      JOIN hi_standard ON hi.id_hi_standard = hi_standard.id_hi_standard
+      WHERE id_unit = $id_unit 
+      AND hi.status = '1'");
     return $get;
   }
   function list_network_device($id_unit)
   {
     $get = $this->db->query("SELECT a.*,merek.merek FROM network_device a 
-          JOIN merek ON a.id_merek = merek.id_merek
-          WHERE id_unit = $id_unit AND id_hi = '0'");
+      JOIN merek ON a.id_merek = merek.id_merek
+      WHERE id_unit = $id_unit AND id_hi = '0'");
     return $get;
   }
   function list_unit_hi($id_unit)
@@ -91,7 +91,7 @@ class Admin_model extends CI_Model
   function search_users($username)
   {
     $get = $this->db->query("SELECT password,id_role
-                               FROM users where username = '$username' ");
+     FROM users where username = '$username' ");
     if ($get->num_rows() == 1) {
       return $get->row_array();
     }
@@ -101,18 +101,18 @@ class Admin_model extends CI_Model
   function tampil_user()
   {
     $get = $this->db->query("SELECT 
-		  a.id_users,
-		  a.username,
-		  a.password,
-		  a.id_role,
-		  (SELECT 
-			b.nama_role 
-		  FROM
-			role b 
-		  WHERE a.id_role = b.id_role) AS nama_role 
-		FROM
-		  users a 
-		ORDER BY id_users DESC ");
+      a.id_users,
+      a.username,
+      a.password,
+      a.id_role,
+      (SELECT 
+      b.nama_role 
+      FROM
+      role b 
+      WHERE a.id_role = b.id_role) AS nama_role 
+      FROM
+      users a 
+      ORDER BY id_users DESC ");
     return $get;
   }
 
@@ -139,8 +139,8 @@ class Admin_model extends CI_Model
   function get_users($id_users)
   {
     $get = $this->db->query("SELECT *
-                               FROM users a
-                               WHERE a.id_users =$id_users");
+     FROM users a
+     WHERE a.id_users =$id_users");
     if ($get->num_rows() == 1) {
       return $get->row_array();
     }
@@ -153,9 +153,9 @@ class Admin_model extends CI_Model
   {
     $get = $this->db->query("SELECT 
 		  *
-		FROM
-		  vendor
-		ORDER BY id_vendor DESC ");
+      FROM
+      vendor
+      ORDER BY id_vendor DESC ");
     return $get;
   }
 
@@ -182,8 +182,8 @@ class Admin_model extends CI_Model
   function get_vendor($id_vendor)
   {
     $get = $this->db->query("SELECT *
-                               FROM vendor a
-                               WHERE a.id_vendor =$id_vendor");
+     FROM vendor a
+     WHERE a.id_vendor =$id_vendor");
     if ($get->num_rows() == 1) {
       return $get->row_array();
     }
@@ -192,10 +192,10 @@ class Admin_model extends CI_Model
   function list_unit()
   {
     $get = $this->db->query("SELECT 
-		  id_unit, nama_unit
-		FROM
-		  unit
-		ORDER BY id_unit DESC ");
+      id_unit, nama_unit
+      FROM
+      unit
+      ORDER BY id_unit DESC ");
     return $get;
   }
 
@@ -204,9 +204,9 @@ class Admin_model extends CI_Model
   {
     $get = $this->db->query("SELECT 
 		  *
-		FROM
-		  unit where wilayah_kerja = 'Sumut 1'
-		ORDER BY id_unit DESC ");
+      FROM
+      unit where wilayah_kerja = 'Sumut 1'
+      ORDER BY id_unit DESC ");
     return $get;
   }
 
@@ -215,9 +215,9 @@ class Admin_model extends CI_Model
   {
     $get = $this->db->query("SELECT 
 		  *
-		FROM
-		  unit where wilayah_kerja = 'Sumut 2'
-		ORDER BY id_unit DESC ");
+      FROM
+      unit where wilayah_kerja = 'Sumut 2'
+      ORDER BY id_unit DESC ");
     return $get;
   }
 
@@ -244,8 +244,8 @@ class Admin_model extends CI_Model
   function get_unit($id_unit)
   {
     $get = $this->db->query("SELECT *
-                               FROM unit a
-                               WHERE a.id_unit =$id_unit");
+     FROM unit a
+     WHERE a.id_unit =$id_unit");
     if ($get->num_rows() == 1) {
       return $get->row_array();
     }
@@ -256,25 +256,25 @@ class Admin_model extends CI_Model
   function tampil_laptop()
   {
     $get = $this->db->query("SELECT 
-  a.*,
-  (SELECT 
-    nama_unit 
-  FROM
-    unit 
-  WHERE id_unit = a.`id_unit`) AS nama_unitnya,
-  (SELECT 
-    merek 
-  FROM
-    merek 
-  WHERE id_merek = a.id_merek) AS nama_mereknya, 
-  (SELECT 
-    nama_vendor 
-  FROM
-    vendor 
-  WHERE id_vendor = a.id_vendor) AS nama_vendornya  
-FROM
-  laptop a 
-ORDER BY a.id_laptop DESC ");
+      a.*,
+      (SELECT 
+      nama_unit 
+      FROM
+      unit 
+      WHERE id_unit = a.`id_unit`) AS nama_unitnya,
+      (SELECT 
+      merek 
+      FROM
+      merek 
+      WHERE id_merek = a.id_merek) AS nama_mereknya, 
+      (SELECT 
+      nama_vendor 
+      FROM
+      vendor 
+      WHERE id_vendor = a.id_vendor) AS nama_vendornya  
+      FROM
+      laptop a 
+      ORDER BY a.id_laptop DESC ");
     return $get;
   }
 
@@ -300,25 +300,25 @@ ORDER BY a.id_laptop DESC ");
   function get_laptop($id_laptop)
   {
     $get = $this->db->query("SELECT 
-  a.*,
-  (SELECT 
-    nama_unit 
-  FROM
-    unit 
-  WHERE id_unit = a.`id_unit`) AS nama_unitnya,
-  (SELECT 
-    merek 
-  FROM
-    merek 
-  WHERE id_merek = a.id_merek) AS nama_mereknya,
-  (SELECT 
-    nama_vendor 
-  FROM
-    vendor 
-  WHERE id_vendor = a.id_vendor) AS nama_vendornya  
-FROM
-  laptop a
-                               WHERE a.id_laptop =$id_laptop");
+      a.*,
+      (SELECT 
+      nama_unit 
+      FROM
+      unit 
+      WHERE id_unit = a.`id_unit`) AS nama_unitnya,
+      (SELECT 
+      merek 
+      FROM
+      merek 
+      WHERE id_merek = a.id_merek) AS nama_mereknya,
+      (SELECT 
+      nama_vendor 
+      FROM
+      vendor 
+      WHERE id_vendor = a.id_vendor) AS nama_vendornya  
+      FROM
+      laptop a
+      WHERE a.id_laptop =$id_laptop");
     if ($get->num_rows() == 1) {
       return $get->row_array();
     }
@@ -328,10 +328,10 @@ FROM
   {
     $get = $this->db->query("SELECT 
 		  * 
-		FROM
-		  merek 
-		WHERE kategori = 'Laptop' 
-		ORDER BY id_merek DESC");
+      FROM
+      merek 
+      WHERE kategori = 'Laptop' 
+      ORDER BY id_merek DESC");
     return $get;
   }
 
@@ -339,9 +339,9 @@ FROM
   {
     $get = $this->db->query("SELECT 
 		  * 
-		FROM
-		  vendor 
-		ORDER BY id_vendor DESC");
+      FROM
+      vendor 
+      ORDER BY id_vendor DESC");
     return $get;
   }
 
@@ -349,11 +349,11 @@ FROM
   function tampil_merek()
   {
     $get = $this->db->query("SELECT 
-		  a.* 
-		FROM
-		  merek a
-		  
-		ORDER BY a.id_merek DESC ");
+      a.* 
+      FROM
+      merek a
+
+      ORDER BY a.id_merek DESC ");
     return $get;
   }
 
@@ -380,8 +380,8 @@ FROM
   function get_merek($id_merek)
   {
     $get = $this->db->query("SELECT *
-                               FROM merek a
-                               WHERE a.id_merek =$id_merek");
+     FROM merek a
+     WHERE a.id_merek =$id_merek");
     if ($get->num_rows() == 1) {
       return $get->row_array();
     }
@@ -394,25 +394,25 @@ FROM
   function tampil_komputer()
   {
     $get = $this->db->query("SELECT 
-  a.*,
-  (SELECT 
-    nama_unit 
-  FROM
-    unit 
-  WHERE id_unit = a.`id_unit`) AS nama_unitnya,
-  (SELECT 
-    merek 
-  FROM
-    merek 
-  WHERE id_merek = a.id_merek) AS nama_mereknya, 
-  (SELECT 
-    nama_vendor 
-  FROM
-    vendor 
-  WHERE id_vendor = a.id_vendor) AS nama_vendornya  
-FROM
-  komputer a 
-ORDER BY a.id_komputer DESC ");
+      a.*,
+      (SELECT 
+      nama_unit 
+      FROM
+      unit 
+      WHERE id_unit = a.`id_unit`) AS nama_unitnya,
+      (SELECT 
+      merek 
+      FROM
+      merek 
+      WHERE id_merek = a.id_merek) AS nama_mereknya, 
+      (SELECT 
+      nama_vendor 
+      FROM
+      vendor 
+      WHERE id_vendor = a.id_vendor) AS nama_vendornya  
+      FROM
+      komputer a 
+      ORDER BY a.id_komputer DESC ");
     return $get;
   }
 
@@ -438,25 +438,25 @@ ORDER BY a.id_komputer DESC ");
   function get_komputer($id_komputer)
   {
     $get = $this->db->query("SELECT 
-  a.*,
-  (SELECT 
-    nama_unit 
-  FROM
-    unit 
-  WHERE id_unit = a.`id_unit`) AS nama_unitnya,
-  (SELECT 
-    merek 
-  FROM
-    merek 
-  WHERE id_merek = a.id_merek) AS nama_mereknya, 
-  (SELECT 
-    nama_vendor 
-  FROM
-    vendor 
-  WHERE id_vendor = a.id_vendor) AS nama_vendornya  
-FROM
-  komputer a
-                               WHERE a.id_komputer =$id_komputer");
+      a.*,
+      (SELECT 
+      nama_unit 
+      FROM
+      unit 
+      WHERE id_unit = a.`id_unit`) AS nama_unitnya,
+      (SELECT 
+      merek 
+      FROM
+      merek 
+      WHERE id_merek = a.id_merek) AS nama_mereknya, 
+      (SELECT 
+      nama_vendor 
+      FROM
+      vendor 
+      WHERE id_vendor = a.id_vendor) AS nama_vendornya  
+      FROM
+      komputer a
+      WHERE a.id_komputer =$id_komputer");
     if ($get->num_rows() == 1) {
       return $get->row_array();
     }
@@ -466,10 +466,10 @@ FROM
   {
     $get = $this->db->query("SELECT 
 		  * 
-		FROM
-		  merek 
-		WHERE kategori = 'PC' 
-		ORDER BY id_merek DESC");
+      FROM
+      merek 
+      WHERE kategori = 'PC' 
+      ORDER BY id_merek DESC");
     return $get;
   }
 
@@ -478,25 +478,25 @@ FROM
   function tampil_monitor()
   {
     $get = $this->db->query("SELECT 
-  a.*,
-  (SELECT 
-    nama_unit 
-  FROM
-    unit 
-  WHERE id_unit = a.`id_unit`) AS nama_unitnya,
-  (SELECT 
-    merek 
-  FROM
-    merek 
-  WHERE id_merek = a.id_merek) AS nama_mereknya, 
-  (SELECT 
-    nama_vendor 
-  FROM
-    vendor 
-  WHERE id_vendor = a.id_vendor) AS nama_vendornya
-FROM
-  monitor a 
-ORDER BY a.id_monitor DESC ");
+      a.*,
+      (SELECT 
+      nama_unit 
+      FROM
+      unit 
+      WHERE id_unit = a.`id_unit`) AS nama_unitnya,
+      (SELECT 
+      merek 
+      FROM
+      merek 
+      WHERE id_merek = a.id_merek) AS nama_mereknya, 
+      (SELECT 
+      nama_vendor 
+      FROM
+      vendor 
+      WHERE id_vendor = a.id_vendor) AS nama_vendornya
+      FROM
+      monitor a 
+      ORDER BY a.id_monitor DESC ");
     return $get;
   }
 
@@ -522,25 +522,25 @@ ORDER BY a.id_monitor DESC ");
   function get_monitor($id_monitor)
   {
     $get = $this->db->query("SELECT 
-  a.*,
-  (SELECT 
-    nama_unit 
-  FROM
-    unit 
-  WHERE id_unit = a.`id_unit`) AS nama_unitnya,
-  (SELECT 
-    merek 
-  FROM
-    merek 
-  WHERE id_merek = a.id_merek) AS nama_mereknya, 
-  (SELECT 
-    nama_vendor 
-  FROM
-    vendor 
-  WHERE id_vendor = a.id_vendor) AS nama_vendornya  
-FROM
-  monitor a
-                               WHERE a.id_monitor =$id_monitor");
+      a.*,
+      (SELECT 
+      nama_unit 
+      FROM
+      unit 
+      WHERE id_unit = a.`id_unit`) AS nama_unitnya,
+      (SELECT 
+      merek 
+      FROM
+      merek 
+      WHERE id_merek = a.id_merek) AS nama_mereknya, 
+      (SELECT 
+      nama_vendor 
+      FROM
+      vendor 
+      WHERE id_vendor = a.id_vendor) AS nama_vendornya  
+      FROM
+      monitor a
+      WHERE a.id_monitor =$id_monitor");
     if ($get->num_rows() == 1) {
       return $get->row_array();
     }
@@ -550,10 +550,10 @@ FROM
   {
     $get = $this->db->query("SELECT 
 		  * 
-		FROM
-		  merek 
-		WHERE kategori = 'Monitor' 
-		ORDER BY id_merek DESC");
+      FROM
+      merek 
+      WHERE kategori = 'Monitor' 
+      ORDER BY id_merek DESC");
     return $get;
   }
 
@@ -561,25 +561,25 @@ FROM
   function tampil_printer()
   {
     $get = $this->db->query("SELECT 
-  a.*,
-  (SELECT 
-    nama_unit 
-  FROM
-    unit 
-  WHERE id_unit = a.`id_unit`) AS nama_unitnya,
-  (SELECT 
-    merek 
-  FROM
-    merek 
-  WHERE id_merek = a.id_merek) AS nama_mereknya, 
-  (SELECT 
-    nama_vendor 
-  FROM
-    vendor 
-  WHERE id_vendor = a.id_vendor) AS nama_vendornya 
-FROM
-  printer a 
-ORDER BY a.id_printer DESC ");
+      a.*,
+      (SELECT 
+      nama_unit 
+      FROM
+      unit 
+      WHERE id_unit = a.`id_unit`) AS nama_unitnya,
+      (SELECT 
+      merek 
+      FROM
+      merek 
+      WHERE id_merek = a.id_merek) AS nama_mereknya, 
+      (SELECT 
+      nama_vendor 
+      FROM
+      vendor 
+      WHERE id_vendor = a.id_vendor) AS nama_vendornya 
+      FROM
+      printer a 
+      ORDER BY a.id_printer DESC ");
     return $get;
   }
 
@@ -605,25 +605,25 @@ ORDER BY a.id_printer DESC ");
   function get_printer($id_printer)
   {
     $get = $this->db->query("SELECT 
-  a.*,
-  (SELECT 
-    nama_unit 
-  FROM
-    unit 
-  WHERE id_unit = a.`id_unit`) AS nama_unitnya,
-  (SELECT 
-    merek 
-  FROM
-    merek 
-  WHERE id_merek = a.id_merek) AS nama_mereknya, 
-  (SELECT 
-    nama_vendor 
-  FROM
-    vendor 
-  WHERE id_vendor = a.id_vendor) AS nama_vendornya  
-FROM
-  printer a
-                               WHERE a.id_printer =$id_printer");
+      a.*,
+      (SELECT 
+      nama_unit 
+      FROM
+      unit 
+      WHERE id_unit = a.`id_unit`) AS nama_unitnya,
+      (SELECT 
+      merek 
+      FROM
+      merek 
+      WHERE id_merek = a.id_merek) AS nama_mereknya, 
+      (SELECT 
+      nama_vendor 
+      FROM
+      vendor 
+      WHERE id_vendor = a.id_vendor) AS nama_vendornya  
+      FROM
+      printer a
+      WHERE a.id_printer =$id_printer");
     if ($get->num_rows() == 1) {
       return $get->row_array();
     }
@@ -633,10 +633,10 @@ FROM
   {
     $get = $this->db->query("SELECT 
 		  * 
-		FROM
-		  merek 
-		WHERE kategori = 'Printer' 
-		ORDER BY id_merek DESC");
+      FROM
+      merek 
+      WHERE kategori = 'Printer' 
+      ORDER BY id_merek DESC");
     return $get;
   }
 
@@ -644,15 +644,15 @@ FROM
   function tampil_aplikasi_lokal()
   {
     $get = $this->db->query("SELECT 
-  a.*,
-  (SELECT 
-    nama_unit 
-  FROM
-    unit 
-  WHERE id_unit = a.`id_unit`) AS nama_unitnya
-FROM
-  aplikasi_lokal a 
-ORDER BY a.id_aplikasi_lokal DESC ");
+      a.*,
+      (SELECT 
+      nama_unit 
+      FROM
+      unit 
+      WHERE id_unit = a.`id_unit`) AS nama_unitnya
+      FROM
+      aplikasi_lokal a 
+      ORDER BY a.id_aplikasi_lokal DESC ");
     return $get;
   }
 
@@ -678,15 +678,15 @@ ORDER BY a.id_aplikasi_lokal DESC ");
   function get_aplikasi_lokal($id_aplikasi_lokal)
   {
     $get = $this->db->query("SELECT 
-  a.*,
-  (SELECT 
-    nama_unit 
-  FROM
-    unit 
-  WHERE id_unit = a.`id_unit`) AS nama_unitnya
-FROM
-  aplikasi_lokal a
-                               WHERE a.id_aplikasi_lokal =$id_aplikasi_lokal");
+      a.*,
+      (SELECT 
+      nama_unit 
+      FROM
+      unit 
+      WHERE id_unit = a.`id_unit`) AS nama_unitnya
+      FROM
+      aplikasi_lokal a
+      WHERE a.id_aplikasi_lokal =$id_aplikasi_lokal");
     if ($get->num_rows() == 1) {
       return $get->row_array();
     }
@@ -696,25 +696,25 @@ FROM
   function tampil_network_device()
   {
     $get = $this->db->query("SELECT 
-  a.*,
-  (SELECT 
-    nama_unit 
-  FROM
-    unit 
-  WHERE id_unit = a.`id_unit`) AS nama_unitnya,
-  (SELECT 
-    merek 
-  FROM
-    merek 
-  WHERE id_merek = a.id_merek) AS nama_mereknya, 
-  (SELECT 
-    nama_vendor 
-  FROM
-    vendor 
-  WHERE id_vendor = a.id_vendor) AS nama_vendornya 
-FROM
-  network_device a 
-ORDER BY a.id_network_device DESC ");
+      a.*,
+      (SELECT 
+      nama_unit 
+      FROM
+      unit 
+      WHERE id_unit = a.`id_unit`) AS nama_unitnya,
+      (SELECT 
+      merek 
+      FROM
+      merek 
+      WHERE id_merek = a.id_merek) AS nama_mereknya, 
+      (SELECT 
+      nama_vendor 
+      FROM
+      vendor 
+      WHERE id_vendor = a.id_vendor) AS nama_vendornya 
+      FROM
+      network_device a 
+      ORDER BY a.id_network_device DESC ");
     return $get;
   }
 
@@ -740,25 +740,25 @@ ORDER BY a.id_network_device DESC ");
   function get_network_device($id_network_device)
   {
     $get = $this->db->query("SELECT 
-  a.*,
-  (SELECT 
-    nama_unit 
-  FROM
-    unit 
-  WHERE id_unit = a.`id_unit`) AS nama_unitnya,
-  (SELECT 
-    merek 
-  FROM
-    merek 
-  WHERE id_merek = a.id_merek) AS nama_mereknya, 
-  (SELECT 
-    nama_vendor 
-  FROM
-    vendor 
-  WHERE id_vendor = a.id_vendor) AS nama_vendornya  
-FROM
-  network_device a
-                               WHERE a.id_network_device =$id_network_device");
+      a.*,
+      (SELECT 
+      nama_unit 
+      FROM
+      unit 
+      WHERE id_unit = a.`id_unit`) AS nama_unitnya,
+      (SELECT 
+      merek 
+      FROM
+      merek 
+      WHERE id_merek = a.id_merek) AS nama_mereknya, 
+      (SELECT 
+      nama_vendor 
+      FROM
+      vendor 
+      WHERE id_vendor = a.id_vendor) AS nama_vendornya  
+      FROM
+      network_device a
+      WHERE a.id_network_device =$id_network_device");
     if ($get->num_rows() == 1) {
       return $get->row_array();
     }
@@ -768,10 +768,10 @@ FROM
   {
     $get = $this->db->query("SELECT 
 		  * 
-		FROM
-		  merek 
-		WHERE kategori = 'Network Device' 
-		ORDER BY id_merek DESC");
+      FROM
+      merek 
+      WHERE kategori = 'Network Device' 
+      ORDER BY id_merek DESC");
     return $get;
   }
 
@@ -779,20 +779,20 @@ FROM
   function tampil_server()
   {
     $get = $this->db->query("SELECT 
-  a.*,
-  (SELECT 
-    nama_unit 
-  FROM
-    unit 
-  WHERE id_unit = a.`id_unit`) AS nama_unitnya,
-  (SELECT 
-    merek 
-  FROM
-    merek 
-  WHERE id_merek = a.id_merek) AS nama_mereknya
-FROM
-  server a 
-ORDER BY a.id_server DESC ");
+      a.*,
+      (SELECT 
+      nama_unit 
+      FROM
+      unit 
+      WHERE id_unit = a.`id_unit`) AS nama_unitnya,
+      (SELECT 
+      merek 
+      FROM
+      merek 
+      WHERE id_merek = a.id_merek) AS nama_mereknya
+      FROM
+      server a 
+      ORDER BY a.id_server DESC ");
     return $get;
   }
 
@@ -818,20 +818,20 @@ ORDER BY a.id_server DESC ");
   function get_server($id_server)
   {
     $get = $this->db->query("SELECT 
-  a.*,
-  (SELECT 
-    nama_unit 
-  FROM
-    unit 
-  WHERE id_unit = a.`id_unit`) AS nama_unitnya,
-  (SELECT 
-    merek 
-  FROM
-    merek 
-  WHERE id_merek = a.id_merek) AS nama_mereknya 
-FROM
-  server a
-                               WHERE a.id_server =$id_server");
+      a.*,
+      (SELECT 
+      nama_unit 
+      FROM
+      unit 
+      WHERE id_unit = a.`id_unit`) AS nama_unitnya,
+      (SELECT 
+      merek 
+      FROM
+      merek 
+      WHERE id_merek = a.id_merek) AS nama_mereknya 
+      FROM
+      server a
+      WHERE a.id_server =$id_server");
     if ($get->num_rows() == 1) {
       return $get->row_array();
     }
@@ -841,39 +841,39 @@ FROM
   {
     $get = $this->db->query("SELECT 
 		  * 
-		FROM
-		  merek 
-		WHERE kategori = 'Server' 
-		ORDER BY id_merek DESC");
+      FROM
+      merek 
+      WHERE kategori = 'Server' 
+      ORDER BY id_merek DESC");
     return $get;
   }
 
   function menghitung_jumlah_perangkat()
   {
     $get = $this->db->query("SELECT 
-						  COUNT(a.id_laptop)AS jumlah_laptop,
-						  (SELECT 
-							COUNT(id_komputer) 
-						  FROM
-							komputer) AS jumlah_komputer,
-						  (SELECT 
-							COUNT(id_server) 
-						  FROM
-							server) AS jumlah_server,
-						  (SELECT 
-							COUNT(id_network_device) 
-						  FROM
-							network_device) AS jumlah_network_device ,
-						  (SELECT 
-							COUNT(id) 
-						  FROM
-							it_support) AS jumlah_it_support ,
-						  (SELECT 
-							COUNT(pegawai_id) 
-						  FROM
-							pegawai) AS jumlah_pegawai
-						FROM
-						  laptop a");
+      COUNT(a.id_laptop)AS jumlah_laptop,
+      (SELECT 
+      COUNT(id_komputer) 
+      FROM
+      komputer) AS jumlah_komputer,
+      (SELECT 
+      COUNT(id_server) 
+      FROM
+      server) AS jumlah_server,
+      (SELECT 
+      COUNT(id_network_device) 
+      FROM
+      network_device) AS jumlah_network_device ,
+      (SELECT 
+      COUNT(id) 
+      FROM
+      it_support) AS jumlah_it_support ,
+      (SELECT 
+      COUNT(pegawai_id) 
+      FROM
+      pegawai) AS jumlah_pegawai
+      FROM
+      laptop a");
     if ($get->num_rows() == 1) {
       return $get->row_array();
     }
@@ -884,20 +884,20 @@ FROM
   function tampil_vicon()
   {
     $get = $this->db->query("SELECT 
-  a.*,
-  (SELECT 
-    nama_unit 
-  FROM
-    unit 
-  WHERE id_unit = a.`id_unit`) AS nama_unitnya,
-  (SELECT 
-    merek 
-  FROM
-    merek 
-  WHERE id_merek = a.id_merek) AS nama_mereknya 
-FROM
-  vicon a 
-ORDER BY a.id_vicon DESC ");
+      a.*,
+      (SELECT 
+      nama_unit 
+      FROM
+      unit 
+      WHERE id_unit = a.`id_unit`) AS nama_unitnya,
+      (SELECT 
+      merek 
+      FROM
+      merek 
+      WHERE id_merek = a.id_merek) AS nama_mereknya 
+      FROM
+      vicon a 
+      ORDER BY a.id_vicon DESC ");
     return $get;
   }
 
@@ -923,20 +923,20 @@ ORDER BY a.id_vicon DESC ");
   function get_vicon($id_vicon)
   {
     $get = $this->db->query("SELECT 
-  a.*,
-  (SELECT 
-    nama_unit 
-  FROM
-    unit 
-  WHERE id_unit = a.`id_unit`) AS nama_unitnya,
-  (SELECT 
-    merek 
-  FROM
-    merek 
-  WHERE id_merek = a.id_merek) AS nama_mereknya 
-FROM
-  vicon a
-                               WHERE a.id_vicon =$id_vicon");
+      a.*,
+      (SELECT 
+      nama_unit 
+      FROM
+      unit 
+      WHERE id_unit = a.`id_unit`) AS nama_unitnya,
+      (SELECT 
+      merek 
+      FROM
+      merek 
+      WHERE id_merek = a.id_merek) AS nama_mereknya 
+      FROM
+      vicon a
+      WHERE a.id_vicon =$id_vicon");
     if ($get->num_rows() == 1) {
       return $get->row_array();
     }
@@ -946,10 +946,10 @@ FROM
   {
     $get = $this->db->query("SELECT 
 		  * 
-		FROM
-		  merek 
-		WHERE kategori = 'Vicon' 
-		ORDER BY id_merek DESC");
+      FROM
+      merek 
+      WHERE kategori = 'Vicon' 
+      ORDER BY id_merek DESC");
     return $get;
   }
 
@@ -986,96 +986,69 @@ FROM
     return $delete;
   }
 
-  public function lgangguan_filter($no_tiket, $year, $month)
+  public function lgangguan_filter($no_tiket, $wilayah, $layanan, $year, $month)
   {
-    $input_data = 0;
-    if (!empty($no_tiket)) {
-      if (!empty($year)) {
-        if (!empty($month)) {
-          $input_data = 3;
-        } else {
-          $input_data = 2;
-        }
-      } else if (!empty($month)) {
-        if (!empty($year)) {
-          $input_data = 3;
-        } else {
-          $input_data = 2;
-        }
-      } else {
-        $input_data = 1;
+    $query = "SELECT a.* FROM log_gangguan a WHERE ";
+    $requirement = 0;
+
+    if(!empty($no_tiket)) {
+      $query .= "a.no_tiket = '$no_tiket' ";
+      $requirement++;
+    } 
+
+    if(!empty($wilayah)) {
+      if($requirement > 0){
+        $query .= "AND ";
       }
-    } else if (!empty($year)) {
-      if (!empty($no_tiket)) {
-        if (!empty($month)) {
-          $input_data = 3;
-        } else {
-          $input_data = 2;
-        }
-      } else if (!empty($month)) {
-        if (!empty($no_tiket)) {
-          $input_data = 3;
-        } else {
-          $input_data = 2;
-        }
-      } else {
-        $input_data = 1;
+      $query .= " a.wilayah = '$wilayah' ";  
+      $requirement++;
+    } 
+
+    if(!empty($layanan)) {
+      if($requirement > 0){
+        $query .= "AND ";
       }
-    } else if (!empty($month)) {
-      if (!empty($year)) {
-        if (!empty($no_tiket)) {
-          $input_data = 3;
-        } else {
-          $input_data = 2;
+      $query .= "a.layanan = '$layanan' ";
+      $requirement++;
+    } 
+
+    if(!empty($year)){
+      if(!empty($month)){
+        if($requirement > 0){
+          $query .= "AND ";
         }
-      } else if (!empty($no_tiket)) {
-        if (!empty($year)) {
-          $input_data = 3;
-        } else {
-          $input_data = 2;
-        }
+        $query .= "(YEAR(a.tiket_open) = $year OR YEAR(a.tiket_close) = $year) AND (MONTH(a.tiket_open) = $month OR MONTH(a.tiket_close) = $month)";
       } else {
-        $input_data = 1;
+        if($requirement > 0){
+          $query .= "AND ";
+        }
+        $query .= "(YEAR(a.tiket_open) = $year OR YEAR(a.tiket_close) = $year)";
       }
+    } else {
+      if(!empty($month)){
+        if($requirement > 0){
+          $query .= "AND ";
+        }
+        $query .= "(MONTH(a.tiket_open) = $month OR MONTH(a.tiket_close) = $month)";
+      } 
     }
-    switch ($input_data) {
-      case 3:
-        $get = $this->db->query("SELECT a.* FROM log_gangguan a WHERE a.no_tiket = '$no_tiket' AND (YEAR(a.tiket_open) = $year OR YEAR(a.tiket_close) = $year) AND (MONTH(a.tiket_open) = $month OR MONTH(a.tiket_close) = $month)");
-        break;
-      case 2:
-        if (!empty($no_tiket) && !empty($year)) {
-          $get = $this->db->query("SELECT a.* FROM log_gangguan a WHERE a.no_tiket = '$no_tiket' AND (YEAR(a.tiket_open) = $year OR YEAR(a.tiket_close) = $year)");
-        } else if (!empty($no_tiket) && !empty($month)) {
-          $get = $this->db->query("SELECT a.* FROM log_gangguan a WHERE a.no_tiket = '$no_tiket' AND (MONTH(a.tiket_open) = $month OR MONTH(a.tiket_close) = $month)");
-        } else if (!empty($year) && !empty($month)) {
-          $get = $this->db->query("SELECT a.* FROM log_gangguan a WHERE (YEAR(a.tiket_open) = $year OR YEAR(a.tiket_close) = $year) AND (MONTH(a.tiket_open) = $month OR MONTH(a.tiket_close) = $month)");
-        }
-        break;
-      case 1:
-        if (!empty($no_tiket)) {
-          $get = $this->db->query("SELECT a.* FROM log_gangguan a WHERE a.no_tiket = '$no_tiket'");
-        } else if (!empty($year)) {
-          $get = $this->db->query("SELECT a.* FROM log_gangguan a WHERE YEAR(a.tiket_open) = $year OR YEAR(a.tiket_close) = $year");
-        } else if (!empty($month)) {
-          $get = $this->db->query("SELECT a.* FROM log_gangguan a WHERE MONTH(a.tiket_open) = $month OR MONTH(a.tiket_close) = $month");
-        }
-        break;
-    }
+
+    $get = $this->db->query($query);
     return $get;
   }
 
   function dashboard_merek_laptop_dell()
   {
     $get = $this->db->query("SELECT 
-					  COUNT(*) AS jumlahnya,
-					  (SELECT 
-						merek 
-					  FROM
-						merek 
-					  WHERE id_merek = laptop.`id_merek`) AS nama_merek 
-					FROM
-					  laptop 
-					WHERE id_merek = 3");
+     COUNT(*) AS jumlahnya,
+     (SELECT 
+     merek 
+     FROM
+     merek 
+     WHERE id_merek = laptop.`id_merek`) AS nama_merek 
+     FROM
+     laptop 
+     WHERE id_merek = 3");
     if ($get->num_rows() == 1) {
       return $get->row_array();
     }
@@ -1084,15 +1057,15 @@ FROM
   function dashboard_merek_laptop_hp()
   {
     $get = $this->db->query("SELECT 
-					  COUNT(*) AS jumlahnya,
-					  (SELECT 
-						merek 
-					  FROM
-						merek 
-					  WHERE id_merek = laptop.`id_merek`) AS nama_merek 
-					FROM
-					  laptop 
-					WHERE id_merek = 1");
+     COUNT(*) AS jumlahnya,
+     (SELECT 
+     merek 
+     FROM
+     merek 
+     WHERE id_merek = laptop.`id_merek`) AS nama_merek 
+     FROM
+     laptop 
+     WHERE id_merek = 1");
     if ($get->num_rows() == 1) {
       return $get->row_array();
     }
@@ -1101,15 +1074,15 @@ FROM
   function dashboard_merek_laptop_toshiba()
   {
     $get = $this->db->query("SELECT 
-					  COUNT(*) AS jumlahnya,
-					  (SELECT 
-						merek 
-					  FROM
-						merek 
-					  WHERE id_merek = laptop.`id_merek`) AS nama_merek 
-					FROM
-					  laptop 
-					WHERE id_merek = 5");
+     COUNT(*) AS jumlahnya,
+     (SELECT 
+     merek 
+     FROM
+     merek 
+     WHERE id_merek = laptop.`id_merek`) AS nama_merek 
+     FROM
+     laptop 
+     WHERE id_merek = 5");
     if ($get->num_rows() == 1) {
       return $get->row_array();
     }
@@ -1118,15 +1091,15 @@ FROM
   function dashboard_merek_laptop_lenovo()
   {
     $get = $this->db->query("SELECT 
-					  COUNT(*) AS jumlahnya,
-					  (SELECT 
-						merek 
-					  FROM
-						merek 
-					  WHERE id_merek = laptop.`id_merek`) AS nama_merek 
-					FROM
-					  laptop 
-					WHERE id_merek = 7");
+     COUNT(*) AS jumlahnya,
+     (SELECT 
+     merek 
+     FROM
+     merek 
+     WHERE id_merek = laptop.`id_merek`) AS nama_merek 
+     FROM
+     laptop 
+     WHERE id_merek = 7");
     if ($get->num_rows() == 1) {
       return $get->row_array();
     }
@@ -1135,15 +1108,15 @@ FROM
   function dashboard_merek_laptop_asus()
   {
     $get = $this->db->query("SELECT 
-					  COUNT(*) AS jumlahnya,
-					  (SELECT 
-						merek 
-					  FROM
-						merek 
-					  WHERE id_merek = laptop.`id_merek`) AS nama_merek 
-					FROM
-					  laptop 
-					WHERE id_merek = 9");
+     COUNT(*) AS jumlahnya,
+     (SELECT 
+     merek 
+     FROM
+     merek 
+     WHERE id_merek = laptop.`id_merek`) AS nama_merek 
+     FROM
+     laptop 
+     WHERE id_merek = 9");
     if ($get->num_rows() == 1) {
       return $get->row_array();
     }
@@ -1152,15 +1125,15 @@ FROM
   function dashboard_merek_laptop_apple()
   {
     $get = $this->db->query("SELECT 
-					  COUNT(*) AS jumlahnya,
-					  (SELECT 
-						merek 
-					  FROM
-						merek 
-					  WHERE id_merek = laptop.`id_merek`) AS nama_merek 
-					FROM
-					  laptop 
-					WHERE id_merek = 11");
+     COUNT(*) AS jumlahnya,
+     (SELECT 
+     merek 
+     FROM
+     merek 
+     WHERE id_merek = laptop.`id_merek`) AS nama_merek 
+     FROM
+     laptop 
+     WHERE id_merek = 11");
     if ($get->num_rows() == 1) {
       return $get->row_array();
     }

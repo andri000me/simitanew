@@ -54,17 +54,27 @@
                                 <label for="role" class="col-sm-3 control-label">Role</label>
                                 <div class="col-sm-5">
 								 	<?php
-										if ($usernya['id_role'] == 1){
-												$status = "Admin";
-											} else {
-												$status = "User";
-											}
-												?>	
+										switch($usernya['id_role']){
+                    case 1:
+                      $status = "Admin";
+                      break;
+                    case 2:
+                      $status = "EOS ICON+";
+                      break;
+                    case 3:
+                      $status = "IT Support";
+                      break;
+                    case 4:
+                      $status = "Pegawai STI";
+                      break;
+                  } ?>
 							<select class="form-control" id="role" name="role" required>	
 							<option value="<?php echo $usernya['id_role']; ?>"><?php echo $status; ?></option>
 							<option>--Pilih Role--</option>
 							<option value="1">Admin</option>
-							<option value="2">User</option>
+							<option value="2">EOS ICON+</option>
+              <option value="3">IT Support</option>
+              <option value="4">Pegawai STI</option>
 							
 							</select>	
 								 

@@ -76,20 +76,42 @@ class Admin extends CI_Controller
 				//echo "<script>alert('Anda Berhasil Login dengan Hak Akses Admin')</script>";
 				$data_session = array(
 					'nama' => $username,
-					'status' => "login"
+					'status' => "login",
+					'role' => $role
 				);
 
 				$this->session->set_userdata($data_session);
 				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/index>";
 			} elseif (($role == 2)) {
-				//echo "<script>alert('Anda Berhasil Login dengan Hak Akses User')</script>";
+				//echo "<script>alert('Anda Berhasil Login dengan Hak Akses EOS ICON+')</script>";
 				$data_session = array(
 					'nama' => $username,
-					'status' => "login"
+					'status' => "login",
+					'role' => $role
 				);
 
 				$this->session->set_userdata($data_session);
-				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "user/index>";
+				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "eosicon/index>";
+			} elseif (($role == 3)) {
+				//echo "<script>alert('Anda Berhasil Login dengan Hak Akses IT Support')</script>";
+				$data_session = array(
+					'nama' => $username,
+					'status' => "login",
+					'role' => $role
+				);
+
+				$this->session->set_userdata($data_session);
+				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "support/index_dashboard>";
+			} elseif (($role == 4)) {
+				//echo "<script>alert('Anda Berhasil Login dengan Hak Akses Pegawai')</script>";
+				$data_session = array(
+					'nama' => $username,
+					'status' => "login",
+					'role' => $role
+				);
+
+				$this->session->set_userdata($data_session);
+				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/index>";
 			} else {
 				echo "<script>alert('Gagal Login, Periksa Username dan Password Anda')</script>";
 				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
@@ -436,31 +458,31 @@ class Admin extends CI_Controller
 				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/laptop_add>";
 			}
 			else {
-			$id_merek = $this->input->post('id_merek');
-			$spesifikasi = $this->input->post('spesifikasi');
-			$nama_pengguna = $this->input->post('nama_pengguna');
-			$laptop_name = $this->input->post('laptop_name');
-			$serial_number = $this->input->post('serial_number');
-			$ip_address = $this->input->post('ip_address');
-			$id_unit = $this->input->post('id_unit');
-			$status_kepemilikan = $this->input->post('status_kepemilikan');
-			$tahun = $this->input->post('tahun');
-			$id_vendor = $this->input->post('id_vendor');
+				$id_merek = $this->input->post('id_merek');
+				$spesifikasi = $this->input->post('spesifikasi');
+				$nama_pengguna = $this->input->post('nama_pengguna');
+				$laptop_name = $this->input->post('laptop_name');
+				$serial_number = $this->input->post('serial_number');
+				$ip_address = $this->input->post('ip_address');
+				$id_unit = $this->input->post('id_unit');
+				$status_kepemilikan = $this->input->post('status_kepemilikan');
+				$tahun = $this->input->post('tahun');
+				$id_vendor = $this->input->post('id_vendor');
 
-			$data = array(
-				'id_merek' => $id_merek,
-				'spesifikasi' => $spesifikasi, 'nama_pengguna' => $nama_pengguna, 'ip_address' => $ip_address,
-				'id_unit' => $id_unit,
-				'tahun' => $tahun,
-				'id_vendor' => $id_vendor,
-				'laptop_name' => $laptop_name,
-				'serial_number' => $serial_number,
-			);
-			$insert = $this->admin_model->add_laptop_data($data);
-			if ($insert) {
-				echo "<script>alert('Berhasil Menambah Data')</script>";
-				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/laptop_view>";
-			}
+				$data = array(
+					'id_merek' => $id_merek,
+					'spesifikasi' => $spesifikasi, 'nama_pengguna' => $nama_pengguna, 'ip_address' => $ip_address,
+					'id_unit' => $id_unit,
+					'tahun' => $tahun,
+					'id_vendor' => $id_vendor,
+					'laptop_name' => $laptop_name,
+					'serial_number' => $serial_number,
+				);
+				$insert = $this->admin_model->add_laptop_data($data);
+				if ($insert) {
+					echo "<script>alert('Berhasil Menambah Data')</script>";
+					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/laptop_view>";
+				}
 				
 			}
 			
@@ -497,7 +519,7 @@ class Admin extends CI_Controller
 			$this->form_validation->set_rules('serial_number','Serial_number','required|is_unique[laptop.serial_number]');
 			
 
-			 if ($this->form_validation->run() == false && $this->input->post('serial_number') == $current_laptop['serial_number'] ) {
+			if ($this->form_validation->run() == false && $this->input->post('serial_number') == $current_laptop['serial_number'] ) {
 
 				$id_laptop = $this->input->post('id_laptop');
 				$id_merek = $this->input->post('id_merek');
@@ -572,10 +594,10 @@ class Admin extends CI_Controller
 
 
 	public function serial_number($sr){
-	
-	
+
+
 		
-	
+
 	}
 	public function laptop_delete()
 	{
@@ -1868,56 +1890,60 @@ class Admin extends CI_Controller
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-			$no_tiket = $this->input->post('no_tiket');
-			$year = $this->input->post('year');
-			$month = $this->input->post('month');
+			$no_tiket = $this->input->post('filter_no_tiket');
+			$wilayah = $this->input->post('filter_wilayah');
+			$layanan = $this->input->post('filter_layanan');
+			$year = $this->input->post('filter_year');
+			$month = $this->input->post('filter_month');
 			$monthstr = sprintf("%02d", $month);
 			switch ($monthstr) {
 				case "01":
-					$data['monthName'] = "Januari";
-					break;
+				$data['filter_monthName'] = "Januari";
+				break;
 				case "02":
-					$data['monthName'] = "Februari";
-					break;
+				$data['filter_monthName'] = "Februari";
+				break;
 				case "03":
-					$data['monthName'] = "Maret";
-					break;
+				$data['filter_monthName'] = "Maret";
+				break;
 				case "04":
-					$data['monthName'] = "April";
-					break;
+				$data['filter_monthName'] = "April";
+				break;
 				case "05":
-					$data['monthName'] = "Mei";
-					break;
+				$data['filter_monthName'] = "Mei";
+				break;
 				case "06":
-					$data['monthName'] = "Juni";
-					break;
+				$data['filter_monthName'] = "Juni";
+				break;
 				case "07":
-					$data['monthName'] = "Juli";
-					break;
+				$data['filter_monthName'] = "Juli";
+				break;
 				case "08":
-					$data['monthName'] = "Agustus";
-					break;
+				$data['filter_monthName'] = "Agustus";
+				break;
 				case "09":
-					$data['monthName'] = "September";
-					break;
+				$data['filter_monthName'] = "September";
+				break;
 				case "10":
-					$data['monthName'] = "Oktober";
-					break;
+				$data['filter_monthName'] = "Oktober";
+				break;
 				case "11":
-					$data['monthName'] = "November";
-					break;
+				$data['filter_monthName'] = "November";
+				break;
 				case "12":
-					$data['monthName'] = "Desember";
-					break;
+				$data['filter_monthName'] = "Desember";
+				break;
 			}
-			if (empty($no_tiket) && empty($year) && empty($month)) {
-				echo "<script>alert('Harap masukkan nomor tiket, tahun, atau bulan untuk melakukan filter data log gangguan')</script>";
+			if (empty($no_tiket) && empty($wilayah) && empty($layanan) && empty($year) && empty($month)) {
+				echo "<script>alert('Harap masukkan nomor tiket, wilayah, layanan, tahun, atau bulan untuk melakukan filter data log gangguan')</script>";
 				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/lgangguan_view>";
 			} else {
-				$data['lgangguan_view'] = $this->admin_model->lgangguan_filter($no_tiket, $year, $month);
-				$data['no_tiket'] = $no_tiket;
-				$data['year'] = $year;
-				$data['month'] = $month;
+				$data['lgangguan_view'] = $this->admin_model->lgangguan_filter($no_tiket, $wilayah, $layanan, $year, $month);
+				$data['filter_no_tiket'] = $no_tiket;
+				$data['filter_wilayah'] = $wilayah;
+				$data['filter_layanan'] = $layanan;
+				$data['filter_year'] = $year;
+				$data['filter_month'] = $month;
 				$this->load->view('header');
 				$this->load->view('sidebar');
 				$this->load->view('admin/lgangguan_view', $data);
@@ -1952,11 +1978,17 @@ class Admin extends CI_Controller
 			$this->form_validation->set_rules('sid', 'SID', 'required|numeric', [
 				'required' => 'SID harus di isi!'
 			]);
+			$this->form_validation->set_rules('wilayah', 'Wilayah', 'required', [
+				'required' => 'Wilayah kerja harus di isi!'
+			]);
 			$this->form_validation->set_rules('layanan', 'Layanan', 'required', [
-				'required' => 'Layanan harus di isi dengan angka!'
+				'required' => 'Layanan harus di isi!'
 			]);
 			$this->form_validation->set_rules('status_log', 'Status Tiket', 'required', [
 				'required' => 'Status tiket harus di isi!'
+			]);
+			$this->form_validation->set_rules('stop_clock', 'Stop Clock (menit)', 'required|numeric', [
+				'required' => 'Stop clock harus diisi dengan angka!'
 			]);
 			$this->form_validation->set_rules('penyebab', 'penyebab', 'required', [
 				'required' => 'Penyebab harus di isi!'
@@ -1975,8 +2007,10 @@ class Admin extends CI_Controller
 				$no_tiket = $this->input->post('no_tiket');
 				$nama_service = $this->input->post('nama_service');
 				$sid = $this->input->post('sid');
+				$wilayah = $this->input->post('wilayah');
 				$layanan = $this->input->post('layanan');
 				$status_log = $this->input->post('status_log');
+				$stop_clock = $this->input->post('stop_clock');
 				$penyebab = $this->input->post('penyebab');
 				$action = $this->input->post('action');
 
@@ -1987,16 +2021,22 @@ class Admin extends CI_Controller
 				$before = date_create($now);
 				$after = date_create($now);
 				$diff = date_diff($before, $after, FALSE);
-				$durasi = $diff->format("%H:%i:%s");
+				$printdiff = $diff->format("%Y-%m-%d %H:%i:%s");
+				$datediff = date_create($printdiff);
+				$diffminus = $datediff->modify("-{$stop_clock} minutes");
+				$durasi = $diffminus->format("H:i:s");
+
 
 				$data = array(
 					'no_tiket' => $no_tiket,
 					'nama_service' => $nama_service,
 					'sid' => $sid,
+					'wilayah' => $wilayah,
 					'layanan' => $layanan,
 					'status_log' => $status_log,
 					'tiket_open' => $tiket_open,
 					'tiket_close' => $tiket_close,
+					'stop_clock' => $stop_clock,
 					'durasi' => $durasi,
 					'penyebab' => $penyebab,
 					'action' => $action
@@ -2044,11 +2084,17 @@ class Admin extends CI_Controller
 			$this->form_validation->set_rules('sid', 'SID', 'required|numeric', [
 				'required' => 'SID harus di isi!'
 			]);
+			$this->form_validation->set_rules('wilayah', 'Wilayah', 'required', [
+				'required' => 'Wilayah harus di isi!'
+			]);
 			$this->form_validation->set_rules('layanan', 'Layanan', 'required', [
-				'required' => 'Layanan harus di isi dengan angka!'
+				'required' => 'Layanan harus di isi!'
 			]);
 			$this->form_validation->set_rules('status_log', 'Status Tiket', 'required', [
 				'required' => 'Status tiket harus di isi!'
+			]);
+			$this->form_validation->set_rules('stop_clock', 'Stop Clock (menit)', 'required|numeric', [
+				'required' => 'Stop clock harus di isi!'
 			]);
 			$this->form_validation->set_rules('penyebab', 'penyebab', 'required', [
 				'required' => 'Penyebab harus di isi!'
@@ -2060,17 +2106,19 @@ class Admin extends CI_Controller
 
 			if ($this->form_validation->run() == false) {
 				$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible text-center " role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
-                    </button>
-                    Pastikan seluruh data terisi
-                  </div>');
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+					</button>
+					Pastikan seluruh data terisi
+					</div>');
 				redirect(base_url() . "admin/lgangguan_edit?log_id=" . $log_id);
 			} else {
 				$no_tiket = $this->input->post('no_tiket');
 				$nama_service = $this->input->post('nama_service');
 				$sid = $this->input->post('sid');
+				$wilayah = $this->input->post('wilayah');
 				$layanan = $this->input->post('layanan');
 				$status_log = $this->input->post('status_log');
+				$stop_clock = $this->input->post('stop_clock');
 				$penyebab = $this->input->post('penyebab');
 				$action = $this->input->post('action');
 
@@ -2090,16 +2138,22 @@ class Admin extends CI_Controller
 				}
 
 				$diff = date_diff($before, $after, FALSE);
-				$durasi = $diff->format("%H:%i:%s");
+				$printdiff = $diff->format("%Y-%m-%d %H:%i:%s");
+				$datediff = date_create($printdiff);
+				$diffminus = $datediff->modify("-{$stop_clock} minutes");
+				$durasi = $diffminus->format("H:i:s");
+
 
 				$data = array(
 					'no_tiket' => $no_tiket,
 					'nama_service' => $nama_service,
 					'sid' => $sid,
+					'wilayah' => $wilayah,
 					'layanan' => $layanan,
 					'status_log' => $status_log,
 					'tiket_open' => $tiket_open,
 					'tiket_close' => $tiket_close,
+					'stop_clock' => $stop_clock,
 					'durasi' => $durasi,
 					'penyebab' => $penyebab,
 					'action' => $action
