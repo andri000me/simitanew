@@ -129,6 +129,31 @@
     table.buttons().container()
       .appendTo('#example3_wrapper .col-sm-6:eq(0)');
   })
+  $(function() {
+    var table = $('#example4').DataTable({
+
+      lengthChange: true,
+      scrollX : true,
+      buttons: [{
+        extend: 'excel',
+        text: '<i class="fa fa-file-excel-o"></i>&nbsp Export to Excel (*.xls)',
+        className: 'btn btn-sm',
+        exportOptions: {
+          columns: 'th:not(:last-child)'
+        },
+      }],
+    });
+    $('#example2').DataTable({
+      'paging': true,
+      'lengthChange': false,
+      'searching': false,
+      'ordering': true,
+      'info': true,
+      'autoWidth': false
+    })
+    table.buttons().container()
+      .appendTo('#example1_wrapper .col-sm-6:eq(0)');
+  })
 </script>
 
 <!-- bootstrap datepicker -->
