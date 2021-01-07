@@ -95,6 +95,12 @@
                 <li class="<?php if( $this->uri->segment(1)=="kpi"){echo 'active';}?>"> 
                   <a href="<?php echo site_url('kpi'); ?>"><i class="fa fa-book"></i> KPI
                   </span>
+                  </a>
+                </li>
+
+                <li class="<?php if( $this->uri->segment(2)=="data_network_view"){echo 'active';}?>"> 
+                  <a href="<?php echo site_url('admin/data_network_view'); ?>"><i class="fa fa-book"></i> Data Network
+                  </span>
                 </a>
               </li>
             </li>

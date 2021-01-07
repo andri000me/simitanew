@@ -1037,6 +1037,52 @@ class Admin_model extends CI_Model
     return $get;
   }
 
+  //DATA NETWORK
+  function tampil_data_network()
+  {
+    $get = $this->db->query("SELECT a.*, b.nama_unit FROM data_network a JOIN unit b ON a.id_unit = b.id_unit ORDER BY a.service_id DESC ");
+    return $get;
+  }
+
+  function list_unit_sumut1()
+  {
+    $get = $this->db->query("SELECT id_unit, nama_unit FROM unit WHERE wilayah_kerja = 'Sumut 1' ORDER BY id_unit DESC ");
+    return $get;
+  }
+
+  function list_unit_sumut2()
+  {
+    $get = $this->db->query("SELECT id_unit, nama_unit FROM unit WHERE wilayah_kerja = 'Sumut 2' ORDER BY id_unit DESC ");
+    return $get;
+  }
+
+  public function add_data_network_data($data)
+  {
+    $input = $this->db->insert('data_network', $data);
+    return $input;
+  }
+
+  function get_data_network($value, $column)
+  {
+    $get = $this->db->query("SELECT a.* FROM data_network a WHERE a.$column =$value");
+    if ($get->num_rows() == 1) {
+      return $get->row_array();
+    }
+  }
+
+  function update_data_network($data, $data_id)
+  {
+    $update = $this->db->update('data_network', $data, array('data_id' => $data_id));
+    return $update;
+  }
+
+  function data_network_delete($id)
+  {
+    $delete = $this->db->delete('data_network', array('data_id' => $id));
+    return $delete;
+  }
+
+
   function dashboard_merek_laptop_dell()
   {
     $get = $this->db->query("SELECT 

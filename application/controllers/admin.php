@@ -2168,4 +2168,229 @@ class Admin extends CI_Controller
 			}
 		}
 	}
+
+	//DATA NETWORK
+	public function data_network_view()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$data['data_network_view'] = $this->admin_model->tampil_data_network();
+			$this->load->view('header');
+			$this->load->view('sidebar');
+			$this->load->view('admin/data_network_view', $data);
+			$this->load->view('footer');
+		}
+	}
+
+	public function data_network_add()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$data['list_unit_sumut1'] = $this->admin_model->list_unit_sumut1();
+			$data['list_unit_sumut2'] = $this->admin_model->list_unit_sumut2();
+			$this->load->view('header', $this->data);
+			$this->load->view('sidebar', $data);
+			$this->load->view('admin/data_network_add', $data);
+			$this->load->view('footer');
+		}
+	}
+
+	public function action_data_network_add()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$nomorasman = $this->input->post('nomorasman');
+			$this->form_validation->set_rules('tanggal_aktivasi', 'Tanggal Aktivasi', 'required', [
+				'required' => 'Tanggal Aktivasi harus di isi!'
+			]);
+			$this->form_validation->set_rules('service_id', 'Service ID', 'required', [
+				'required' => 'Service ID harus di isi!'
+			]);
+			$this->form_validation->set_rules('service', 'Service', 'required', [
+				'required' => 'Service harus di isi!'
+			]);
+			$this->form_validation->set_rules('asman', 'Asman', 'required', [
+				'required' => 'Asman harus di isi!'
+			]);
+			if($nomorasman == 1){
+				$this->form_validation->set_rules('id_unit1', 'Nama Unit', 'required|numeric', [
+					'required' => 'Nama unit harus di isi!'
+				]);
+			} else if ($nomorasman == 2){
+				$this->form_validation->set_rules('id_unit2', 'Nama Unit', 'required|numeric', [
+					'required' => 'Nama unit harus di isi!'
+				]);
+			}
+			
+			$this->form_validation->set_rules('keterangan', 'Keterangan', 'required', [
+				'required' => 'Keterangan harus di isi!'
+			]);
+			$this->form_validation->set_rules('no_aktivasi', 'No BA Aktivasi/ADM', 'required', [
+				'required' => 'No BA Aktivasi/ADM harus diisi!'
+			]);
+			$this->form_validation->set_rules('scada', 'scada', 'required', [
+				'required' => 'scada harus di isi!'
+			]);
+
+			$this->form_validation->set_rules('volume', 'Volume', 'required|numeric', [
+				'required' => 'Volume harus di isi!'
+			]);
+
+			$this->form_validation->set_rules('kapasitas', 'Kapasitas', 'required', [
+				'required' => 'Kapasitas harus di isi!'
+			]);
+
+			if ($this->form_validation->run() == false) {
+				$this->load->view('header');
+				$this->load->view('sidebar');
+				$this->load->view('admin/data_network_add');
+				$this->load->view('footer');
+			} else {
+				if($nomorasman == 1){
+					$id_unit = $this->input->post('id_unit1');
+				} else if($nomorasman == 2){
+					$id_unit = $this->input->post('id_unit2');
+				}
+				$data = array(
+					'tanggal_aktivasi' => $this->input->post('tanggal_aktivasi'),
+					'service_id' => $this->input->post('service_id'),
+					'service' => $this->input->post('service'),
+					'asman' => $this->input->post('asman'),
+					'id_unit' => $id_unit,
+					'keterangan' => $this->input->post('keterangan'),
+					'no_aktivasi' => $this->input->post('no_aktivasi'),
+					'scada' => $this->input->post('scada'),
+					'volume' => $this->input->post('volume'),
+					'kapasitas' => $this->input->post('kapasitas')
+				);
+
+				$insert = $this->admin_model->add_data_network_data($data);
+				if ($insert) {
+					echo "<script>alert('Berhasil Menambah Data')</script>";
+					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/data_network_view>";
+				} else {
+					echo "<script>alert('Gagal Menambah Data')</script>";
+					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/data_network_view>";
+				}
+			}
+		}
+	}
+
+	public function data_network_edit()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$data_id = $this->input->get('data_id');
+			$data['list_unit_sumut1'] = $this->admin_model->list_unit_sumut1();
+			$data['list_unit_sumut2'] = $this->admin_model->list_unit_sumut2();
+			$data['data_networknya'] = $this->admin_model->get_data_network($data_id, "data_id");
+			$this->data['title'] = 'Update Data Network :: ';
+			$this->load->view('header', $this->data);
+			$this->load->view('sidebar', $data);
+			$this->load->view('admin/data_network_edit', $data);
+			$this->load->view('footer');
+		}
+	}
+
+	public function action_data_network_edit()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$data_id = $this->input->post('data_id');
+			$nomorasman = $this->input->post('nomorasman');
+			$this->form_validation->set_rules('tanggal_aktivasi', 'Tanggal Aktivasi', 'required', [
+				'required' => 'Tanggal Aktivasi harus di isi!'
+			]);
+			$this->form_validation->set_rules('service_id', 'Service ID', 'required', [
+				'required' => 'Service ID harus di isi!'
+			]);
+			$this->form_validation->set_rules('service', 'Service', 'required', [
+				'required' => 'Service harus di isi!'
+			]);
+			$this->form_validation->set_rules('asman', 'Asman', 'required', [
+				'required' => 'Asman harus di isi!'
+			]);
+			if($nomorasman == 1){
+				$this->form_validation->set_rules('id_unit1', 'Nama Unit', 'required|numeric', [
+					'required' => 'Nama unit harus di isi!'
+				]);
+			} else if ($nomorasman == 2){
+				$this->form_validation->set_rules('id_unit2', 'Nama Unit', 'required|numeric', [
+					'required' => 'Nama unit harus di isi!'
+				]);
+			}
+			
+			$this->form_validation->set_rules('keterangan', 'Keterangan', 'required', [
+				'required' => 'Keterangan harus di isi!'
+			]);
+			$this->form_validation->set_rules('no_aktivasi', 'No BA Aktivasi/ADM', 'required', [
+				'required' => 'No BA Aktivasi/ADM harus diisi!'
+			]);
+			$this->form_validation->set_rules('scada', 'scada', 'required', [
+				'required' => 'scada harus di isi!'
+			]);
+
+			$this->form_validation->set_rules('volume', 'Volume', 'required|numeric', [
+				'required' => 'Volume harus di isi!'
+			]);
+
+			$this->form_validation->set_rules('kapasitas', 'Kapasitas', 'required', [
+				'required' => 'Kapasitas harus di isi!'
+			]);
+
+			if ($this->form_validation->run() == false) {
+				$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible text-center " role="alert">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+					</button>
+					Pastikan seluruh data terisi
+					</div>');
+				redirect(base_url() . "admin/data_network_edit?data_id=" . $data_id);
+			} else {
+				if($nomorasman == 1){
+					$id_unit = $this->input->post('id_unit1');
+				} else if($nomorasman == 2){
+					$id_unit = $this->input->post('id_unit2');
+				} else {
+					$id_unit = $this->input->post('id_unit_lama');
+				}
+				$data = array(
+					'tanggal_aktivasi' => $this->input->post('tanggal_aktivasi'),
+					'service_id' => $this->input->post('service_id'),
+					'service' => $this->input->post('service'),
+					'asman' => $this->input->post('asman'),
+					'id_unit' => $id_unit,
+					'keterangan' => $this->input->post('keterangan'),
+					'no_aktivasi' => $this->input->post('no_aktivasi'),
+					'scada' => $this->input->post('scada'),
+					'volume' => $this->input->post('volume'),
+					'kapasitas' => $this->input->post('kapasitas')
+				);
+
+				$update = $this->admin_model->update_data_network($data, $data_id);
+				if ($update) {
+					echo "<script>alert('Berhasil Mengubah Data')</script>";
+					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/data_network_view?data_id=" . $data_id . ">";
+				}
+			}
+		}
+	}
+
+	public function data_network_delete()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$data_id = $this->input->get('data_id');
+			$delete = $this->admin_model->data_network_delete($data_id);
+			if ($delete) {
+				echo "<script>alert('Berhasil Menghapus Data')</script>";
+				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/data_network_view>";
+			}
+		}
+	}
 }

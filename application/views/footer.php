@@ -8,8 +8,8 @@
 
 
 <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
-<div class="control-sidebar-bg"></div>
+ immediately after the control sidebar -->
+ <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
 <!-- jQuery 3 -->
@@ -103,7 +103,7 @@
       'autoWidth': false
     })
     table.buttons().container()
-      .appendTo('#example1_wrapper .col-sm-6:eq(0)');
+    .appendTo('#example1_wrapper .col-sm-6:eq(0)');
   })
   $(function() {
     var table = $('#example3').DataTable({
@@ -127,7 +127,7 @@
       'autoWidth': false
     })
     table.buttons().container()
-      .appendTo('#example3_wrapper .col-sm-6:eq(0)');
+    .appendTo('#example3_wrapper .col-sm-6:eq(0)');
   })
   $(function() {
     var table = $('#example4').DataTable({
@@ -152,7 +152,7 @@
       'autoWidth': false
     })
     table.buttons().container()
-      .appendTo('#example1_wrapper .col-sm-6:eq(0)');
+    .appendTo('#example1_wrapper .col-sm-6:eq(0)');
   })
 </script>
 
@@ -243,41 +243,41 @@
     var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
     var pieChart = new Chart(pieChartCanvas)
     var PieData = [{
-        value: <?php echo $dashboard_merek_laptop_hp['jumlahnya']; ?>,
-        color: '#f56954',
-        highlight: '#f56954',
-        label: '<?php echo $dashboard_merek_laptop_hp['nama_merek']; ?>'
-      },
-      {
-        value: <?php echo $dashboard_merek_laptop_apple['jumlahnya']; ?>,
-        color: '#00a65a',
-        highlight: '#00a65a',
-        label: '<?php echo $dashboard_merek_laptop_apple['nama_merek']; ?>'
-      },
-      {
-        value: <?php echo $dashboard_merek_laptop_asus['jumlahnya']; ?>,
-        color: '#f39c12',
-        highlight: '#f39c12',
-        label: '<?php echo $dashboard_merek_laptop_asus['nama_merek']; ?>'
-      },
-      {
-        value: <?php echo $dashboard_merek_laptop_lenovo['jumlahnya']; ?>,
-        color: '#00c0ef',
-        highlight: '#00c0ef',
-        label: '<?php echo $dashboard_merek_laptop_lenovo['nama_merek']; ?>'
-      },
-      {
-        value: <?php echo $dashboard_merek_laptop_toshiba['jumlahnya']; ?>,
-        color: '#3c8dbc',
-        highlight: '#3c8dbc',
-        label: '<?php echo $dashboard_merek_laptop_toshiba['nama_merek']; ?>'
-      },
-      {
-        value: <?php echo $dashboard_merek_laptop_dell['jumlahnya']; ?>,
-        color: '#d2d6de',
-        highlight: '#d2d6de',
-        label: '<?php echo $dashboard_merek_laptop_dell['nama_merek']; ?>'
-      },
+      value: <?php echo $dashboard_merek_laptop_hp['jumlahnya']; ?>,
+      color: '#f56954',
+      highlight: '#f56954',
+      label: '<?php echo $dashboard_merek_laptop_hp['nama_merek']; ?>'
+    },
+    {
+      value: <?php echo $dashboard_merek_laptop_apple['jumlahnya']; ?>,
+      color: '#00a65a',
+      highlight: '#00a65a',
+      label: '<?php echo $dashboard_merek_laptop_apple['nama_merek']; ?>'
+    },
+    {
+      value: <?php echo $dashboard_merek_laptop_asus['jumlahnya']; ?>,
+      color: '#f39c12',
+      highlight: '#f39c12',
+      label: '<?php echo $dashboard_merek_laptop_asus['nama_merek']; ?>'
+    },
+    {
+      value: <?php echo $dashboard_merek_laptop_lenovo['jumlahnya']; ?>,
+      color: '#00c0ef',
+      highlight: '#00c0ef',
+      label: '<?php echo $dashboard_merek_laptop_lenovo['nama_merek']; ?>'
+    },
+    {
+      value: <?php echo $dashboard_merek_laptop_toshiba['jumlahnya']; ?>,
+      color: '#3c8dbc',
+      highlight: '#3c8dbc',
+      label: '<?php echo $dashboard_merek_laptop_toshiba['nama_merek']; ?>'
+    },
+    {
+      value: <?php echo $dashboard_merek_laptop_dell['jumlahnya']; ?>,
+      color: '#d2d6de',
+      highlight: '#d2d6de',
+      label: '<?php echo $dashboard_merek_laptop_dell['nama_merek']; ?>'
+    },
     ]
     var pieOptions = {
       //Boolean - Whether we should show a stroke on each segment
@@ -316,28 +316,28 @@
     var barChartData = {
       labels: ['Laptop', 'Komputer', 'Printer', 'Monitor', 'Network Device'],
       datasets: [
-        {
-          label: 'Aset PLN',
-          fillColor: 'rgba(210, 214, 222, 1)',
-          strokeColor: 'rgba(210, 214, 222, 1)',
-          pointColor: 'rgba(210, 214, 222, 1)',
-          pointStrokeColor: '#c1c7d1',
-          pointHighlightFill: '#fff',
-          pointHighlightStroke: 'rgba(220,220,220,1)',
-          data: <?php echo $dashboard_status_kepemilikan_pln ?>
-        },
+      {
+        label: 'Aset PLN',
+        fillColor: 'rgba(210, 214, 222, 1)',
+        strokeColor: 'rgba(210, 214, 222, 1)',
+        pointColor: 'rgba(210, 214, 222, 1)',
+        pointStrokeColor: '#c1c7d1',
+        pointHighlightFill: '#fff',
+        pointHighlightStroke: 'rgba(220,220,220,1)',
+        data: <?php echo $dashboard_status_kepemilikan_pln ?>
+      },
 
-        {
-          label: 'Sewa',
-          fillColor: 'rgba(60,141,188,0.9)',
-          strokeColor: 'rgba(60,141,188,0.8)',
-          pointColor: '#3b8bba',
-          pointStrokeColor: 'rgba(60,141,188,1)',
-          pointHighlightFill: '#fff',
-          pointHighlightStroke: 'rgba(60,141,188,1)',
-          data: <?php echo $dashboard_status_kepemilikan_sewa ?>
+      {
+        label: 'Sewa',
+        fillColor: 'rgba(60,141,188,0.9)',
+        strokeColor: 'rgba(60,141,188,0.8)',
+        pointColor: '#3b8bba',
+        pointStrokeColor: 'rgba(60,141,188,1)',
+        pointHighlightFill: '#fff',
+        pointHighlightStroke: 'rgba(60,141,188,1)',
+        data: <?php echo $dashboard_status_kepemilikan_sewa ?>
 
-        }
+      }
       ],
     }
 
@@ -383,41 +383,41 @@
     var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
     var pieChart = new Chart(pieChartCanvas)
     var PieData = [{
-        value: <?php echo $dashboard_merek_laptop_hp['jumlahnya']; ?>,
-        color: '#f56954',
-        highlight: '#f56954',
-        label: '<?php echo $dashboard_merek_laptop_hp['nama_merek']; ?>'
-      },
-      {
-        value: <?php echo $dashboard_merek_laptop_apple['jumlahnya']; ?>,
-        color: '#00a65a',
-        highlight: '#00a65a',
-        label: '<?php echo $dashboard_merek_laptop_apple['nama_merek']; ?>'
-      },
-      {
-        value: <?php echo $dashboard_merek_laptop_asus['jumlahnya']; ?>,
-        color: '#f39c12',
-        highlight: '#f39c12',
-        label: '<?php echo $dashboard_merek_laptop_asus['nama_merek']; ?>'
-      },
-      {
-        value: <?php echo $dashboard_merek_laptop_lenovo['jumlahnya']; ?>,
-        color: '#00c0ef',
-        highlight: '#00c0ef',
-        label: '<?php echo $dashboard_merek_laptop_lenovo['nama_merek']; ?>'
-      },
-      {
-        value: <?php echo $dashboard_merek_laptop_toshiba['jumlahnya']; ?>,
-        color: '#3c8dbc',
-        highlight: '#3c8dbc',
-        label: '<?php echo $dashboard_merek_laptop_toshiba['nama_merek']; ?>'
-      },
-      {
-        value: <?php echo $dashboard_merek_laptop_dell['jumlahnya']; ?>,
-        color: '#d2d6de',
-        highlight: '#d2d6de',
-        label: '<?php echo $dashboard_merek_laptop_dell['nama_merek']; ?>'
-      },
+      value: <?php echo $dashboard_merek_laptop_hp['jumlahnya']; ?>,
+      color: '#f56954',
+      highlight: '#f56954',
+      label: '<?php echo $dashboard_merek_laptop_hp['nama_merek']; ?>'
+    },
+    {
+      value: <?php echo $dashboard_merek_laptop_apple['jumlahnya']; ?>,
+      color: '#00a65a',
+      highlight: '#00a65a',
+      label: '<?php echo $dashboard_merek_laptop_apple['nama_merek']; ?>'
+    },
+    {
+      value: <?php echo $dashboard_merek_laptop_asus['jumlahnya']; ?>,
+      color: '#f39c12',
+      highlight: '#f39c12',
+      label: '<?php echo $dashboard_merek_laptop_asus['nama_merek']; ?>'
+    },
+    {
+      value: <?php echo $dashboard_merek_laptop_lenovo['jumlahnya']; ?>,
+      color: '#00c0ef',
+      highlight: '#00c0ef',
+      label: '<?php echo $dashboard_merek_laptop_lenovo['nama_merek']; ?>'
+    },
+    {
+      value: <?php echo $dashboard_merek_laptop_toshiba['jumlahnya']; ?>,
+      color: '#3c8dbc',
+      highlight: '#3c8dbc',
+      label: '<?php echo $dashboard_merek_laptop_toshiba['nama_merek']; ?>'
+    },
+    {
+      value: <?php echo $dashboard_merek_laptop_dell['jumlahnya']; ?>,
+      color: '#d2d6de',
+      highlight: '#d2d6de',
+      label: '<?php echo $dashboard_merek_laptop_dell['nama_merek']; ?>'
+    },
     ]
     var pieOptions = {
       //Boolean - Whether we should show a stroke on each segment
@@ -453,16 +453,16 @@
     var pieChartCanvas = $('#pieChartPC').get(0).getContext('2d')
     var pieChart = new Chart(pieChartCanvas)
     var PieData = [
-      <?php if (!empty($dashboard_merek_pc)) {
-        foreach ($dashboard_merek_pc->result_array() as $data) { ?> {
-            value: <?php echo $data['jumlahnya']; ?>,
-            color: getRandomColor(),
-            label: '<?php echo $data['nama_merek']; ?>'
-          },
-      <?php }
-      } ?>
-    ]
-    pieChart.Doughnut(PieData, pieOptions)
+    <?php if (!empty($dashboard_merek_pc)) {
+      foreach ($dashboard_merek_pc->result_array() as $data) { ?> {
+        value: <?php echo $data['jumlahnya']; ?>,
+        color: getRandomColor(),
+        label: '<?php echo $data['nama_merek']; ?>'
+      },
+    <?php }
+  } ?>
+  ]
+  pieChart.Doughnut(PieData, pieOptions)
 
     //-------------
     //- PIE CHART MEREK PRINTER-
@@ -470,16 +470,16 @@
     var pieChartCanvas = $('#pieChartPrinter').get(0).getContext('2d')
     var pieChart = new Chart(pieChartCanvas)
     var PieData = [
-      <?php if (!empty($dashboard_merek_printer)) {
-        foreach ($dashboard_merek_printer->result_array() as $data) { ?> {
-            value: <?php echo $data['jumlahnya']; ?>,
-            color: getRandomColor(),
-            label: '<?php echo $data['nama_merek']; ?>'
-          },
-      <?php }
-      } ?>
-    ]
-    pieChart.Doughnut(PieData, pieOptions)
+    <?php if (!empty($dashboard_merek_printer)) {
+      foreach ($dashboard_merek_printer->result_array() as $data) { ?> {
+        value: <?php echo $data['jumlahnya']; ?>,
+        color: getRandomColor(),
+        label: '<?php echo $data['nama_merek']; ?>'
+      },
+    <?php }
+  } ?>
+  ]
+  pieChart.Doughnut(PieData, pieOptions)
 
     //-------------
     //- PIE CHART MEREK NETWORK DEVICE-
@@ -487,16 +487,16 @@
     var pieChartCanvas = $('#pieChartNetworkDevice').get(0).getContext('2d')
     var pieChart = new Chart(pieChartCanvas)
     var PieData = [
-      <?php if (!empty($dashboard_merek_network_device)) {
-        foreach ($dashboard_merek_network_device->result_array() as $data) { ?> {
-            value: <?php echo $data['jumlahnya']; ?>,
-            color: getRandomColor(),
-            label: '<?php echo $data['nama_merek']; ?>'
-          },
-      <?php }
-      } ?>
-    ]
-    pieChart.Doughnut(PieData, pieOptions)
+    <?php if (!empty($dashboard_merek_network_device)) {
+      foreach ($dashboard_merek_network_device->result_array() as $data) { ?> {
+        value: <?php echo $data['jumlahnya']; ?>,
+        color: getRandomColor(),
+        label: '<?php echo $data['nama_merek']; ?>'
+      },
+    <?php }
+  } ?>
+  ]
+  pieChart.Doughnut(PieData, pieOptions)
 
     //-------------
     //- PIE CHART MEREK SERVER-
@@ -504,16 +504,16 @@
     var pieChartCanvas = $('#pieChartServer').get(0).getContext('2d')
     var pieChart = new Chart(pieChartCanvas)
     var PieData = [
-      <?php if (!empty($dashboard_merek_server)) {
-        foreach ($dashboard_merek_server->result_array() as $data) { ?> {
-            value: <?php echo $data['jumlahnya']; ?>,
-            color: getRandomColor(),
-            label: '<?php echo $data['nama_merek']; ?>'
-          },
-      <?php }
-      } ?>
-    ]
-    pieChart.Doughnut(PieData, pieOptions)
+    <?php if (!empty($dashboard_merek_server)) {
+      foreach ($dashboard_merek_server->result_array() as $data) { ?> {
+        value: <?php echo $data['jumlahnya']; ?>,
+        color: getRandomColor(),
+        label: '<?php echo $data['nama_merek']; ?>'
+      },
+    <?php }
+  } ?>
+  ]
+  pieChart.Doughnut(PieData, pieOptions)
 
     //-------------
     //- PIE CHART MEREK VICON-
@@ -521,18 +521,18 @@
     var pieChartCanvas = $('#pieChartVicon').get(0).getContext('2d')
     var pieChart = new Chart(pieChartCanvas)
     var PieData = [
-      <?php if (!empty($dashboard_merek_vicon)) {
-        foreach ($dashboard_merek_vicon->result_array() as $data) { ?> {
-            value: <?php echo $data['jumlahnya']; ?>,
-            color: getRandomColor(),
-            label: '<?php echo $data['nama_merek']; ?>'
-          },
-      <?php }
-      } ?>
-    ]
-    pieChart.Doughnut(PieData, pieOptions)
+    <?php if (!empty($dashboard_merek_vicon)) {
+      foreach ($dashboard_merek_vicon->result_array() as $data) { ?> {
+        value: <?php echo $data['jumlahnya']; ?>,
+        color: getRandomColor(),
+        label: '<?php echo $data['nama_merek']; ?>'
+      },
+    <?php }
+  } ?>
+  ]
+  pieChart.Doughnut(PieData, pieOptions)
 
-  })
+})
 </script>
 
 <script type="text/javascript">
@@ -544,6 +544,51 @@
       ele.style.display = "block";
     } else {
       ele.style.display = "none";
+    }
+  }
+</script>
+
+<script type="text/javascript">
+  function namaunitnya() {
+    var tes = document.getElementById("asman").value;
+    var ele1 = document.getElementById("toggleText1");
+    var ele2 = document.getElementById("toggleText2");
+
+    if (tes === "Asman Sumut 1") {
+      ele1.style.display = "block";
+      ele2.style.display = "none";
+      document.getElementById("nomorasman").value = 1;
+    } else if(tes === "Asman Sumut 2"){
+      ele2.style.display = "block";
+      ele1.style.display = "none";
+      document.getElementById("nomorasman").value = 2;
+    } else {
+      ele1.style.display = "none";
+      ele2.style.display = "none";
+    }
+  }
+</script>
+
+<script type="text/javascript">
+  function editnamaunitnya() {
+    var tes = document.getElementById("asman").value;
+    var ele1 = document.getElementById("toggleText1");
+    var ele2 = document.getElementById("toggleText2");
+    var ele3 = document.getElementById("toggleText3");
+
+    if (tes === "Asman Sumut 1") {
+      ele1.style.display = "block";
+      ele2.style.display = "none";
+      ele3.style.display = "none";
+      document.getElementById("nomorasman").value = 1;
+    } else if(tes === "Asman Sumut 2"){
+      ele2.style.display = "block";
+      ele1.style.display = "none";
+      ele3.style.display = "none";
+      document.getElementById("nomorasman").value = 2;
+    } else {
+      ele1.style.display = "none";
+      ele2.style.display = "none";
     }
   }
 </script>

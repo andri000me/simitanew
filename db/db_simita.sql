@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 05, 2021 at 05:08 AM
+-- Generation Time: Jan 07, 2021 at 03:57 AM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.3.6
 
@@ -65,6 +65,35 @@ INSERT INTO `aplikasi_lokal` (`id_aplikasi_lokal`, `nama_aplikasi`, `link_aplika
 (28, 'Helpdesk IT', '10.26.30.12/helpdesk', '-', '-', '-', 85),
 (29, 'SIPAT', '10.26.30.3/sipat', '-', '-', '-', 85),
 (30, 'Unifi Controller', '10.26.30.3:8443', '-', '-', '-', 85);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `data_network`
+--
+
+CREATE TABLE `data_network` (
+  `data_id` int(11) NOT NULL,
+  `tanggal_aktivasi` date NOT NULL,
+  `service_id` varchar(20) NOT NULL,
+  `service` varchar(11) NOT NULL,
+  `asman` varchar(20) NOT NULL,
+  `id_unit` int(11) NOT NULL,
+  `keterangan` text NOT NULL,
+  `no_aktivasi` varchar(30) NOT NULL,
+  `scada` tinyint(1) NOT NULL COMMENT '1: scada, 0: non scada',
+  `volume` int(11) NOT NULL,
+  `kapasitas` varchar(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `data_network`
+--
+
+INSERT INTO `data_network` (`data_id`, `tanggal_aktivasi`, `service_id`, `service`, `asman`, `id_unit`, `keterangan`, `no_aktivasi`, `scada`, `volume`, `kapasitas`) VALUES
+(1, '2020-10-06', '10000027260001', 'Internet', 'Asman Sumut 2', 264, 'KANTOR WILAYAH  SUMUT\r\n', '6988.BA/R8/AKV/ICON+/2013', 1, 1, '10 Mbps'),
+(2, '2020-11-09', '990000320519096', 'IPVPN', 'Asman Sumut 1', 8, '[UIW SU - UP2D] GH PETISAH (CCTV) /JL. ROTAN PASAR PETISAH\r\n', '45547.BA/R8/AKV/ICON+/2017', 0, 1, '512 Kbps'),
+(3, '2020-10-13', '990000320498066', 'VSAT IP', 'Asman Sumut 2', 266, '[UIW SU - UP2D] GH LETNAN (CCTV)\r\n', '47217.BA/R8/AKV/ICON+/2017', 0, 2, '512 Kbps');
 
 -- --------------------------------------------------------
 
@@ -2285,7 +2314,8 @@ INSERT INTO `log_gangguan` (`log_id`, `no_tiket`, `nama_service`, `sid`, `wilaya
 (13, 'TIK/2011/130192', '[UIP3BS - UPT SIANTAR - SCADA]-GI DOLOK SANGGUL (SCADA)\r\n', '990000320449035', 'STI Sumut 1', 'IPVPN', 'Closed', '2021-01-05 02:22:09', '2021-01-05 02:22:09', 0, '02:04:54', 'GANGGUAN SOFTWARE DISISI LASTMILE\r\n', 'PERBAIKAN SOFTWARE\r\n'),
 (14, 'TIK/2011/127935', '[UIP3BS - UPT PEMATANG SIANTAR] GI SUBULUSALAM Kota Subulussalam Nanggro Aceh Darussalam ,Indonesia ,-   \r\n', '1000095406', 'STI Sumut 2', 'Clear Channel', 'Closed', '2021-01-05 02:22:34', '2021-01-05 03:21:32', 30, '00:28:58', 'GANGGUAN JALUR SEGMENT PEKANBARU - GARUDASAKTI\r\n', 'PERBAIKAN JALUR SEGMENT PEKANBARU - GARUDASAKTI\r\n'),
 (15, 'TIK/2009/100872', '[UIP3BS - UPT PEMATANG SIANTAR], GI PENYABUNGAN\r\n', '1000095407', 'STI Sumut 1', 'Metronet', 'Closed', '2021-01-05 02:22:14', '2021-01-05 03:10:16', 20, '00:28:02', 'GANGGUAN  JALUR AREA PANYAMBUNGAN - POP KOTANOPAN  IMPACT PUTUS KABEL FO DIJARAK 8 KM DARI ARAH POP KOTANOPAN.\r\n', 'REROUTE JALUR\r\n'),
-(16, 'TIK/2009/099095', '[UIW SUMUT],  -,  -,  -,  Indonesia,  - - ULP BELAWAN, -, -, -, Indonesia\r\n', '10000027240010', 'STI Sumut 1', 'Internet', 'Open', '2021-01-05 03:20:12', '2021-01-05 03:20:12', 0, '00:00:00', 'GANGGUAN PUTUS CORE FO DIJARAK 182 METER DARI POP BELAWAN KEARAH LASTMILE AKIBAT CRAK\r\n', 'PENYAMBUNGAN CORE\r\n');
+(16, 'TIK/2009/099095', '[UIW SUMUT],  -,  -,  -,  Indonesia,  - - ULP BELAWAN, -, -, -, Indonesia\r\n', '10000027240010', 'STI Sumut 1', 'Internet', 'Open', '2021-01-05 03:20:12', '2021-01-05 03:20:12', 0, '00:00:00', 'GANGGUAN PUTUS CORE FO DIJARAK 182 METER DARI POP BELAWAN KEARAH LASTMILE AKIBAT CRAK\r\n', 'PENYAMBUNGAN CORE\r\n'),
+(17, 'TIK/2007/072916', '[UIP3BS], pekanbaru, Kota Pekanbaru, Riau, Indonesia - GI LABUHAN ANGIN, -, -, -, Indonesia\r\n', '990000320307855', 'STI Sumut 2', 'Internet', 'Open', '2020-12-30 13:32:00', '2020-12-30 15:50:00', 30, '01:48:00', 'GANGGUAN PUTUS KABEL FO DIJARAK 4 KM DARI POP SIBOLGA KE ARAH LASTMILE YANG DISEBABKAN POHON TUMBANG DILOKASI\r\n', 'PENYAMBUNGAN KABEL FO\r\n');
 
 -- --------------------------------------------------------
 
@@ -4107,6 +4137,12 @@ ALTER TABLE `aplikasi_lokal`
   ADD KEY `id_laptop` (`id_aplikasi_lokal`);
 
 --
+-- Indexes for table `data_network`
+--
+ALTER TABLE `data_network`
+  ADD PRIMARY KEY (`data_id`);
+
+--
 -- Indexes for table `hi`
 --
 ALTER TABLE `hi`
@@ -4239,6 +4275,12 @@ ALTER TABLE `aplikasi_lokal`
   MODIFY `id_aplikasi_lokal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
+-- AUTO_INCREMENT for table `data_network`
+--
+ALTER TABLE `data_network`
+  MODIFY `data_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `hi`
 --
 ALTER TABLE `hi`
@@ -4278,7 +4320,7 @@ ALTER TABLE `laptop`
 -- AUTO_INCREMENT for table `log_gangguan`
 --
 ALTER TABLE `log_gangguan`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `merek`
