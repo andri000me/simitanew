@@ -30,9 +30,9 @@
 				  No.
 				 </th>
                   <th>Merk Laptop</th>
-                  <th>Nama Laptop</th>
                   <th>Spesifikasi</th>
                   <th>Pengguna</th>
+                  <th>Laptop Name</th>
 				  <th>Serial Number</th>
                   <th>IP Address</th>
                   <th>Unit</th>
@@ -56,15 +56,16 @@
                   <td>
 						<?php echo $data['nama_mereknya']; ?>
 				  </td>
-                  <td>
-						<?php echo $data['laptop_name']; ?>
-				  </td>
+               
                    <td>
 						<?php echo $data['spesifikasi']; ?>
 				  </td>
                  
 				   <td>
 						<?php echo $data['nama_pengguna']; ?>
+				  </td>
+				     <td>
+						<?php echo $data['laptop_name']; ?>
 				  </td>
 				  <td>
 						<?php echo $data['serial_number']; ?>
