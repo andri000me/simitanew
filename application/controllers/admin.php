@@ -2235,8 +2235,8 @@ class Admin extends CI_Controller
 				'required' => 'scada harus di isi!'
 			]);
 
-			$this->form_validation->set_rules('volume', 'Volume', 'required|numeric', [
-				'required' => 'Volume harus di isi!'
+			$this->form_validation->set_rules('harga', 'Harga', 'required|numeric', [
+				'required' => 'harga harus di isi!'
 			]);
 
 			$this->form_validation->set_rules('kapasitas', 'Kapasitas', 'required', [
@@ -2263,7 +2263,7 @@ class Admin extends CI_Controller
 					'keterangan' => $this->input->post('keterangan'),
 					'no_aktivasi' => $this->input->post('no_aktivasi'),
 					'scada' => $this->input->post('scada'),
-					'volume' => $this->input->post('volume'),
+					'harga' => $this->input->post('harga'),
 					'kapasitas' => $this->input->post('kapasitas')
 				);
 
@@ -2335,8 +2335,8 @@ class Admin extends CI_Controller
 				'required' => 'scada harus di isi!'
 			]);
 
-			$this->form_validation->set_rules('volume', 'Volume', 'required|numeric', [
-				'required' => 'Volume harus di isi!'
+			$this->form_validation->set_rules('harga', 'Harga', 'required|numeric', [
+				'required' => 'Harga harus di isi!'
 			]);
 
 			$this->form_validation->set_rules('kapasitas', 'Kapasitas', 'required', [
@@ -2367,7 +2367,7 @@ class Admin extends CI_Controller
 					'keterangan' => $this->input->post('keterangan'),
 					'no_aktivasi' => $this->input->post('no_aktivasi'),
 					'scada' => $this->input->post('scada'),
-					'volume' => $this->input->post('volume'),
+					'harga' => $this->input->post('harga'),
 					'kapasitas' => $this->input->post('kapasitas')
 				);
 

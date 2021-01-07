@@ -39,8 +39,8 @@
                    <th class="text-center">Keterangan</th>
                    <th class="text-center">No. BA Aktivasi/ADM</th>
                    <th class="text-center">Scada/Non Scada</th>
-                   <th class="text-center">Volume</th>
                    <th class="text-center">Kapasitas /BW</th>
+				   <th class="text-center">Harga</th>
                    <th class="text-center">Actions</th>
                  </tr>
                </thead>
@@ -63,8 +63,12 @@
                      } else if($data['scada'] == 0) {
                         echo "Non Scada";
                      } ?></td>
-                     <td class="text-center"><?= $data['volume']; ?></td>
                      <td class="text-center"><?= $data['kapasitas']; ?></td>
+				<?php
+				$harganya = "Rp " . number_format($data['harga'],2,',','.');
+				//echo $harganya; exit;
+				?>
+                     <td class="text-center"><?=  $harganya; ?></td>
                      <td class="text-center">
                        <div class="hidden-sm hidden-xs action-buttons">
                          <a class="green" value="<?php echo $data['data_id']; ?>" href="<?php echo base_url() . "admin/data_network_edit?data_id=" . $data['data_id'] ?>"><i class="fa fa-pencil bigger-130"></i></a>

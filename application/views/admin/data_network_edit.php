@@ -177,14 +177,6 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-10">
-            <div class="form-group">
-                <label for="volume" class="col-sm-3 control-label">Volume</label>
-                <div class="col-sm-5">
-                 <input type="number" class="form-control" id="volume" name="volume" value="<?php echo $data_networknya['volume']; ?>" required/>
-             </div>
-         </div>
-     </div>
      <div class="col-lg-10">
         <div class="form-group">
             <label for="kapasitas" class="col-sm-3 control-label">Kapasitas /BW</label>
@@ -193,6 +185,15 @@
            </div>
        </div>
    </div>
+   
+        <div class="col-lg-10">
+            <div class="form-group">
+                <label for="harga" class="col-sm-3 control-label">Harga</label>
+                <div class="col-sm-5">
+                 <input type="number" class="form-control" id="harga" name="harga" value="<?php echo $data_networknya['harga']; ?>" required/>
+             </div>
+         </div>
+     </div>
 
 </div>
 <!-- /.box-body -->

@@ -133,17 +133,18 @@
                         </div>
                         <div class="col-lg-10">
                             <div class="form-group">
-                                <label for="volume" class="col-sm-3 control-label">Volume</label>
-                                <div class="col-sm-5">
-                                    <input type="number" class="form-control" id="volume" name="volume" required />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-10">
-                            <div class="form-group">
                                 <label for="kapasitas" class="col-sm-3 control-label">Kapasitas /BW</label>
                                 <div class="col-sm-5">
                                     <input type="text" class="form-control" id="kapasitas" name="kapasitas" required />
+                                </div>
+                            </div>
+                        </div>
+						
+                        <div class="col-lg-10">
+                            <div class="form-group">
+                                <label for="harga" class="col-sm-3 control-label">Harga</label>
+                                <div class="col-sm-5">
+                                    <input type="number" class="form-control" id="harga" name="harga" required />
                                 </div>
                             </div>
                         </div>

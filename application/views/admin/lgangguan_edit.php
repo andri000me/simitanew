@@ -58,11 +58,11 @@
                             </div>
                             <div class="col-lg-10">
                                 <div class="form-group">
-                                    <label for="wilayah" class="col-sm-3 control-label">Wilayah</label>
+                                    <label for="asman" class="col-sm-3 control-label">Asman</label>
                                     <div class="col-sm-5">
-                                        <select class="form-control select2" name="wilayah" id="wilayah" style="width: 100%;"required>
-                                            <option value="<?php echo $lgangguannya['wilayah']; ?>" selected="selected"><?php echo $lgangguannya['wilayah']; ?></option>
-                                            <option value=""> -- Pilih Wilayah -- </option>
+                                        <select class="form-control select2" name="asman" id="asman" style="width: 100%;"required>
+                                            <option value="<?php echo $lgangguannya['asman']; ?>" selected="selected"><?php echo $lgangguannya['asman']; ?></option>
+                                            <option value=""> -- Pilih Asman -- </option>
                                             <option value="STI Sumut 1">STI Sumut 1</option>
                                             <option value="STI Sumut 2">STI Sumut 2</option>
                                         </select>

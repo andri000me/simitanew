@@ -44,9 +44,9 @@
                          <select class="form-control select2" name="filter_wilayah" id="filter_wilayah" style="width: 100%;">
                            <?php if (!empty($filter_wilayah)){ ?>
                              <option value="<?php echo $filter_wilayah; ?>" selected="selected"><?php echo $filter_wilayah; ?></option>
-                             <option value=""> -- Pilih Wilayah -- </option>
+                             <option value=""> -- Pilih Asman -- </option>
                            <?php } else { ?>
-                             <option value=""> -- Pilih Wilayah -- </option>
+                             <option value=""> -- Pilih Asman -- </option>
                            <?php } ?>
                            <option value="STI Sumut 1">STI Sumut 1</option>
                            <option value="STI Sumut 2">STI Sumut 2</option>
@@ -125,7 +125,7 @@
                    <th class="text-center">No Tiket</th>
                    <th class="text-center">Nama Service</th>
                    <th class="text-center">SID</th>
-                   <th class="text-center">Wilayah</th>
+                   <th class="text-center">Asman</th>
                    <th class="text-center">Layanan</th>
                    <th class="text-center">Tiket Open</th>
                    <th class="text-center">Tiket Close</th>
@@ -150,7 +150,7 @@
                      <td><?= $data['no_tiket']; ?></td>
                      <td><?= $data['nama_service']; ?></td>
                      <td class="text-center"><?= $data['sid']; ?></td>
-                     <td class="text-center"><?= $data['wilayah']; ?></td>
+                     <td class="text-center"><?= $data['asman']; ?></td>
                      <td class="text-center"><?= $data['layanan']; ?></td>
                      <td class="text-center"><?= $tiket_open; ?></td>
                      <td class="text-center"><?= $tiket_close; ?></td>
