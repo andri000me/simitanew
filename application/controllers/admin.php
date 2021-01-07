@@ -49,6 +49,7 @@ class Admin extends CI_Controller
 			$data['dashboard_status_kepemilikan_sewa'] = $this->admin_model->dashboard_status_kepemilikan_sewa();
 			$data['dashboard_status_kepemilikan_pln'] = $this->admin_model->dashboard_status_kepemilikan_pln();
 			$data['kpi_open'] = $this->kpi->get_kpi_open();
+			$data['menghitung_jumlah_service_wilayah'] = $this->admin_model->menghitung_jumlah_service_wilayah();
 			$this->load->view('header');
 			$this->load->view('sidebar');
 			$this->load->view('admin/index', $data);
@@ -2175,11 +2176,33 @@ class Admin extends CI_Controller
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
+			$data['list_unit'] = $this->admin_model->list_unit();
 			$data['data_network_view'] = $this->admin_model->tampil_data_network();
 			$this->load->view('header');
 			$this->load->view('sidebar');
 			$this->load->view('admin/data_network_view', $data);
 			$this->load->view('footer');
+		}
+	}
+
+	public function data_network_filter()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$id_unit = $this->input->post('id_unit');
+			if (empty($id_unit)) {
+				echo "<script>alert('Harap masukkan nama unit untuk melakukan filter data network')</script>";
+				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/data_network_view>";
+			} else {
+				$data['data_network_view'] = $this->admin_model->data_network_filter($id_unit);
+				$data['filter_unit'] = $id_unit;
+				$data['list_unit'] = $this->admin_model->list_unit();
+				$this->load->view('header');
+				$this->load->view('sidebar');
+				$this->load->view('admin/data_network_view', $data);
+				$this->load->view('footer');
+			}
 		}
 	}
 

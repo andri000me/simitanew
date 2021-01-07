@@ -871,9 +871,34 @@ class Admin_model extends CI_Model
       (SELECT 
       COUNT(pegawai_id) 
       FROM
-      pegawai) AS jumlah_pegawai
+      pegawai) AS jumlah_pegawai,
+      (SELECT
+      COUNT(log_id)
+      FROM
+      log_gangguan WHERE status_log='Open') AS jumlah_log
       FROM
       laptop a");
+    if ($get->num_rows() == 1) {
+      return $get->row_array();
+    }
+  }
+
+  function menghitung_jumlah_service_wilayah()
+  {
+    $get = $this->db->query('SELECT 
+      COUNT(a.data_id)AS jumlah_data_network,
+      (SELECT COUNT(data_id) FROM data_network WHERE service = "IPVPN" AND asman = "Asman Sumut 1") AS ipvpn_s1,
+      (SELECT COUNT(data_id) FROM data_network WHERE service = "Metronet" AND asman = "Asman Sumut 1") AS metronet_s1,
+      (SELECT COUNT(data_id) FROM data_network WHERE service = "VSAT IP" AND asman = "Asman Sumut 1") AS vsatip_s1,
+      (SELECT COUNT(data_id) FROM data_network WHERE service = "Clear Channel" AND asman = "Asman Sumut 1") AS clearchannel_s1,
+      (SELECT COUNT(data_id) FROM data_network WHERE service = "Internet" AND asman = "Asman Sumut 1") AS internet_s1,
+      (SELECT COUNT(data_id) FROM data_network WHERE service = "IPVPN" AND asman = "Asman Sumut 2") AS ipvpn_s2,
+      (SELECT COUNT(data_id) FROM data_network WHERE service = "Metronet" AND asman = "Asman Sumut 2") AS metronet_s2,
+      (SELECT COUNT(data_id) FROM data_network WHERE service = "VSAT IP" AND asman = "Asman Sumut 2") AS vsatip_s2,
+      (SELECT COUNT(data_id) FROM data_network WHERE service = "Clear Channel" AND asman = "Asman Sumut 2") AS clearchannel_s2,
+      (SELECT COUNT(data_id) FROM data_network WHERE service = "Internet" AND asman = "Asman Sumut 2") AS internet_s2
+      FROM
+      data_network a');
     if ($get->num_rows() == 1) {
       return $get->row_array();
     }
@@ -1080,6 +1105,13 @@ class Admin_model extends CI_Model
   {
     $delete = $this->db->delete('data_network', array('data_id' => $id));
     return $delete;
+  }
+
+  public function data_network_filter($id)
+  {
+    $query = "SELECT a.*, b.nama_unit FROM data_network a JOIN unit b ON a.id_unit = b.id_unit WHERE a.id_unit = $id ORDER BY a.service_id DESC";
+    $get = $this->db->query($query);
+    return $get;
   }
 
 

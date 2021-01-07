@@ -27,6 +27,31 @@
            <!-- /.box-header -->
 
            <div class="box-body">
+            <table>
+             <tbody>
+               <tr>
+                 <form class="form-horizontal" method="post" action="<?php echo base_url(); ?>admin/data_network_filter" enctype="multipart/form-data">
+                   <td style="padding-right:10px; padding-top:10px">
+                     <div class="form-group">
+                      <select class="form-control select2" name="id_unit" id="id_unit" style="width: 100%;">
+                        <?php if (!empty($filter_unit)){ 
+                          foreach ($list_unit->result_array() as $data) { 
+                            if ($data['id_unit'] == $filter_unit){ ?>
+                              <option value="<?php echo $data['id_unit']; ?>" selected="selected"><?php echo $data['nama_unit']; ?></option>
+                            <?php } } } ?>
+                            <option value =""> -- Pilih Unit -- </option>
+                            <?php foreach ($list_unit->result_array() as $data) { ?>
+                             <option value="<?php echo $data['id_unit']; ?>"><?php echo $data['nama_unit']; ?></option>
+                           <?php } ?>
+                         </select>
+                       </div>
+                     </td>
+                     <td><button type="submit" class="btn btn-sm btn-primary">Filter</button></td>
+                     <td><a class="btn btn-sm btn-default" href="<?php echo base_url() . "admin/data_network_view" ?>">Reset</a></td>
+                   </form>
+                 </tr>
+               </tbody>
+             </table>
              <table id="example4" class="table table-bordered table-striped">
                <thead>
                  <tr>
@@ -40,15 +65,15 @@
                    <th class="text-center">No. BA Aktivasi/ADM</th>
                    <th class="text-center">Scada/Non Scada</th>
                    <th class="text-center">Kapasitas /BW</th>
-				   <th class="text-center">Harga</th>
+				           <th class="text-center">Harga</th>
                    <th class="text-center">Actions</th>
                  </tr>
                </thead>
 
                <tbody>
                  <?php
-                  $no = 1;
-                  foreach ($data_network_view->result_array() as $data) :?>
+                 $no = 1;
+                 foreach ($data_network_view->result_array() as $data) :?>
                    <tr>
                      <td class="text-center"><?= $no ?></td>
                      <td class="text-center"><?= $data['tanggal_aktivasi']; ?></td>
@@ -64,10 +89,10 @@
                         echo "Non Scada";
                      } ?></td>
                      <td class="text-center"><?= $data['kapasitas']; ?></td>
-				<?php
-				$harganya = "Rp " . number_format($data['harga'],2,',','.');
-				//echo $harganya; exit;
-				?>
+            				<?php
+            				$harganya = "Rp " . number_format($data['harga'],2,',','.');
+            				//echo $harganya; exit;
+            				?>
                      <td class="text-center"><?=  $harganya; ?></td>
                      <td class="text-center">
                        <div class="hidden-sm hidden-xs action-buttons">
@@ -80,27 +105,27 @@
                      </td>
                    </tr>
                  <?php
-                    $no++;
-                  endforeach;
-                  ?>
+                 $no++;
+               endforeach;
+               ?>
 
-               </tbody>
+             </tbody>
 
-             </table>
-             <div class="row">
-               <div id="default-buttons" class="col-sm-6">
-                 <a class="btn btn-primary" href="<?php echo site_url('admin/data_network_add'); ?>">Add Data</a>
-               </div>
+           </table>
+           <div class="row">
+             <div id="default-buttons" class="col-sm-6">
+               <a class="btn btn-primary" href="<?php echo site_url('admin/data_network_add'); ?>">Add Data</a>
              </div>
            </div>
-           <!-- /.box-body -->
          </div>
-         <!-- /.box -->
+         <!-- /.box-body -->
        </div>
-       <!-- /.col -->
+       <!-- /.box -->
      </div>
-     <!-- /.row -->
-   </section>
-   <!-- /.content -->
- </div>
+     <!-- /.col -->
+   </div>
+   <!-- /.row -->
+ </section>
+ <!-- /.content -->
+</div>
  <!-- /.content-wrapper -->

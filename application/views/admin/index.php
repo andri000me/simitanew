@@ -104,6 +104,38 @@
         </div>
       </div>
       <!-- ./col -->
+      <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-blue">
+          <div class="inner">
+            <h3><?php echo $menghitung_jumlah_perangkat['jumlah_log']; ?></h3>
+
+            <p>Log</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-ios-book"></i>
+          </div>
+          <a href="<?php echo site_url('admin/lgangguan_view'); ?>" class="small-box-footer">Log Gangguan dengan status Open <i class="fa fa-book"></i></a>
+        </div>
+      </div>
+      <!-- ./col -->
+      <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-blue">
+          <div class="inner">
+            <h4><b>Sumut 1</b></h4>
+            <h6><?php echo $menghitung_jumlah_service_wilayah['ipvpn_s1']; ?> IPVPN, 
+            <?php echo $menghitung_jumlah_service_wilayah['metronet_s1']; ?> Metronet, <?php echo $menghitung_jumlah_service_wilayah['vsatip_s1']; ?> VSAT IP, <?php echo $menghitung_jumlah_service_wilayah['clearchannel_s1']; ?> Clear Channel, <?php echo $menghitung_jumlah_service_wilayah['internet_s1']; ?> Internet</h6>
+            <h4><b>Sumut 2</b></h4>
+            <h6><?php echo $menghitung_jumlah_service_wilayah['ipvpn_s2']; ?> IPVPN, <?php echo $menghitung_jumlah_service_wilayah['metronet_s2']; ?> Metronet, <?php echo $menghitung_jumlah_service_wilayah['vsatip_s2']; ?> VSAT IP, <?php echo $menghitung_jumlah_service_wilayah['clearchannel_s2']; ?> Clear Channel, <?php echo $menghitung_jumlah_service_wilayah['internet_s2']; ?> Internet</h6>
+          </div>
+          <div class="icon">
+            <i class="ion ion-ios-briefcase"></i>
+          </div>
+          <a href="<?php echo site_url('admin/data_network_view'); ?>" class="small-box-footer">Jumlah Service Wilayah <i class="fa fa-briefcase"></i></a>
+        </div>
+      </div>
+      <!-- ./col -->
     </div>
 
     <!-- /.row -->
