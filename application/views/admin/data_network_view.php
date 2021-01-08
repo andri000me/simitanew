@@ -66,6 +66,9 @@
                    <th class="text-center">Scada/Non Scada</th>
                    <th class="text-center">Kapasitas /BW</th>
 				           <th class="text-center">Harga</th>
+				           <th class="text-center">Status</th>
+				           <th class="text-center">Bulan</th>
+				           <th class="text-center">Tahun</th>
                    <th class="text-center">Actions</th>
                  </tr>
                </thead>
@@ -94,6 +97,9 @@
             				//echo $harganya; exit;
             				?>
                      <td class="text-center"><?=  $harganya; ?></td>
+                     <td class="text-center"><?= $data['status']; ?></td>
+                     <td class="text-center"><?= $data['bulan']; ?></td>
+                     <td class="text-center"><?= $data['tahun']; ?></td>
                      <td class="text-center">
                        <div class="hidden-sm hidden-xs action-buttons">
                          <a class="green" value="<?php echo $data['data_id']; ?>" href="<?php echo base_url() . "admin/data_network_edit?data_id=" . $data['data_id'] ?>"><i class="fa fa-pencil bigger-130"></i></a>

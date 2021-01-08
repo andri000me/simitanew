@@ -171,6 +171,13 @@
               <i class="fa fa-book"></i> Laporan HAR <span class="pull-right-container"></span>
             </a>
         </li>
+		<!--
+        <li class="<?php //if( $this->uri->segment(2)=="getSla"){echo 'active';}?>"> 
+            <a href="<?php //echo site_url('sla/getSla'); ?>">
+              <i class="fa fa-book"></i> SLA Network<span class="pull-right-container"></span>
+            </a>
+        </li>
+		-->
       <?php } else if($this->session->userdata('role') == 2) { 
         //sidebar EOS ICON+ ?>
         <li class="header">MAIN NAVIGATION</li>

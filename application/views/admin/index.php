@@ -89,28 +89,13 @@
         </div>
       </div>
       <!-- ./col -->
-      <div class="col-lg-3 col-xs-6">
-        <!-- small box -->
-        <div class="small-box bg-blue">
-          <div class="inner">
-            <h3><?php echo $menghitung_jumlah_perangkat['jumlah_pegawai']; ?></h3>
-
-            <p>Orang</p>
-          </div>
-          <div class="icon">
-            <i class="ion ion-person"></i>
-          </div>
-          <a href="<?php echo site_url('pegawai/index'); ?>" class="small-box-footer">Pegawai di Sumatra Utara <i class="fa fa-users"></i></a>
-        </div>
-      </div>
-      <!-- ./col -->
-      <div class="col-lg-3 col-xs-6">
+	   <div class="col-lg-3 col-xs-6">
         <!-- small box -->
         <div class="small-box bg-blue">
           <div class="inner">
             <h3><?php echo $menghitung_jumlah_perangkat['jumlah_log']; ?></h3>
 
-            <p>Log</p>
+            <p>Log Gangguan</p>
           </div>
           <div class="icon">
             <i class="ion ion-ios-book"></i>
@@ -118,23 +103,43 @@
           <a href="<?php echo site_url('admin/lgangguan_view'); ?>" class="small-box-footer">Log Gangguan dengan status Open <i class="fa fa-book"></i></a>
         </div>
       </div>
-      <!-- ./col -->
       <div class="col-lg-3 col-xs-6">
         <!-- small box -->
         <div class="small-box bg-blue">
           <div class="inner">
-            <h4><b>Sumut 1</b></h4>
-            <h6><?php echo $menghitung_jumlah_service_wilayah['ipvpn_s1']; ?> IPVPN, 
+            
+            <h3><b>Sumut 1</b></h3>
+			
+<h6><?php echo $menghitung_jumlah_service_wilayah['ipvpn_s1']; ?> IPVPN, 
             <?php echo $menghitung_jumlah_service_wilayah['metronet_s1']; ?> Metronet, <?php echo $menghitung_jumlah_service_wilayah['vsatip_s1']; ?> VSAT IP, <?php echo $menghitung_jumlah_service_wilayah['clearchannel_s1']; ?> Clear Channel, <?php echo $menghitung_jumlah_service_wilayah['internet_s1']; ?> Internet</h6>
-            <h4><b>Sumut 2</b></h4>
-            <h6><?php echo $menghitung_jumlah_service_wilayah['ipvpn_s2']; ?> IPVPN, <?php echo $menghitung_jumlah_service_wilayah['metronet_s2']; ?> Metronet, <?php echo $menghitung_jumlah_service_wilayah['vsatip_s2']; ?> VSAT IP, <?php echo $menghitung_jumlah_service_wilayah['clearchannel_s2']; ?> Clear Channel, <?php echo $menghitung_jumlah_service_wilayah['internet_s2']; ?> Internet</h6>
+           
           </div>
           <div class="icon">
-            <i class="ion ion-ios-briefcase"></i>
+            <i class="ion ion-person"></i>
           </div>
-          <a href="<?php echo site_url('admin/data_network_view'); ?>" class="small-box-footer">Jumlah Service Wilayah <i class="fa fa-briefcase"></i></a>
+          <a href="#" class="small-box-footer">Wilayah Kerja Sumut 1 <i class="fa fa-users"></i></a>
         </div>
       </div>
+	  
+      <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-blue">
+          <div class="inner">
+            
+            <h3><b>Sumut 2</b></h3>
+			
+<h6><?php echo $menghitung_jumlah_service_wilayah['ipvpn_s2']; ?> IPVPN, <?php echo $menghitung_jumlah_service_wilayah['metronet_s2']; ?> Metronet, <?php echo $menghitung_jumlah_service_wilayah['vsatip_s2']; ?> VSAT IP, <?php echo $menghitung_jumlah_service_wilayah['clearchannel_s2']; ?> Clear Channel, <?php echo $menghitung_jumlah_service_wilayah['internet_s2']; ?> Internet</h6>
+                   
+          </div>
+          <div class="icon">
+            <i class="ion ion-person"></i>
+          </div>
+          <a href="#" class="small-box-footer">Wilayah Kerja Sumut 2 <i class="fa fa-users"></i></a>
+        </div>
+      </div>
+      <!-- ./col -->
+     
+    
       <!-- ./col -->
     </div>
 
@@ -144,69 +149,101 @@
     <!-- Main content -->
     <div class="row">
       <div class="col-xs-12">
-        <!-- TABEL KPI YANG OPEN -->
-        <div class="box">
-          <div class="box-header">
-            <h3 class="box-title">KPI berstatus Open</h3>
-          </div>
-          <!-- /.box-header -->
-          <div class="box-body">
-            <table id="example1" class="table table-hover">
-              <thead>
-                <tr>
-                  <th class="center">No.</th>
-                  <th class="text-center">Indikator</th>
-                  <th class="text-center">PIC</th>
-                  <th class="text-center">Satuan</th>
-                  <th class="text-center">Bobot</th>
-                  <th class="text-center">Target</th>
-                  <th class="text-center">Realisasi</th>
-                  <th class="text-center">Skor</th>
-                  <th class="text-center">Waktu</th>
-                  <th class="text-center">Status</th>
-                  <th class="text-center">Actions</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                <?php
-                $no = 1;
-                foreach ($kpi_open->result_array() as $data) :
-                ?>
-                  <tr>
-                    <td class="text-center"><?= $no ?></td>
-                    <td><?= $data['indikator_kpi']; ?></td>
-                    <td><?= $data['nama_pj']; ?></td>
-                    <td class="text-center"><?= $data['satuan']; ?></td>
-                    <td class="text-center"><?= $data['bobot']; ?></td>
-                    <td class="text-center"><?= $data['target']; ?></td>
-                    <td class="text-center"><?= $data['realisasi']; ?></td>
-                    <td class="text-center"><?= $data['skor']; ?></td>
-                    <td class="text-center"><?= $data['waktu']; ?></td>
-                    <td class="text-center"><?= $data['status']; ?></td>
-                    <td class="text-center">
-                      <div class="hidden-sm hidden-xs action-buttons">
-                        <a class="green" value="<?php echo $data['kpi_id']; ?>" href="<?php echo base_url() . "kpi/kpi_edit?kpi_id=" . $data['kpi_id'] ?>"><i class="fa fa-pencil bigger-130"></i></a>
-                        &nbsp;
-                        <a class="red" href="<?= base_url(); ?>kpi/deleteData/<?= $data['kpi_id']; ?>" onclick="return confirm('Anda Yakin Menghapus Data Ini?');">
-                          <i class="fa fa-trash-o bigger-130"></i>
-                        </a>
-                      </div>
-                    </td>
-                  </tr>
-                <?php
-                  $no++;
-                endforeach;
-                ?>
-
-              </tbody>
-
-            </table>
-          </div>
-        </div>
+        <!-- DATA SLA NETWORK DISINI -->
+		<H3>DATA SLA UIW SUMATERA UTARA</H3>
+        <table class="zebra-table">
+				<thead>
+				<tr>
+				<th>LAYANAN</th>
+				<th>STANDARD SLA(%)</th>
+				<th> JANUARI </th>
+				<th> FEBRUARI </th>
+				<th> MARET </th>
+				<th> APRIL </th>
+				<th> MEI </th>
+				<th> JUNI </th>
+				<th> JULI </th>
+				<th> AGUSTUS </th>
+				<th> SEPTEMBER </th>
+				<th> OKTOBER </th>
+				<th> NOVEMBER </th>
+				<th> DESEMBER </th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+				<td>INTERNET</td>
+				<td>99</td>
+					<td><?php echo $januari_internet_uiwsu_ok; ?></td>
+					<td><?php echo $februari_internet_uiwsu_ok; ?></td>
+					<td><?php echo $maret_internet_uiwsu_ok; ?></td>
+					<td><?php echo $april_internet_uiwsu_ok; ?></td>
+					<td><?php echo $mei_internet_uiwsu_ok; ?></td>
+					<td><?php echo $juni_internet_uiwsu_ok; ?></td>
+					<td><?php echo $juli_internet_uiwsu_ok; ?></td>
+					<td><?php echo $agustus_internet_uiwsu_ok; ?></td>
+					<td><?php echo $september_internet_uiwsu_ok; ?></td>
+					<td><?php echo $oktober_internet_uiwsu_ok; ?></td>
+					<td><?php echo $november_internet_uiwsu_ok; ?></td>
+					<td><?php echo $desember_internet_uiwsu_ok; ?></td>
+				</tr>
+				<tr>
+				<td>IPVPN</td>
+				<td>99</td>
+					<td><?php echo $januari_ipvpn_uiwsu_ok; ?></td>
+					<td><?php echo $februari_ipvpn_uiwsu_ok; ?></td>
+					<td><?php echo $maret_ipvpn_uiwsu_ok; ?></td>
+					<td><?php echo $april_ipvpn_uiwsu_ok; ?></td>
+					<td><?php echo $mei_ipvpn_uiwsu_ok; ?></td>
+					<td><?php echo $juni_ipvpn_uiwsu_ok; ?></td>
+					<td><?php echo $juli_ipvpn_uiwsu_ok; ?></td>
+					<td><?php echo $agustus_ipvpn_uiwsu_ok; ?></td>
+					<td><?php echo $september_ipvpn_uiwsu_ok; ?></td>
+					<td><?php echo $oktober_ipvpn_uiwsu_ok; ?></td>
+					<td><?php echo $november_ipvpn_uiwsu_ok; ?></td>
+					<td><?php echo $desember_ipvpn_uiwsu_ok; ?></td>
+				</tr>
+				<tr>
+				<td>METRONET</td>
+				<td>99</td>
+					<td><?php echo $januari_metronet_uiwsu_ok; ?></td>
+					<td><?php echo $februari_metronet_uiwsu_ok; ?></td>
+					<td><?php echo $maret_metronet_uiwsu_ok; ?></td>
+					<td><?php echo $april_metronet_uiwsu_ok; ?></td>
+					<td><?php echo $mei_metronet_uiwsu_ok; ?></td>
+					<td><?php echo $juni_metronet_uiwsu_ok; ?></td>
+					<td><?php echo $juli_metronet_uiwsu_ok; ?></td>
+					<td><?php echo $agustus_metronet_uiwsu_ok; ?></td>
+					<td><?php echo $september_metronet_uiwsu_ok; ?></td>
+					<td><?php echo $oktober_metronet_uiwsu_ok; ?></td>
+					<td><?php echo $november_metronet_uiwsu_ok; ?></td>
+					<td><?php echo $desember_metronet_uiwsu_ok; ?></td>
+				</tr>
+				<tr>
+					<td>VSAT IP</td>
+					<td>99</td>
+						<td><?php echo $januari_vsat_uiwsu_ok; ?></td>
+						<td><?php echo $februari_vsat_uiwsu_ok; ?></td>
+						<td><?php echo $maret_vsat_uiwsu_ok; ?></td>
+						<td><?php echo $april_vsat_uiwsu_ok; ?></td>
+						<td><?php echo $mei_vsat_uiwsu_ok; ?></td>
+						<td><?php echo $juni_vsat_uiwsu_ok; ?></td>
+						<td><?php echo $juli_vsat_uiwsu_ok; ?></td>
+						<td><?php echo $agustus_vsat_uiwsu_ok; ?></td>
+						<td><?php echo $september_vsat_uiwsu_ok; ?></td>
+						<td><?php echo $oktober_vsat_uiwsu_ok; ?></td>
+						<td><?php echo $november_vsat_uiwsu_ok; ?></td>
+						<td><?php echo $desember_vsat_uiwsu_ok; ?></td>			
+					</tr>
+				
+				</tbody>
+				</table>
       </div>
+	  
       <div class="col-md-6">
         <!-- BAR CHART JUMLAH KEPEMILIKAN ASET-->
+		<br>
+	 
         <div class="box box-danger">
           <div class="box-header with-border">
             <h3 class="box-title">Jumlah Kepemilikan Aset</h3>
@@ -225,6 +262,7 @@
       </div>
       <div class="col-md-6">
         <!-- DONUT CHART MERK LAPTOP-->
+		 <br>
         <div class="box box-danger">
           <div class="box-header with-border">
             <h3 class="box-title">Merek Laptop yang Paling Banyak Digunakan di Sumatera Utara</h3>

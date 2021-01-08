@@ -11,7 +11,7 @@ class Admin extends CI_Controller
 		$this->load->database();
 		$this->load->helper(array('form', 'url'));
 		$this->load->library(array('form_validation', 'session', 'enkripsi'));
-		$this->load->model(array('admin_model'));
+		$this->load->model(array('admin_model','Sla_model'));
 		$this->load->model('Kpi_model', 'kpi');
 	}
 	/**
@@ -50,6 +50,256 @@ class Admin extends CI_Controller
 			$data['dashboard_status_kepemilikan_pln'] = $this->admin_model->dashboard_status_kepemilikan_pln();
 			$data['kpi_open'] = $this->kpi->get_kpi_open();
 			$data['menghitung_jumlah_service_wilayah'] = $this->admin_model->menghitung_jumlah_service_wilayah();
+			
+			//internet
+			$data['januari_internet_uiwsu'] = $this->Sla_model->januari_internet_uiwsu();
+			$data['januari_internet_uiwsu_sukses'] = $data['januari_internet_uiwsu'][0]['persentasi_sla'];
+			$data['januari_internet_uiwsu_ok'] = number_format($data['januari_internet_uiwsu_sukses'],2,",",".");
+			if(($data['januari_internet_uiwsu_ok'])==0){ $data['januari_internet_uiwsu_ok']=100;}	
+			
+			$data['februari_internet_uiwsu'] = $this->Sla_model->februari_internet_uiwsu();
+			$data['februari_internet_uiwsu_sukses'] = $data['februari_internet_uiwsu'][0]['persentasi_sla'];
+			$data['februari_internet_uiwsu_ok'] = number_format($data['februari_internet_uiwsu_sukses'],2,",",".");
+			if(($data['februari_internet_uiwsu_ok'])==0){ $data['februari_internet_uiwsu_ok']=100;}	
+			
+			$data['maret_internet_uiwsu'] = $this->Sla_model->maret_internet_uiwsu();
+			$data['maret_internet_uiwsu_sukses'] = $data['maret_internet_uiwsu'][0]['persentasi_sla'];
+			$data['maret_internet_uiwsu_ok'] = number_format($data['maret_internet_uiwsu_sukses'],2,",",".");
+			if(($data['maret_internet_uiwsu_ok'])==0){ $data['maret_internet_uiwsu_ok']=100;}	
+			
+			$data['april_internet_uiwsu'] = $this->Sla_model->april_internet_uiwsu();
+			$data['april_internet_uiwsu_sukses'] = $data['april_internet_uiwsu'][0]['persentasi_sla'];
+			$data['april_internet_uiwsu_ok'] = number_format($data['april_internet_uiwsu_sukses'],2,",",".");
+			if(($data['april_internet_uiwsu_ok'])==0){ $data['april_internet_uiwsu_ok']=100;}	
+			
+			$data['mei_internet_uiwsu'] = $this->Sla_model->mei_internet_uiwsu();
+			$data['mei_internet_uiwsu_sukses'] = $data['mei_internet_uiwsu'][0]['persentasi_sla'];
+			$data['mei_internet_uiwsu_ok'] = number_format($data['mei_internet_uiwsu_sukses'],2,",",".");
+			if(($data['mei_internet_uiwsu_ok'])==0){ $data['mei_internet_uiwsu_ok']=100;}	
+			
+			$data['juni_internet_uiwsu'] = $this->Sla_model->juni_internet_uiwsu();
+			$data['juni_internet_uiwsu_sukses'] = $data['juni_internet_uiwsu'][0]['persentasi_sla'];
+			$data['juni_internet_uiwsu_ok'] = number_format($data['juni_internet_uiwsu_sukses'],2,",",".");
+			if(($data['juni_internet_uiwsu_ok'])==0){ $data['juni_internet_uiwsu_ok']=100;}	
+			
+			$data['juli_internet_uiwsu'] = $this->Sla_model->juli_internet_uiwsu();
+			$data['juli_internet_uiwsu_sukses'] = $data['juli_internet_uiwsu'][0]['persentasi_sla'];
+			$data['juli_internet_uiwsu_ok'] = number_format($data['juli_internet_uiwsu_sukses'],2,",",".");
+			if(($data['juli_internet_uiwsu_ok'])==0){ $data['juli_internet_uiwsu_ok']=100;}	
+			
+			$data['agustus_internet_uiwsu'] = $this->Sla_model->agustus_internet_uiwsu();
+			$data['agustus_internet_uiwsu_sukses'] = $data['agustus_internet_uiwsu'][0]['persentasi_sla'];
+			$data['agustus_internet_uiwsu_ok'] = number_format($data['agustus_internet_uiwsu_sukses'],2,",",".");
+			if(($data['agustus_internet_uiwsu_ok'])==0){ $data['agustus_internet_uiwsu_ok']=100;}	
+			
+			$data['september_internet_uiwsu'] = $this->Sla_model->september_internet_uiwsu();
+			$data['september_internet_uiwsu_sukses'] = $data['september_internet_uiwsu'][0]['persentasi_sla'];
+			$data['september_internet_uiwsu_ok'] = number_format($data['september_internet_uiwsu_sukses'],2,",",".");
+			if(($data['september_internet_uiwsu_ok'])==0){ $data['september_internet_uiwsu_ok']=100;}	
+			
+			$data['oktober_internet_uiwsu'] = $this->Sla_model->oktober_internet_uiwsu();
+			$data['oktober_internet_uiwsu_sukses'] = $data['oktober_internet_uiwsu'][0]['persentasi_sla'];
+			$data['oktober_internet_uiwsu_ok'] = number_format($data['oktober_internet_uiwsu_sukses'],2,",",".");
+			if(($data['oktober_internet_uiwsu_ok'])==0){ $data['oktober_internet_uiwsu_ok']=100;}	
+			
+			$data['november_internet_uiwsu'] = $this->Sla_model->november_internet_uiwsu();
+			$data['november_internet_uiwsu_sukses'] = $data['november_internet_uiwsu'][0]['persentasi_sla'];
+			$data['november_internet_uiwsu_ok'] = number_format($data['november_internet_uiwsu_sukses'],2,",",".");
+			if(($data['november_internet_uiwsu_ok'])==0){ $data['november_internet_uiwsu_ok']=100;}	
+			
+			$data['desember_internet_uiwsu'] = $this->Sla_model->desember_internet_uiwsu();
+			$data['desember_internet_uiwsu_sukses'] = $data['desember_internet_uiwsu'][0]['persentasi_sla'];
+			$data['desember_internet_uiwsu_ok'] = number_format($data['desember_internet_uiwsu_sukses'],2,",",".");
+			if(($data['desember_internet_uiwsu_ok'])==0){ $data['desember_internet_uiwsu_ok']=100;}	
+			
+			//ipvpn
+			$data['januari_ipvpn_uiwsu'] = $this->Sla_model->januari_ipvpn_uiwsu();
+			$data['januari_ipvpn_uiwsu_sukses'] = $data['januari_ipvpn_uiwsu'][0]['persentasi_sla'];
+			$data['januari_ipvpn_uiwsu_ok'] = number_format($data['januari_ipvpn_uiwsu_sukses'],2,",",".");
+			if(($data['januari_ipvpn_uiwsu_ok'])==0){ $data['januari_ipvpn_uiwsu_ok']=100;}	
+			
+			$data['februari_ipvpn_uiwsu'] = $this->Sla_model->februari_ipvpn_uiwsu();
+			$data['februari_ipvpn_uiwsu_sukses'] = $data['februari_ipvpn_uiwsu'][0]['persentasi_sla'];
+			$data['februari_ipvpn_uiwsu_ok'] = number_format($data['februari_ipvpn_uiwsu_sukses'],2,",",".");
+			if(($data['februari_ipvpn_uiwsu_ok'])==0){ $data['februari_ipvpn_uiwsu_ok']=100;}	
+			
+			$data['maret_ipvpn_uiwsu'] = $this->Sla_model->maret_ipvpn_uiwsu();
+			$data['maret_ipvpn_uiwsu_sukses'] = $data['maret_ipvpn_uiwsu'][0]['persentasi_sla'];
+			$data['maret_ipvpn_uiwsu_ok'] = number_format($data['maret_ipvpn_uiwsu_sukses'],2,",",".");
+			if(($data['maret_ipvpn_uiwsu_ok'])==0){ $data['maret_ipvpn_uiwsu_ok']=100;}	
+			
+			$data['april_ipvpn_uiwsu'] = $this->Sla_model->april_ipvpn_uiwsu();
+			$data['april_ipvpn_uiwsu_sukses'] = $data['april_ipvpn_uiwsu'][0]['persentasi_sla'];
+			$data['april_ipvpn_uiwsu_ok'] = number_format($data['april_ipvpn_uiwsu_sukses'],2,",",".");
+			if(($data['april_ipvpn_uiwsu_ok'])==0){ $data['april_ipvpn_uiwsu_ok']=100;}	
+			
+			$data['mei_ipvpn_uiwsu'] = $this->Sla_model->mei_ipvpn_uiwsu();
+			$data['mei_ipvpn_uiwsu_sukses'] = $data['mei_ipvpn_uiwsu'][0]['persentasi_sla'];
+			$data['mei_ipvpn_uiwsu_ok'] = number_format($data['mei_ipvpn_uiwsu_sukses'],2,",",".");
+			if(($data['mei_ipvpn_uiwsu_ok'])==0){ $data['mei_ipvpn_uiwsu_ok']=100;}	
+			
+			$data['juni_ipvpn_uiwsu'] = $this->Sla_model->juni_ipvpn_uiwsu();
+			$data['juni_ipvpn_uiwsu_sukses'] = $data['juni_ipvpn_uiwsu'][0]['persentasi_sla'];
+			$data['juni_ipvpn_uiwsu_ok'] = number_format($data['juni_ipvpn_uiwsu_sukses'],2,",",".");
+			if(($data['juni_ipvpn_uiwsu_ok'])==0){ $data['juni_ipvpn_uiwsu_ok']=100;}	
+			
+			$data['juli_ipvpn_uiwsu'] = $this->Sla_model->juli_ipvpn_uiwsu();
+			$data['juli_ipvpn_uiwsu_sukses'] = $data['juli_ipvpn_uiwsu'][0]['persentasi_sla'];
+			$data['juli_ipvpn_uiwsu_ok'] = number_format($data['juli_ipvpn_uiwsu_sukses'],2,",",".");
+			if(($data['juli_ipvpn_uiwsu_ok'])==0){ $data['juli_ipvpn_uiwsu_ok']=100;}	
+			
+			$data['agustus_ipvpn_uiwsu'] = $this->Sla_model->agustus_ipvpn_uiwsu();
+			$data['agustus_ipvpn_uiwsu_sukses'] = $data['agustus_ipvpn_uiwsu'][0]['persentasi_sla'];
+			$data['agustus_ipvpn_uiwsu_ok'] = number_format($data['agustus_ipvpn_uiwsu_sukses'],2,",",".");
+			if(($data['agustus_ipvpn_uiwsu_ok'])==0){ $data['agustus_ipvpn_uiwsu_ok']=100;}	
+			
+			$data['september_ipvpn_uiwsu'] = $this->Sla_model->september_ipvpn_uiwsu();
+			$data['september_ipvpn_uiwsu_sukses'] = $data['september_ipvpn_uiwsu'][0]['persentasi_sla'];
+			$data['september_ipvpn_uiwsu_ok'] = number_format($data['september_ipvpn_uiwsu_sukses'],2,",",".");
+			if(($data['september_ipvpn_uiwsu_ok'])==0){ $data['september_ipvpn_uiwsu_ok']=100;}	
+			
+			$data['oktober_ipvpn_uiwsu'] = $this->Sla_model->oktober_ipvpn_uiwsu();
+			$data['oktober_ipvpn_uiwsu_sukses'] = $data['oktober_ipvpn_uiwsu'][0]['persentasi_sla'];
+			$data['oktober_ipvpn_uiwsu_ok'] = number_format($data['oktober_ipvpn_uiwsu_sukses'],2,",",".");
+			if(($data['oktober_ipvpn_uiwsu_ok'])==0){ $data['oktober_ipvpn_uiwsu_ok']=100;}	
+			
+			$data['november_ipvpn_uiwsu'] = $this->Sla_model->november_ipvpn_uiwsu();
+			$data['november_ipvpn_uiwsu_sukses'] = $data['november_ipvpn_uiwsu'][0]['persentasi_sla'];
+			$data['november_ipvpn_uiwsu_ok'] = number_format($data['november_ipvpn_uiwsu_sukses'],2,",",".");
+			if(($data['november_ipvpn_uiwsu_ok'])==0){ $data['november_ipvpn_uiwsu_ok']=100;}	
+			
+			$data['desember_ipvpn_uiwsu'] = $this->Sla_model->desember_ipvpn_uiwsu();
+			$data['desember_ipvpn_uiwsu_sukses'] = $data['desember_ipvpn_uiwsu'][0]['persentasi_sla'];
+			$data['desember_ipvpn_uiwsu_ok'] = number_format($data['desember_ipvpn_uiwsu_sukses'],2,",",".");
+			if(($data['desember_ipvpn_uiwsu_ok'])==0){ $data['desember_ipvpn_uiwsu_ok']=100;}	
+			
+			//metronet
+			$data['januari_metronet_uiwsu'] = $this->Sla_model->januari_metronet_uiwsu();
+			$data['januari_metronet_uiwsu_sukses'] = $data['januari_metronet_uiwsu'][0]['persentasi_sla'];
+			$data['januari_metronet_uiwsu_ok'] = number_format($data['januari_metronet_uiwsu_sukses'],2,",",".");
+			if(($data['januari_metronet_uiwsu_ok'])==0){ $data['januari_metronet_uiwsu_ok']=100;}	
+			
+			$data['februari_metronet_uiwsu'] = $this->Sla_model->februari_metronet_uiwsu();
+			$data['februari_metronet_uiwsu_sukses'] = $data['februari_metronet_uiwsu'][0]['persentasi_sla'];
+			$data['februari_metronet_uiwsu_ok'] = number_format($data['februari_metronet_uiwsu_sukses'],2,",",".");
+			if(($data['februari_metronet_uiwsu_ok'])==0){ $data['februari_metronet_uiwsu_ok']=100;}	
+			
+			$data['maret_metronet_uiwsu'] = $this->Sla_model->maret_metronet_uiwsu();
+			$data['maret_metronet_uiwsu_sukses'] = $data['maret_metronet_uiwsu'][0]['persentasi_sla'];
+			$data['maret_metronet_uiwsu_ok'] = number_format($data['maret_metronet_uiwsu_sukses'],2,",",".");
+			if(($data['maret_metronet_uiwsu_ok'])==0){ $data['maret_metronet_uiwsu_ok']=100;}	
+			
+			$data['april_metronet_uiwsu'] = $this->Sla_model->april_metronet_uiwsu();
+			$data['april_metronet_uiwsu_sukses'] = $data['april_metronet_uiwsu'][0]['persentasi_sla'];
+			$data['april_metronet_uiwsu_ok'] = number_format($data['april_metronet_uiwsu_sukses'],2,",",".");
+			if(($data['april_metronet_uiwsu_ok'])==0){ $data['april_metronet_uiwsu_ok']=100;}	
+			
+			$data['mei_metronet_uiwsu'] = $this->Sla_model->mei_metronet_uiwsu();
+			$data['mei_metronet_uiwsu_sukses'] = $data['mei_metronet_uiwsu'][0]['persentasi_sla'];
+			$data['mei_metronet_uiwsu_ok'] = number_format($data['mei_metronet_uiwsu_sukses'],2,",",".");
+			if(($data['mei_metronet_uiwsu_ok'])==0){ $data['mei_metronet_uiwsu_ok']=100;}	
+			
+			$data['juni_metronet_uiwsu'] = $this->Sla_model->juni_metronet_uiwsu();
+			$data['juni_metronet_uiwsu_sukses'] = $data['juni_metronet_uiwsu'][0]['persentasi_sla'];
+			$data['juni_metronet_uiwsu_ok'] = number_format($data['juni_metronet_uiwsu_sukses'],2,",",".");
+			if(($data['juni_metronet_uiwsu_ok'])==0){ $data['juni_metronet_uiwsu_ok']=100;}	
+			
+			$data['juli_metronet_uiwsu'] = $this->Sla_model->juli_metronet_uiwsu();
+			$data['juli_metronet_uiwsu_sukses'] = $data['juli_metronet_uiwsu'][0]['persentasi_sla'];
+			$data['juli_metronet_uiwsu_ok'] = number_format($data['juli_metronet_uiwsu_sukses'],2,",",".");
+			if(($data['juli_metronet_uiwsu_ok'])==0){ $data['juli_metronet_uiwsu_ok']=100;}	
+			
+			$data['agustus_metronet_uiwsu'] = $this->Sla_model->agustus_metronet_uiwsu();
+			$data['agustus_metronet_uiwsu_sukses'] = $data['agustus_metronet_uiwsu'][0]['persentasi_sla'];
+			$data['agustus_metronet_uiwsu_ok'] = number_format($data['agustus_metronet_uiwsu_sukses'],2,",",".");
+			if(($data['agustus_metronet_uiwsu_ok'])==0){ $data['agustus_metronet_uiwsu_ok']=100;}	
+			
+			$data['september_metronet_uiwsu'] = $this->Sla_model->september_metronet_uiwsu();
+			$data['september_metronet_uiwsu_sukses'] = $data['september_metronet_uiwsu'][0]['persentasi_sla'];
+			$data['september_metronet_uiwsu_ok'] = number_format($data['september_metronet_uiwsu_sukses'],2,",",".");
+			if(($data['september_metronet_uiwsu_ok'])==0){ $data['september_metronet_uiwsu_ok']=100;}	
+			
+			$data['oktober_metronet_uiwsu'] = $this->Sla_model->oktober_metronet_uiwsu();
+			$data['oktober_metronet_uiwsu_sukses'] = $data['oktober_metronet_uiwsu'][0]['persentasi_sla'];
+			$data['oktober_metronet_uiwsu_ok'] = number_format($data['oktober_metronet_uiwsu_sukses'],2,",",".");
+			if(($data['oktober_metronet_uiwsu_ok'])==0){ $data['oktober_metronet_uiwsu_ok']=100;}	
+			
+			$data['november_metronet_uiwsu'] = $this->Sla_model->november_metronet_uiwsu();
+			$data['november_metronet_uiwsu_sukses'] = $data['november_metronet_uiwsu'][0]['persentasi_sla'];
+			$data['november_metronet_uiwsu_ok'] = number_format($data['november_metronet_uiwsu_sukses'],2,",",".");
+			if(($data['november_metronet_uiwsu_ok'])==0){ $data['november_metronet_uiwsu_ok']=100;}	
+			
+			$data['desember_metronet_uiwsu'] = $this->Sla_model->desember_metronet_uiwsu();
+			$data['desember_metronet_uiwsu_sukses'] = $data['desember_metronet_uiwsu'][0]['persentasi_sla'];
+			$data['desember_metronet_uiwsu_ok'] = number_format($data['desember_metronet_uiwsu_sukses'],2,",",".");
+			if(($data['desember_metronet_uiwsu_ok'])==0){ $data['desember_metronet_uiwsu_ok']=100;}	
+			
+			//vsat
+			$data['januari_vsat_uiwsu'] = $this->Sla_model->januari_vsat_uiwsu();
+			$data['januari_vsat_uiwsu_sukses'] = $data['januari_vsat_uiwsu'][0]['persentasi_sla'];
+			$data['januari_vsat_uiwsu_ok'] = number_format($data['januari_vsat_uiwsu_sukses'],2,",",".");
+			if(($data['januari_vsat_uiwsu_ok'])==0){ $data['januari_vsat_uiwsu_ok']=100;}	
+			
+			$data['februari_vsat_uiwsu'] = $this->Sla_model->februari_vsat_uiwsu();
+			$data['februari_vsat_uiwsu_sukses'] = $data['februari_vsat_uiwsu'][0]['persentasi_sla'];
+			$data['februari_vsat_uiwsu_ok'] = number_format($data['februari_vsat_uiwsu_sukses'],2,",",".");
+			if(($data['februari_vsat_uiwsu_ok'])==0){ $data['februari_vsat_uiwsu_ok']=100;}	
+			
+			$data['maret_vsat_uiwsu'] = $this->Sla_model->maret_vsat_uiwsu();
+			$data['maret_vsat_uiwsu_sukses'] = $data['maret_vsat_uiwsu'][0]['persentasi_sla'];
+			$data['maret_vsat_uiwsu_ok'] = number_format($data['maret_vsat_uiwsu_sukses'],2,",",".");
+			if(($data['maret_vsat_uiwsu_ok'])==0){ $data['maret_vsat_uiwsu_ok']=100;}	
+			
+			$data['april_vsat_uiwsu'] = $this->Sla_model->april_vsat_uiwsu();
+			$data['april_vsat_uiwsu_sukses'] = $data['april_vsat_uiwsu'][0]['persentasi_sla'];
+			$data['april_vsat_uiwsu_ok'] = number_format($data['april_vsat_uiwsu_sukses'],2,",",".");
+			if(($data['april_vsat_uiwsu_ok'])==0){ $data['april_vsat_uiwsu_ok']=100;}	
+			
+			$data['mei_vsat_uiwsu'] = $this->Sla_model->mei_vsat_uiwsu();
+			$data['mei_vsat_uiwsu_sukses'] = $data['mei_vsat_uiwsu'][0]['persentasi_sla'];
+			$data['mei_vsat_uiwsu_ok'] = number_format($data['mei_vsat_uiwsu_sukses'],2,",",".");
+			if(($data['mei_vsat_uiwsu_ok'])==0){ $data['mei_vsat_uiwsu_ok']=100;}	
+			
+			$data['juni_vsat_uiwsu'] = $this->Sla_model->juni_vsat_uiwsu();
+			$data['juni_vsat_uiwsu_sukses'] = $data['juni_vsat_uiwsu'][0]['persentasi_sla'];
+			$data['juni_vsat_uiwsu_ok'] = number_format($data['juni_vsat_uiwsu_sukses'],2,",",".");
+			if(($data['juni_vsat_uiwsu_ok'])==0){ $data['juni_vsat_uiwsu_ok']=100;}	
+			
+			$data['juli_vsat_uiwsu'] = $this->Sla_model->juli_vsat_uiwsu();
+			$data['juli_vsat_uiwsu_sukses'] = $data['juli_vsat_uiwsu'][0]['persentasi_sla'];
+			$data['juli_vsat_uiwsu_ok'] = number_format($data['juli_vsat_uiwsu_sukses'],2,",",".");
+			if(($data['juli_vsat_uiwsu_ok'])==0){ $data['juli_vsat_uiwsu_ok']=100;}	
+			
+			$data['agustus_vsat_uiwsu'] = $this->Sla_model->agustus_vsat_uiwsu();
+			$data['agustus_vsat_uiwsu_sukses'] = $data['agustus_vsat_uiwsu'][0]['persentasi_sla'];
+			$data['agustus_vsat_uiwsu_ok'] = number_format($data['agustus_vsat_uiwsu_sukses'],2,",",".");
+			if(($data['agustus_vsat_uiwsu_ok'])==0){ $data['agustus_vsat_uiwsu_ok']=100;}	
+			
+			$data['september_vsat_uiwsu'] = $this->Sla_model->september_vsat_uiwsu();
+			$data['september_vsat_uiwsu_sukses'] = $data['september_vsat_uiwsu'][0]['persentasi_sla'];
+			$data['september_vsat_uiwsu_ok'] = number_format($data['september_vsat_uiwsu_sukses'],2,",",".");
+			if(($data['september_vsat_uiwsu_ok'])==0){ $data['september_vsat_uiwsu_ok']=100;}	
+			
+			$data['oktober_vsat_uiwsu'] = $this->Sla_model->oktober_vsat_uiwsu();
+			$data['oktober_vsat_uiwsu_sukses'] = $data['oktober_vsat_uiwsu'][0]['persentasi_sla'];
+			$data['oktober_vsat_uiwsu_ok'] = number_format($data['oktober_vsat_uiwsu_sukses'],2,",",".");
+			if(($data['oktober_vsat_uiwsu_ok'])==0){ $data['oktober_vsat_uiwsu_ok']=100;}	
+			
+			$data['november_vsat_uiwsu'] = $this->Sla_model->november_vsat_uiwsu();
+			$data['november_vsat_uiwsu_sukses'] = $data['november_vsat_uiwsu'][0]['persentasi_sla'];
+			$data['november_vsat_uiwsu_ok'] = number_format($data['november_vsat_uiwsu_sukses'],2,",",".");
+			if(($data['november_vsat_uiwsu_ok'])==0){ $data['november_vsat_uiwsu_ok']=100;}	
+			
+			$data['desember_vsat_uiwsu'] = $this->Sla_model->desember_vsat_uiwsu();
+			$data['desember_vsat_uiwsu_sukses'] = $data['desember_vsat_uiwsu'][0]['persentasi_sla'];
+			$data['desember_vsat_uiwsu_ok'] = number_format($data['desember_vsat_uiwsu_sukses'],2,",",".");
+			if(($data['desember_vsat_uiwsu_ok'])==0){ $data['desember_vsat_uiwsu_ok']=100;}	
+			
+								
+			
+			
+			
+			
 			$this->load->view('header');
 			$this->load->view('sidebar');
 			$this->load->view('admin/index', $data);
