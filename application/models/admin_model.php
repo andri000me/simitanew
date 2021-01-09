@@ -887,16 +887,16 @@ class Admin_model extends CI_Model
   {
     $get = $this->db->query('SELECT 
       COUNT(a.data_id)AS jumlah_data_network,
-      (SELECT COUNT(data_id) FROM data_network WHERE service = "IPVPN" AND asman = "Asman Sumut 1") AS ipvpn_s1,
-      (SELECT COUNT(data_id) FROM data_network WHERE service = "Metronet" AND asman = "Asman Sumut 1") AS metronet_s1,
-      (SELECT COUNT(data_id) FROM data_network WHERE service = "VSAT IP" AND asman = "Asman Sumut 1") AS vsatip_s1,
-      (SELECT COUNT(data_id) FROM data_network WHERE service = "Clear Channel" AND asman = "Asman Sumut 1") AS clearchannel_s1,
-      (SELECT COUNT(data_id) FROM data_network WHERE service = "Internet" AND asman = "Asman Sumut 1") AS internet_s1,
-      (SELECT COUNT(data_id) FROM data_network WHERE service = "IPVPN" AND asman = "Asman Sumut 2") AS ipvpn_s2,
-      (SELECT COUNT(data_id) FROM data_network WHERE service = "Metronet" AND asman = "Asman Sumut 2") AS metronet_s2,
-      (SELECT COUNT(data_id) FROM data_network WHERE service = "VSAT IP" AND asman = "Asman Sumut 2") AS vsatip_s2,
-      (SELECT COUNT(data_id) FROM data_network WHERE service = "Clear Channel" AND asman = "Asman Sumut 2") AS clearchannel_s2,
-      (SELECT COUNT(data_id) FROM data_network WHERE service = "Internet" AND asman = "Asman Sumut 2") AS internet_s2
+      (SELECT COUNT(data_id) FROM data_network WHERE service = "IP VPN" AND asman = "1") AS ipvpn_s1,
+      (SELECT COUNT(data_id) FROM data_network WHERE service = "Metronet" AND asman = "1") AS metronet_s1,
+      (SELECT COUNT(data_id) FROM data_network WHERE service = "VSAT IP" AND asman = "1") AS vsatip_s1,
+      (SELECT COUNT(data_id) FROM data_network WHERE service = "Clear Channel" AND asman = "1") AS clearchannel_s1,
+      (SELECT COUNT(data_id) FROM data_network WHERE service = "Internet" AND asman = "1") AS internet_s1,
+      (SELECT COUNT(data_id) FROM data_network WHERE service = "IP VPN" AND asman = "2") AS ipvpn_s2,
+      (SELECT COUNT(data_id) FROM data_network WHERE service = "Metronet" AND asman = "2") AS metronet_s2,
+      (SELECT COUNT(data_id) FROM data_network WHERE service = "VSAT IP" AND asman = "2") AS vsatip_s2,
+      (SELECT COUNT(data_id) FROM data_network WHERE service = "Clear Channel" AND asman = "2") AS clearchannel_s2,
+      (SELECT COUNT(data_id) FROM data_network WHERE service = "Internet" AND asman = "2") AS internet_s2
       FROM
       data_network a');
     if ($get->num_rows() == 1) {
@@ -1276,4 +1276,6 @@ class Admin_model extends CI_Model
     }
     return $tes;
   }
+  
+ 
 }

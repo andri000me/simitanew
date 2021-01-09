@@ -1,3 +1,4 @@
+
 <footer class="main-footer">
   <div class="pull-right hidden-xs">
     <b>Version</b> 1.0.0
@@ -11,7 +12,7 @@
  immediately after the control sidebar -->
  <div class="control-sidebar-bg"></div>
 </div>
-<!-- ./wrapper -->
+<!-- ./wrapper -->  
 <!-- jQuery 3 -->
 <script src="<?php echo base_url(); ?>public/assets/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -74,7 +75,7 @@
 
 
 <!-- ChartJS -->
-<script src="<?php echo base_url(); ?>public/assets/bower_components/chart.js/Chart.js"></script>
+<script src="<?php echo base_url(); ?>public/assets/chartjs/Chart.js"></script>
 <!-- ChartJS -->
 
 <!-- Select2 -->
@@ -308,35 +309,56 @@
     pieChart.Doughnut(PieData, pieOptions)
 
     //-------------
-    //- BAR CHART -
+    //- BAR CHART WILSU-
     //-------------
-    var barChartCanvas = $('#barChart').get(0).getContext('2d')
+    var barChartCanvas = $('#barChartWILSU').get(0).getContext('2d')
     var barChart = new Chart(barChartCanvas)
 
     var barChartData = {
-      labels: ['Laptop', 'Komputer', 'Printer', 'Monitor', 'Network Device'],
+      labels: ['JANUARI', 'FEBRUARI', 'MARET', 'APRIL','MEI','JUNI','JULI','AGUSTUS','SEPTEMBER','OKTOBER','NOVEMBER','DESEMBER'],
       datasets: [
       {
-        label: 'Aset PLN',
         fillColor: 'rgba(210, 214, 222, 1)',
         strokeColor: 'rgba(210, 214, 222, 1)',
         pointColor: 'rgba(210, 214, 222, 1)',
         pointStrokeColor: '#c1c7d1',
         pointHighlightFill: '#fff',
         pointHighlightStroke: 'rgba(220,220,220,1)',
-        data: <?php echo $dashboard_status_kepemilikan_pln ?>
+      label: ['IPVPN','VSAT','INTERNET','METRONET'],
+        data: [100,99,100,99,]
       },
 
       {
-        label: 'Sewa',
+        label: 'METRONET',
         fillColor: 'rgba(60,141,188,0.9)',
         strokeColor: 'rgba(60,141,188,0.8)',
         pointColor: '#3b8bba',
         pointStrokeColor: 'rgba(60,141,188,1)',
         pointHighlightFill: '#fff',
         pointHighlightStroke: 'rgba(60,141,188,1)',
-        data: <?php echo $dashboard_status_kepemilikan_sewa ?>
+        data: [100,99,100,99,]
 
+      },
+	  {
+        label: 'INTERNET',
+        fillColor: 'rgba(60,141,188,0.9)',
+        strokeColor: 'rgba(60,141,188,0.8)',
+        pointColor: '#3b8bba',
+        pointStrokeColor: 'rgba(60,141,188,1)',
+        pointHighlightFill: '#fff',
+        pointHighlightStroke: 'rgba(60,141,188,1)',
+        data:[100,99,100,99,]
+
+      },
+	   {
+        label: 'VSAT',
+        fillColor: 'rgba(210, 214, 222, 1)',
+        strokeColor: 'rgba(210, 214, 222, 1)',
+        pointColor: 'rgba(210, 214, 222, 1)',
+        pointStrokeColor: '#c1c7d1',
+        pointHighlightFill: '#fff',
+        pointHighlightStroke: 'rgba(220,220,220,1)',
+        data: [100,99,100,99,]
       }
       ],
     }
@@ -359,6 +381,7 @@
       //Boolean - Whether to show vertical lines (except Y axis)
       scaleShowVerticalLines: true,
       //Boolean - If there is a stroke on each bar
+      barShowLabels: true,
       barShowStroke: true,
       //Number - Pixel width of the bar stroke
       barStrokeWidth: 2,
@@ -594,6 +617,620 @@
 </script>
 
 <!-- CHART -->
+<!-- CHART data sla wilsu-->
+<script type="text/javascript">
+var ctx = document.getElementById("myChart1").getContext('2d');
+		var myChart = new Chart(ctx, {
+			type: 'bar',
+			data: {
+				labels: ["JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER","NOVEMBER","DESEMBER"],
+				datasets: [{
+					label: 'IP VPN',
+					data: [<?php echo round($januari_ipvpn_uiwsu_ok,0); ?>, <?php echo round($februari_ipvpn_uiwsu_ok,0); ?>, <?php echo round($maret_ipvpn_uiwsu_ok,0); ?>, 
+					<?php echo round($april_ipvpn_uiwsu_ok,0); ?>, <?php echo round($mei_ipvpn_uiwsu_ok,0); ?>,<?php echo round($juni_ipvpn_uiwsu_ok,0); ?>,<?php echo round($juli_ipvpn_uiwsu_ok,0); ?>,
+					<?php echo round($agustus_ipvpn_uiwsu_ok,0); ?>,<?php echo round($september_ipvpn_uiwsu_ok,0); ?>,<?php echo round($oktober_ipvpn_uiwsu_ok,0); ?>,
+					<?php echo round($november_ipvpn_uiwsu_ok,0); ?>,
+					<?php echo round($desember_ipvpn_uiwsu_ok,0); ?>],
+					backgroundColor: [
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 159, 64, 0.2)'
+					],
+					borderColor: [
+					'rgba(255,99,132,1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)',
+					'rgba(255,99,132,1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)'
+					],
+					borderWidth: 1
+				}]
+			},
+			options: {
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero:true
+						}
+					}]
+				}
+			}
+		});
+</script>
+<script type="text/javascript">
+var ctx = document.getElementById("myChart2").getContext('2d');
+		var myChart = new Chart(ctx, {
+			type: 'bar',
+			data: {
+				labels: ["JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER","NOVEMBER","DESEMBER"],
+				datasets: [{
+					label: 'VSAT IP',
+					data: [<?php echo round($januari_vsat_uiwsu_ok,0); ?>, <?php echo round($februari_vsat_uiwsu_ok,0); ?>, <?php echo round($maret_vsat_uiwsu_ok,0); ?>, 
+					<?php echo round($april_vsat_uiwsu_ok,0); ?>, <?php echo round($mei_vsat_uiwsu_ok,0); ?>,<?php echo round($juni_vsat_uiwsu_ok,0); ?>,<?php echo round($juli_vsat_uiwsu_ok,0); ?>,
+					<?php echo round($agustus_vsat_uiwsu_ok,0); ?>,<?php echo round($september_vsat_uiwsu_ok,0); ?>,<?php echo round($oktober_vsat_uiwsu_ok,0); ?>,
+					<?php echo round($november_vsat_uiwsu_ok,0); ?>,
+					<?php echo round($desember_vsat_uiwsu_ok,0); ?>],
+					backgroundColor: [
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 159, 64, 0.2)'
+					],
+					borderColor: [
+					'rgba(255,99,132,1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)',
+					'rgba(255,99,132,1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)'
+					],
+					borderWidth: 1
+				}]
+			},
+			options: {
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero:true
+						}
+					}]
+				}
+			}
+		});
+</script>
+<script type="text/javascript">
+var ctx = document.getElementById("myChart3").getContext('2d');
+		var myChart = new Chart(ctx, {
+			type: 'bar',
+			data: {
+				labels: ["JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER","NOVEMBER","DESEMBER"],
+				datasets: [{
+					label: 'METRONET',
+					data: [<?php echo round($januari_metronet_uiwsu_ok,0); ?>, <?php echo round($februari_metronet_uiwsu_ok,0); ?>, <?php echo round($maret_metronet_uiwsu_ok,0); ?>, 
+					<?php echo round($april_metronet_uiwsu_ok,0); ?>, <?php echo round($mei_metronet_uiwsu_ok,0); ?>,<?php echo round($juni_metronet_uiwsu_ok,0); ?>,<?php echo round($juli_metronet_uiwsu_ok,0); ?>,
+					<?php echo round($agustus_metronet_uiwsu_ok,0); ?>,<?php echo round($september_metronet_uiwsu_ok,0); ?>,<?php echo round($oktober_metronet_uiwsu_ok,0); ?>,
+					<?php echo round($november_metronet_uiwsu_ok,0); ?>,
+					<?php echo round($desember_metronet_uiwsu_ok,0); ?>],
+					backgroundColor: [
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 159, 64, 0.2)'
+					],
+					borderColor: [
+					'rgba(255,99,132,1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)',
+					'rgba(255,99,132,1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)'
+					],
+					borderWidth: 1
+				}]
+			},
+			options: {
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero:true
+						}
+					}]
+				}
+			}
+		});
+</script>
+<script type="text/javascript">
+var ctx = document.getElementById("myChart4").getContext('2d');
+		var myChart = new Chart(ctx, {
+			type: 'bar',
+			data: {
+				labels: ["JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER","NOVEMBER","DESEMBER"],
+				datasets: [{
+					label: 'INTERNET',
+					data: [<?php echo round($januari_internet_uiwsu_ok,0); ?>, <?php echo round($februari_internet_uiwsu_ok,0); ?>, <?php echo round($maret_internet_uiwsu_ok,0); ?>, 
+					<?php echo round($april_internet_uiwsu_ok,0); ?>, <?php echo round($mei_internet_uiwsu_ok,0); ?>,<?php echo round($juni_internet_uiwsu_ok,0); ?>,<?php echo round($juli_internet_uiwsu_ok,0); ?>,
+					<?php echo round($agustus_internet_uiwsu_ok,0); ?>,<?php echo round($september_internet_uiwsu_ok,0); ?>,<?php echo round($oktober_internet_uiwsu_ok,0); ?>,
+					<?php echo round($november_internet_uiwsu_ok,0); ?>,
+					<?php echo round($desember_internet_uiwsu_ok,0); ?>],
+					backgroundColor: [
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 159, 64, 0.2)'
+					],
+					borderColor: [
+					'rgba(255,99,132,1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)',
+					'rgba(255,99,132,1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)'
+					],
+					borderWidth: 1
+				}]
+			},
+			options: {
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero:true
+						}
+					}]
+				}
+			}
+		});
+</script>
+<!-- CHART data sla wilsu close -->
+
+<!-- CHART data sla uiksbu-->
+<script type="text/javascript">
+var ctx = document.getElementById("myChart5").getContext('2d');
+		var myChart = new Chart(ctx, {
+			type: 'bar',
+			data: {
+				labels: ["JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER","NOVEMBER","DESEMBER"],
+				datasets: [{
+					label: 'IP VPN',
+					data: [<?php echo round($januari_ipvpn_uiksbu_ok,0); ?>, <?php echo round($februari_ipvpn_uiksbu_ok,0); ?>, <?php echo round($maret_ipvpn_uiksbu_ok,0); ?>, 
+					<?php echo round($april_ipvpn_uiksbu_ok,0); ?>, <?php echo round($mei_ipvpn_uiksbu_ok,0); ?>,<?php echo round($juni_ipvpn_uiksbu_ok,0); ?>,<?php echo round($juli_ipvpn_uiksbu_ok,0); ?>,
+					<?php echo round($agustus_ipvpn_uiksbu_ok,0); ?>,<?php echo round($september_ipvpn_uiksbu_ok,0); ?>,<?php echo round($oktober_ipvpn_uiksbu_ok,0); ?>,
+					<?php echo round($november_ipvpn_uiksbu_ok,0); ?>,
+					<?php echo round($desember_ipvpn_uiksbu_ok,0); ?>],
+					backgroundColor: [
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 159, 64, 0.2)'
+					],
+					borderColor: [
+					'rgba(255,99,132,1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)',
+					'rgba(255,99,132,1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)'
+					],
+					borderWidth: 1
+				}]
+			},
+			options: {
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero:true
+						}
+					}]
+				}
+			}
+		});
+</script>
+<script type="text/javascript">
+var ctx = document.getElementById("myChart6").getContext('2d');
+		var myChart = new Chart(ctx, {
+			type: 'bar',
+			data: {
+				labels: ["JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER","NOVEMBER","DESEMBER"],
+				datasets: [{
+					label: 'INTERNET',
+					data: [<?php echo round($januari_internet_uiksbu_ok,0); ?>, <?php echo round($februari_internet_uiksbu_ok,0); ?>, <?php echo round($maret_internet_uiksbu_ok,0); ?>, 
+					<?php echo round($april_internet_uiksbu_ok,0); ?>, <?php echo round($mei_internet_uiksbu_ok,0); ?>,<?php echo round($juni_internet_uiksbu_ok,0); ?>,<?php echo round($juli_internet_uiksbu_ok,0); ?>,
+					<?php echo round($agustus_internet_uiksbu_ok,0); ?>,<?php echo round($september_internet_uiksbu_ok,0); ?>,<?php echo round($oktober_internet_uiksbu_ok,0); ?>,
+					<?php echo round($november_internet_uiksbu_ok,0); ?>,
+					<?php echo round($desember_internet_uiksbu_ok,0); ?>],
+					backgroundColor: [
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 159, 64, 0.2)'
+					],
+					borderColor: [
+					'rgba(255,99,132,1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)',
+					'rgba(255,99,132,1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)'
+					],
+					borderWidth: 1
+				}]
+			},
+			options: {
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero:true
+						}
+					}]
+				}
+			}
+		});
+</script>
+
+<!-- CHART data sla uipsbu-->
+<script type="text/javascript">
+var ctx = document.getElementById("myChart7").getContext('2d');
+		var myChart = new Chart(ctx, {
+			type: 'bar',
+			data: {
+				labels: ["JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER","NOVEMBER","DESEMBER"],
+				datasets: [{
+					label: 'IP VPN',
+					data: [<?php echo round($januari_ipvpn_uipsbu_ok,0); ?>, <?php echo round($februari_ipvpn_uipsbu_ok,0); ?>, <?php echo round($maret_ipvpn_uipsbu_ok,0); ?>, 
+					<?php echo round($april_ipvpn_uipsbu_ok,0); ?>, <?php echo round($mei_ipvpn_uipsbu_ok,0); ?>,<?php echo round($juni_ipvpn_uipsbu_ok,0); ?>,<?php echo round($juli_ipvpn_uipsbu_ok,0); ?>,
+					<?php echo round($agustus_ipvpn_uipsbu_ok,0); ?>,<?php echo round($september_ipvpn_uipsbu_ok,0); ?>,<?php echo round($oktober_ipvpn_uipsbu_ok,0); ?>,
+					<?php echo round($november_ipvpn_uipsbu_ok,0); ?>,
+					<?php echo round($desember_ipvpn_uipsbu_ok,0); ?>],
+					backgroundColor: [
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 159, 64, 0.2)'
+					],
+					borderColor: [
+					'rgba(255,99,132,1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)',
+					'rgba(255,99,132,1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)'
+					],
+					borderWidth: 1
+				}]
+			},
+			options: {
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero:true
+						}
+					}]
+				}
+			}
+		});
+</script>
+<script type="text/javascript">
+var ctx = document.getElementById("myChart8").getContext('2d');
+		var myChart = new Chart(ctx, {
+			type: 'bar',
+			data: {
+				labels: ["JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER","NOVEMBER","DESEMBER"],
+				datasets: [{
+					label: 'INTERNET',
+					data: [<?php echo round($januari_internet_uipsbu_ok,0); ?>, <?php echo round($februari_internet_uipsbu_ok,0); ?>, <?php echo round($maret_internet_uipsbu_ok,0); ?>, 
+					<?php echo round($april_internet_uipsbu_ok,0); ?>, <?php echo round($mei_internet_uipsbu_ok,0); ?>,<?php echo round($juni_internet_uipsbu_ok,0); ?>,<?php echo round($juli_internet_uipsbu_ok,0); ?>,
+					<?php echo round($agustus_internet_uipsbu_ok,0); ?>,<?php echo round($september_internet_uipsbu_ok,0); ?>,<?php echo round($oktober_internet_uipsbu_ok,0); ?>,
+					<?php echo round($november_internet_uipsbu_ok,0); ?>,
+					<?php echo round($desember_internet_uipsbu_ok,0); ?>],
+					backgroundColor: [
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 159, 64, 0.2)'
+					],
+					borderColor: [
+					'rgba(255,99,132,1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)',
+					'rgba(255,99,132,1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)'
+					],
+					borderWidth: 1
+				}]
+			},
+			options: {
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero:true
+						}
+					}]
+				}
+			}
+		});
+</script>
+<script type="text/javascript">
+var ctx = document.getElementById("myChart9").getContext('2d');
+		var myChart = new Chart(ctx, {
+			type: 'bar',
+			data: {
+				labels: ["JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER","NOVEMBER","DESEMBER"],
+				datasets: [{
+					label: 'IP VPN',
+					data: [<?php echo round($januari_ipvpn_uipkitsum_ok,0); ?>, <?php echo round($februari_ipvpn_uipkitsum_ok,0); ?>, <?php echo round($maret_ipvpn_uipkitsum_ok,0); ?>, 
+					<?php echo round($april_ipvpn_uipkitsum_ok,0); ?>, <?php echo round($mei_ipvpn_uipkitsum_ok,0); ?>,<?php echo round($juni_ipvpn_uipkitsum_ok,0); ?>,<?php echo round($juli_ipvpn_uipkitsum_ok,0); ?>,
+					<?php echo round($agustus_ipvpn_uipkitsum_ok,0); ?>,<?php echo round($september_ipvpn_uipkitsum_ok,0); ?>,<?php echo round($oktober_ipvpn_uipkitsum_ok,0); ?>,
+					<?php echo round($november_ipvpn_uipkitsum_ok,0); ?>,
+					<?php echo round($desember_ipvpn_uipkitsum_ok,0); ?>],
+					backgroundColor: [
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 159, 64, 0.2)'
+					],
+					borderColor: [
+					'rgba(255,99,132,1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)',
+					'rgba(255,99,132,1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)'
+					],
+					borderWidth: 1
+				}]
+			},
+			options: {
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero:true
+						}
+					}]
+				}
+			}
+		});
+</script>
+<script type="text/javascript">
+var ctx = document.getElementById("myChart10").getContext('2d');
+		var myChart = new Chart(ctx, {
+			type: 'bar',
+			data: {
+				labels: ["JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER","NOVEMBER","DESEMBER"],
+				datasets: [{
+					label: 'INTERNET',
+					data: [<?php echo round($januari_internet_uipkitsum_ok,0); ?>, <?php echo round($februari_internet_uipkitsum_ok,0); ?>, <?php echo round($maret_internet_uipkitsum_ok,0); ?>, 
+					<?php echo round($april_internet_uipkitsum_ok,0); ?>, <?php echo round($mei_internet_uipkitsum_ok,0); ?>,<?php echo round($juni_internet_uipkitsum_ok,0); ?>,<?php echo round($juli_internet_uipkitsum_ok,0); ?>,
+					<?php echo round($agustus_internet_uipkitsum_ok,0); ?>,<?php echo round($september_internet_uipkitsum_ok,0); ?>,<?php echo round($oktober_internet_uipkitsum_ok,0); ?>,
+					<?php echo round($november_internet_uipkitsum_ok,0); ?>,
+					<?php echo round($desember_internet_uipkitsum_ok,0); ?>],
+					backgroundColor: [
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 159, 64, 0.2)'
+					],
+					borderColor: [
+					'rgba(255,99,132,1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)',
+					'rgba(255,99,132,1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)'
+					],
+					borderWidth: 1
+				}]
+			},
+			options: {
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero:true
+						}
+					}]
+				}
+			}
+		});
+</script>
+<script type="text/javascript">
+var ctx = document.getElementById("myChart11").getContext('2d');
+		var myChart = new Chart(ctx, {
+			type: 'bar',
+			data: {
+				labels: ["JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER","NOVEMBER","DESEMBER"],
+				datasets: [{
+					label: 'VSAT',
+					data: [<?php echo round($januari_vsat_uipkitsum_ok,0); ?>, <?php echo round($februari_vsat_uipkitsum_ok,0); ?>, <?php echo round($maret_vsat_uipkitsum_ok,0); ?>, 
+					<?php echo round($april_vsat_uipkitsum_ok,0); ?>, <?php echo round($mei_vsat_uipkitsum_ok,0); ?>,<?php echo round($juni_vsat_uipkitsum_ok,0); ?>,<?php echo round($juli_vsat_uipkitsum_ok,0); ?>,
+					<?php echo round($agustus_vsat_uipkitsum_ok,0); ?>,<?php echo round($september_vsat_uipkitsum_ok,0); ?>,<?php echo round($oktober_vsat_uipkitsum_ok,0); ?>,
+					<?php echo round($november_vsat_uipkitsum_ok,0); ?>,
+					<?php echo round($desember_vsat_uipkitsum_ok,0); ?>],
+					backgroundColor: [
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 159, 64, 0.2)'
+					],
+					borderColor: [
+					'rgba(255,99,132,1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)',
+					'rgba(255,99,132,1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)'
+					],
+					borderWidth: 1
+				}]
+			},
+			options: {
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero:true
+						}
+					}]
+				}
+			}
+		});
+</script>
+<!-- CHART data sla wilsu close -->
+<!-- CHART data sla wilsu close -->
+
 </body>
 
 </html>

@@ -148,9 +148,9 @@
 
     <!-- Main content -->
     <div class="row">
-      <div class="col-xs-12">
-        <!-- DATA SLA NETWORK DISINI -->
-		<H3>DATA SLA UIW SUMATERA UTARA</H3>
+	<!--
+     <div class="col-xs-12">
+		<H3>DATA SLA UIW SUMATERA UTARA TAHUN 2020</H3>
         <table class="zebra-table">
 				<thead>
 				<tr>
@@ -174,79 +174,77 @@
 				<tr>
 				<td>INTERNET</td>
 				<td>99</td>
-					<td><?php echo $januari_internet_uiwsu_ok; ?></td>
-					<td><?php echo $februari_internet_uiwsu_ok; ?></td>
-					<td><?php echo $maret_internet_uiwsu_ok; ?></td>
-					<td><?php echo $april_internet_uiwsu_ok; ?></td>
-					<td><?php echo $mei_internet_uiwsu_ok; ?></td>
-					<td><?php echo $juni_internet_uiwsu_ok; ?></td>
-					<td><?php echo $juli_internet_uiwsu_ok; ?></td>
-					<td><?php echo $agustus_internet_uiwsu_ok; ?></td>
-					<td><?php echo $september_internet_uiwsu_ok; ?></td>
-					<td><?php echo $oktober_internet_uiwsu_ok; ?></td>
-					<td><?php echo $november_internet_uiwsu_ok; ?></td>
-					<td><?php echo $desember_internet_uiwsu_ok; ?></td>
+					<td><?php //echo $januari_internet_uiwsu_ok; ?></td>
+					<td><?php //echo $februari_internet_uiwsu_ok; ?></td>
+					<td><?php //echo $maret_internet_uiwsu_ok; ?></td>
+					<td><?php //echo $april_internet_uiwsu_ok; ?></td>
+					<td><?php //echo $mei_internet_uiwsu_ok; ?></td>
+					<td><?php //echo $juni_internet_uiwsu_ok; ?></td>
+					<td><?php //echo $juli_internet_uiwsu_ok; ?></td>
+					<td><?php //echo $agustus_internet_uiwsu_ok; ?></td>
+					<td><?php //echo $september_internet_uiwsu_ok; ?></td>
+					<td><?php //echo $oktober_internet_uiwsu_ok; ?></td>
+					<td><?php //echo $november_internet_uiwsu_ok; ?></td>
+					<td><?php //echo $desember_internet_uiwsu_ok; ?></td>
 				</tr>
 				<tr>
 				<td>IPVPN</td>
 				<td>99</td>
-					<td><?php echo $januari_ipvpn_uiwsu_ok; ?></td>
-					<td><?php echo $februari_ipvpn_uiwsu_ok; ?></td>
-					<td><?php echo $maret_ipvpn_uiwsu_ok; ?></td>
-					<td><?php echo $april_ipvpn_uiwsu_ok; ?></td>
-					<td><?php echo $mei_ipvpn_uiwsu_ok; ?></td>
-					<td><?php echo $juni_ipvpn_uiwsu_ok; ?></td>
-					<td><?php echo $juli_ipvpn_uiwsu_ok; ?></td>
-					<td><?php echo $agustus_ipvpn_uiwsu_ok; ?></td>
-					<td><?php echo $september_ipvpn_uiwsu_ok; ?></td>
-					<td><?php echo $oktober_ipvpn_uiwsu_ok; ?></td>
-					<td><?php echo $november_ipvpn_uiwsu_ok; ?></td>
-					<td><?php echo $desember_ipvpn_uiwsu_ok; ?></td>
+					<td><?php //echo $januari_ipvpn_uiwsu_ok; ?></td>
+					<td><?php //echo $februari_ipvpn_uiwsu_ok; ?></td>
+					<td><?php //echo $maret_ipvpn_uiwsu_ok; ?></td>
+					<td><?php //echo $april_ipvpn_uiwsu_ok; ?></td>
+					<td><?php //echo $mei_ipvpn_uiwsu_ok; ?></td>
+					<td><?php //echo $juni_ipvpn_uiwsu_ok; ?></td>
+					<td><?php //echo $juli_ipvpn_uiwsu_ok; ?></td>
+					<td><?php //echo $agustus_ipvpn_uiwsu_ok; ?></td>
+					<td><?php //echo $september_ipvpn_uiwsu_ok; ?></td>
+					<td><?php //echo $oktober_ipvpn_uiwsu_ok; ?></td>
+					<td><?php //echo $november_ipvpn_uiwsu_ok; ?></td>
+					<td><?php //echo $desember_ipvpn_uiwsu_ok; ?></td>
 				</tr>
 				<tr>
 				<td>METRONET</td>
 				<td>99</td>
-					<td><?php echo $januari_metronet_uiwsu_ok; ?></td>
-					<td><?php echo $februari_metronet_uiwsu_ok; ?></td>
-					<td><?php echo $maret_metronet_uiwsu_ok; ?></td>
-					<td><?php echo $april_metronet_uiwsu_ok; ?></td>
-					<td><?php echo $mei_metronet_uiwsu_ok; ?></td>
-					<td><?php echo $juni_metronet_uiwsu_ok; ?></td>
-					<td><?php echo $juli_metronet_uiwsu_ok; ?></td>
-					<td><?php echo $agustus_metronet_uiwsu_ok; ?></td>
-					<td><?php echo $september_metronet_uiwsu_ok; ?></td>
-					<td><?php echo $oktober_metronet_uiwsu_ok; ?></td>
-					<td><?php echo $november_metronet_uiwsu_ok; ?></td>
-					<td><?php echo $desember_metronet_uiwsu_ok; ?></td>
+					<td><?php //echo $januari_metronet_uiwsu_ok; ?></td>
+					<td><?php //echo $februari_metronet_uiwsu_ok; ?></td>
+					<td><?php //echo $maret_metronet_uiwsu_ok; ?></td>
+					<td><?php //echo $april_metronet_uiwsu_ok; ?></td>
+					<td><?php //echo $mei_metronet_uiwsu_ok; ?></td>
+					<td><?php //echo $juni_metronet_uiwsu_ok; ?></td>
+					<td><?php //echo $juli_metronet_uiwsu_ok; ?></td>
+					<td><?php //echo $agustus_metronet_uiwsu_ok; ?></td>
+					<td><?php //echo $september_metronet_uiwsu_ok; ?></td>
+					<td><?php //echo $oktober_metronet_uiwsu_ok; ?></td>
+					<td><?php //echo $november_metronet_uiwsu_ok; ?></td>
+					<td><?php //echo $desember_metronet_uiwsu_ok; ?></td>
 				</tr>
 				<tr>
 					<td>VSAT IP</td>
 					<td>99</td>
-						<td><?php echo $januari_vsat_uiwsu_ok; ?></td>
-						<td><?php echo $februari_vsat_uiwsu_ok; ?></td>
-						<td><?php echo $maret_vsat_uiwsu_ok; ?></td>
-						<td><?php echo $april_vsat_uiwsu_ok; ?></td>
-						<td><?php echo $mei_vsat_uiwsu_ok; ?></td>
-						<td><?php echo $juni_vsat_uiwsu_ok; ?></td>
-						<td><?php echo $juli_vsat_uiwsu_ok; ?></td>
-						<td><?php echo $agustus_vsat_uiwsu_ok; ?></td>
-						<td><?php echo $september_vsat_uiwsu_ok; ?></td>
-						<td><?php echo $oktober_vsat_uiwsu_ok; ?></td>
-						<td><?php echo $november_vsat_uiwsu_ok; ?></td>
-						<td><?php echo $desember_vsat_uiwsu_ok; ?></td>			
+						<td><?php //echo $januari_vsat_uiwsu_ok; ?></td>
+						<td><?php //echo $februari_vsat_uiwsu_ok; ?></td>
+						<td><?php //echo $maret_vsat_uiwsu_ok; ?></td>
+						<td><?php //echo $april_vsat_uiwsu_ok; ?></td>
+						<td><?php //echo $mei_vsat_uiwsu_ok; ?></td>
+						<td><?php //echo $juni_vsat_uiwsu_ok; ?></td>
+						<td><?php //echo $juli_vsat_uiwsu_ok; ?></td>
+						<td><?php //echo $agustus_vsat_uiwsu_ok; ?></td>
+						<td><?php //echo $september_vsat_uiwsu_ok; ?></td>
+						<td><?php //echo $oktober_vsat_uiwsu_ok; ?></td>
+						<td><?php //echo $november_vsat_uiwsu_ok; ?></td>
+						<td><?php //echo $desember_vsat_uiwsu_ok; ?></td>			
 					</tr>
 				
 				</tbody>
 				</table>
       </div>
+	  -->
 	  
-      <div class="col-md-6">
-        <!-- BAR CHART JUMLAH KEPEMILIKAN ASET-->
-		<br>
-	 
-        <div class="box box-danger">
+	   <div class="col-xs-12">
+	    <div class="box box-danger">
           <div class="box-header with-border">
-            <h3 class="box-title">Jumlah Kepemilikan Aset</h3>
+            <h3 class="box-title">SLA NETWORK (UIW SUMATERA UTARA) TAHUN 2020</h3>
             <div class="box-tools pull-right">
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
               </button>
@@ -254,130 +252,103 @@
             </div>
           </div>
           <div class="box-body">
-            <canvas id="barChart" style="height:250px"></canvas>
+				<div class="col-xs-6">
+					<canvas id="myChart1"></canvas>
+				</div>
+				<div class="col-xs-6">
+					<canvas id="myChart2"></canvas>
+				</div>
+				<div class="col-xs-6">
+					<canvas id="myChart3"></canvas>
+				</div>
+				<div class="col-xs-6">
+					<canvas id="myChart4"></canvas>
+				</div>
+		
+		
           </div>
           <!-- /.box-body -->
         </div>
-        <!-- /.box -->
-      </div>
-      <div class="col-md-6">
-        <!-- DONUT CHART MERK LAPTOP-->
-		 <br>
-        <div class="box box-danger">
+	   
+	   </div>
+	   
+	   <div class="col-xs-12">
+	    <div class="box box-danger">
           <div class="box-header with-border">
-            <h3 class="box-title">Merek Laptop yang Paling Banyak Digunakan di Sumatera Utara</h3>
-
+            <h3 class="box-title">SLA NETWORK (UIK SUMATERA BAGIAN UTARA) TAHUN 2020</h3>
             <div class="box-tools pull-right">
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
               </button>
               <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
             </div>
           </div>
-          <div class="box-body">
-            <canvas id="pieChart" style="height:250px"></canvas>
-          </div>
+         <div class="box-body">
+				<div class="col-xs-6">
+					<canvas id="myChart5"></canvas>
+				</div>
+				<div class="col-xs-6">
+					<canvas id="myChart6"></canvas>
+				</div>
+				
+			</div>
           <!-- /.box-body -->
         </div>
-        <!-- /.box -->
-      </div>
-
-      <div class="col-md-6">
-        <!-- DONUT CHART MERK PC-->
-        <div class="box box-danger">
+        </div>
+		
+		<div class="col-xs-12">
+	    <div class="box box-danger">
           <div class="box-header with-border">
-            <h3 class="box-title">Merek Komputer yang Paling Banyak Digunakan di Sumatera Utara</h3>
-
-
+            <h3 class="box-title">SLA NETWORK (UIP SUMATERA BAGIAN UTARA) TAHUN 2020</h3>
             <div class="box-tools pull-right">
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
               </button>
               <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
             </div>
           </div>
-          <div class="box-body">
-            <canvas id="pieChartPC" style="height:250px"></canvas>
-          </div>
+         <div class="box-body">
+				<div class="col-xs-6">
+					<canvas id="myChart7"></canvas>
+				</div>
+				<div class="col-xs-6">
+					<canvas id="myChart8"></canvas>
+				</div>
+			</div>
           <!-- /.box-body -->
         </div>
-        <!-- /.box -->
-      </div>
-      <div class="col-md-6">
-        <!-- DONUT CHART MERK PRINTER-->
-        <div class="box box-danger">
+	   </div>
+	
+		<div class="col-xs-12">
+	    <div class="box box-danger">
           <div class="box-header with-border">
-            <h3 class="box-title">Merk Printer yang Paling Banyak Digunakan di Sumatera Utara</h3>
-
-
+            <h3 class="box-title">SLA NETWORK (UIP KITSUM) TAHUN 2020</h3>
             <div class="box-tools pull-right">
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
               </button>
               <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
             </div>
           </div>
-          <div class="box-body">
-            <canvas id="pieChartPrinter" style="height:250px"></canvas>
-          </div>
+         <div class="box-body">
+				<div class="col-xs-6">
+					<canvas id="myChart9"></canvas>
+				</div>
+				<div class="col-xs-6">
+					<canvas id="myChart10"></canvas>
+				</div>
+				<div class="col-xs-6">
+					<canvas id="myChart11"></canvas>
+				</div>
+				
+			</div>
           <!-- /.box-body -->
         </div>
-        <!-- /.box -->
-      </div>
+	   </div>
+	
+	  
+	   
 
-      <div class="col-md-6">
-        <!-- DONUT CHART MERK SERVER-->
-        <div class="box box-danger">
-          <div class="box-header with-border">
-            <h3 class="box-title">Merek Server yang Paling Banyak Digunakan di Sumatera Utara</h3>
-            <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-              </button>
-              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-            </div>
-          </div>
-          <div class="box-body">
-            <canvas id="pieChartServer" style="height:250px"></canvas>
-          </div>
-          <!-- /.box-body -->
-        </div>
-        <!-- /.box -->
-      </div>
+     
 
-      <div class="col-md-6">
-        <!-- DONUT CHART MERK VICON-->
-        <div class="box box-danger">
-          <div class="box-header with-border">
-            <h3 class="box-title">Merek Video Conference yang Paling Banyak Digunakan di Sumatera Utara</h3>
-            <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-              </button>
-              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-            </div>
-          </div>
-          <div class="box-body">
-            <canvas id="pieChartVicon" style="height:250px"></canvas>
-          </div>
-          <!-- /.box-body -->
-        </div>
-        <!-- /.box -->
-      </div>
-
-      <div class="col-md-6">
-        <!-- DONUT CHART MERK NETWORK DEVICE-->
-        <div class="box box-danger">
-          <div class="box-header with-border">
-            <h3 class="box-title">Merek Network Device yang Paling Banyak Digunakan di Sumatera Utara</h3>
-            <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-              </button>
-              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-            </div>
-          </div>
-          <div class="box-body">
-            <canvas id="pieChartNetworkDevice" style="height:250px"></canvas>
-          </div>
-          <!-- /.box-body -->
-        </div>
-        <!-- /.box -->
-      </div>
+      
 
       <!-- /.col (LEFT) -->
 
