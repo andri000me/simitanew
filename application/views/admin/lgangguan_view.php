@@ -90,24 +90,24 @@
                      <td style="padding-right:10px; padding-top:10px">
                        <div class="form-group">
                          <select class="form-control select2" name="filter_month" id="filter_month" style="width: 100%;">
-                           <?php if (!empty($filter_monthName) && !empty($filter_month)) { ?>
-                             <option value="<?php echo $filter_month; ?>" selected="selected"><?php echo $filter_monthName; ?></option>
+                           <?php if (!empty($filter_month)) { ?>
+                             <option value="<?php echo $filter_month; ?>" selected="selected"><?php echo $filter_month; ?></option>
                              <option value=""> -- Pilih Bulan -- </option>
                            <?php } else { ?>
                              <option value=""> -- Pilih Bulan -- </option>
                            <?php } ?>
-                           <option value="01">Januari</option>
-                           <option value="02">Februari</option>
-                           <option value="03">Maret</option>
-                           <option value="04">April</option>
-                           <option value="05">Mei</option>
-                           <option value="06">Juni</option>
-                           <option value="07">Juli</option>
-                           <option value="08">Agustus</option>
-                           <option value="09">September</option>
-                           <option value="10">Oktober</option>
-                           <option value="11">November</option>
-                           <option value="12">Desember</option>
+                           <option value="Januari">Januari</option>
+                           <option value="Februari">Februari</option>
+                           <option value="Maret">Maret</option>
+                           <option value="April">April</option>
+                           <option value="Mei">Mei</option>
+                           <option value="Juni">Juni</option>
+                           <option value="Juli">Juli</option>
+                           <option value="Agustus">Agustus</option>
+                           <option value="September">September</option>
+                           <option value="Oktober">Oktober</option>
+                           <option value="November">November</option>
+                           <option value="Desember">Desember</option>
                          </select>
                        </div>
                      </td>
@@ -125,8 +125,10 @@
                    <th class="text-center">No Tiket</th>
                    <th class="text-center">Nama Service</th>
                    <th class="text-center">SID</th>
+                   <th class="text-center">ID Kantor Induk</th>
                    <th class="text-center">Asman</th>
                    <th class="text-center">Layanan</th>
+                   <th class="text-center">Scada</th>
                    <th class="text-center">Tiket Open</th>
                    <th class="text-center">Tiket Close</th>
                    <th class="text-center">Stop Clock</th>
@@ -150,12 +152,18 @@
                      <td><?= $data['no_tiket']; ?></td>
                      <td><?= $data['nama_service']; ?></td>
                      <td class="text-center"><?= $data['sid']; ?></td>
-                     <td class="text-center"><?= $data['asman']; ?></td>
+                     <td class="text-center"><?= $data['id_kantor_induk']; ?></td>
+                     <td class="text-center">STI Sumut <?= $data['asman']; ?></td>
                      <td class="text-center"><?= $data['layanan']; ?></td>
+                     <td class="text-center"><?php if($data['scada'] == 1){
+                        echo "Scada";
+                     } else if($data['scada'] == 0) {
+                        echo "Non Scada";
+                     } ?></td>
                      <td class="text-center"><?= $tiket_open; ?></td>
                      <td class="text-center"><?= $tiket_close; ?></td>
                      <td class="text-center"><?= $data['stop_clock']; ?> menit</td>
-                     <td class="text-center"><?= $data['durasi']; ?></td>
+                     <td class="text-center"><?= $data['durasi']; ?> menit</td>
                      <td class="text-center"><?= $data['penyebab']; ?></td>
                      <td class="text-center"><?= $data['action']; ?></td>
                      <td class="text-center"><?= $data['status_log']; ?></td>

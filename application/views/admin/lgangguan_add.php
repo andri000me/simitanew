@@ -56,12 +56,20 @@
                             </div>
                             <div class="col-lg-10">
                                 <div class="form-group">
+                                    <label for="id_kantor_induk" class="col-sm-3 control-label">ID Kantor Induk</label>
+                                    <div class="col-sm-5">
+                                        <input type="number" class="form-control" id="id_kantor_induk" name="id_kantor_induk" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-10">
+                                <div class="form-group">
                                     <label for="asman" class="col-sm-3 control-label">Asman</label>
                                     <div class="col-sm-5">
                                         <select class="form-control select2" name="asman" id="asman" style="width: 100%;" required>
                                             <option selected="selected" value=""> -- Pilih Asman -- </option>
-                                            <option value="STI Sumut 1">STI Sumut 1</option>
-                                            <option value="STI Sumut 2">STI Sumut 2</option>
+                                            <option value="1">STI Sumut 1</option>
+                                            <option value="2">STI Sumut 2</option>
                                         </select>
                                     </div>
                                 </div>
@@ -72,11 +80,23 @@
                                     <div class="col-sm-5">
                                         <select class="form-control select2" name="layanan" id="layanan" style="width: 100%;" required>
                                             <option selected="selected" value=""> -- Pilih Layanan -- </option>
-                                            <option value="IPVPN">IPVPN</option>
+                                            <option value="IP VPN">IP VPN</option>
                                             <option value="Metronet">Metronet</option>
                                             <option value="VSAT">VSAT</option>
                                             <option value="Clear Channel">Clear Channel</option>
                                             <option value="Internet">Internet</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-10">
+                                <div class="form-group">
+                                    <label for="scada" class="col-sm-3 control-label">Scada</label>
+                                    <div class="col-sm-5">
+                                        <select class="form-control select2" id="scada" name="scada" style="width: 100%;"> 
+                                            <option value=""> -- Pilih Scada -- </option>
+                                            <option value="1">Scada</option>
+                                            <option value="0">Non Scada</option>
                                         </select>
                                     </div>
                                 </div>
@@ -88,7 +108,7 @@
                                         <select class="form-control select2" name="status_log" id="status_log" style="width: 100%;" required>
                                             <option selected="selected" value=""> -- Pilih Status -- </option>
                                             <option value="Open">Open</option>
-                                            <option value="Closed">Closed</option>
+                                            <option value="Close">Close</option>
                                         </select>
                                     </div>
                                 </div>
@@ -133,6 +153,44 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-lg-10">
+                                <div class="form-group">
+                                    <label for="periode_bulan" class="col-sm-3 control-label">Periode Bulan</label>
+                                    <div class="col-sm-5">
+                                        <select class="form-control select2" name="periode_bulan" id="periode_bulan" style="width: 100%;" required>
+                                            <option selected="selected" value=""> -- Pilih Bulan -- </option>
+                                            <option value="Januari">Januari</option>
+                                           <option value="Februari">Februari</option>
+                                           <option value="Maret">Maret</option>
+                                           <option value="April">April</option>
+                                           <option value="Mei">Mei</option>
+                                           <option value="Juni">Juni</option>
+                                           <option value="Juli">Juli</option>
+                                           <option value="Agustus">Agustus</option>
+                                           <option value="September">September</option>
+                                           <option value="Oktober">Oktober</option>
+                                           <option value="November">November</option>
+                                           <option value="Desember">Desember</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-10">
+                                <div class="form-group">
+                                    <label for="periode_tahun" class="col-sm-3 control-label">Periode Tahun</label>
+                                    <div class="col-sm-5">
+                                        <select class="form-control select2" name="periode_tahun" id="periode_tahun" style="width: 100%;" required>
+                                            <option selected="selected" value=""> -- Pilih Tahun -- </option>
+                                            <option value="2021">2021</option>
+                                            <option value="2022">2022</option>
+                                            <option value="2023">2023</option>
+                                            <option value="2024">2024</option>
+                                            <option value="2025">2025</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
 
                         </div>
                         <!-- /.box-body -->

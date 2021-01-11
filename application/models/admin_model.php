@@ -1042,19 +1042,19 @@ class Admin_model extends CI_Model
         if($requirement > 0){
           $query .= "AND ";
         }
-        $query .= "(YEAR(a.tiket_open) = $year OR YEAR(a.tiket_close) = $year) AND (MONTH(a.tiket_open) = $month OR MONTH(a.tiket_close) = $month)";
+        $query .= "a.periode_tahun = '$year' AND a.periode_bulan = '$month'";
       } else {
         if($requirement > 0){
           $query .= "AND ";
         }
-        $query .= "(YEAR(a.tiket_open) = $year OR YEAR(a.tiket_close) = $year)";
+        $query .= "a.periode_tahun = '$year'";
       }
     } else {
       if(!empty($month)){
         if($requirement > 0){
           $query .= "AND ";
         }
-        $query .= "(MONTH(a.tiket_open) = $month OR MONTH(a.tiket_close) = $month)";
+        $query .= "a.periode_bulan = '$month'";
       } 
     }
 

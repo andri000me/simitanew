@@ -2571,45 +2571,7 @@ class Admin extends CI_Controller
 			$layanan = $this->input->post('filter_layanan');
 			$year = $this->input->post('filter_year');
 			$month = $this->input->post('filter_month');
-			$monthstr = sprintf("%02d", $month);
-			switch ($monthstr) {
-				case "01":
-				$data['filter_monthName'] = "Januari";
-				break;
-				case "02":
-				$data['filter_monthName'] = "Februari";
-				break;
-				case "03":
-				$data['filter_monthName'] = "Maret";
-				break;
-				case "04":
-				$data['filter_monthName'] = "April";
-				break;
-				case "05":
-				$data['filter_monthName'] = "Mei";
-				break;
-				case "06":
-				$data['filter_monthName'] = "Juni";
-				break;
-				case "07":
-				$data['filter_monthName'] = "Juli";
-				break;
-				case "08":
-				$data['filter_monthName'] = "Agustus";
-				break;
-				case "09":
-				$data['filter_monthName'] = "September";
-				break;
-				case "10":
-				$data['filter_monthName'] = "Oktober";
-				break;
-				case "11":
-				$data['filter_monthName'] = "November";
-				break;
-				case "12":
-				$data['filter_monthName'] = "Desember";
-				break;
-			}
+			
 			if (empty($no_tiket) && empty($wilayah) && empty($layanan) && empty($year) && empty($month)) {
 				echo "<script>alert('Harap masukkan nomor tiket, wilayah, layanan, tahun, atau bulan untuk melakukan filter data log gangguan')</script>";
 				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/lgangguan_view>";
@@ -2654,11 +2616,17 @@ class Admin extends CI_Controller
 			$this->form_validation->set_rules('sid', 'SID', 'required|numeric', [
 				'required' => 'SID harus di isi!'
 			]);
-			$this->form_validation->set_rules('wilayah', 'Wilayah', 'required', [
-				'required' => 'Wilayah kerja harus di isi!'
+			$this->form_validation->set_rules('id_kantor_induk', 'ID Kantor Induk', 'required|numeric', [
+				'required' => 'ID Kantor Induk harus di isi!'
+			]);
+			$this->form_validation->set_rules('asman', 'Asman', 'required|numeric', [
+				'required' => 'Asman harus di isi!'
 			]);
 			$this->form_validation->set_rules('layanan', 'Layanan', 'required', [
 				'required' => 'Layanan harus di isi!'
+			]);
+			$this->form_validation->set_rules('scada', 'Scada', 'required|numeric', [
+				'required' => 'Scada harus di isi!'
 			]);
 			$this->form_validation->set_rules('status_log', 'Status Tiket', 'required', [
 				'required' => 'Status tiket harus di isi!'
@@ -2674,46 +2642,51 @@ class Admin extends CI_Controller
 				'required' => 'Action harus di isi!'
 			]);
 
+			$this->form_validation->set_rules('periode_tahun', 'Periode Tahun', 'required', [
+				'required' => 'Periode Tahun harus di isi!'
+			]);
+
+			$this->form_validation->set_rules('periode_bulan', 'Periode Bulan', 'required', [
+				'required' => 'Periode Bulan harus di isi!'
+			]);
+
 			if ($this->form_validation->run() == false) {
 				$this->load->view('header');
 				$this->load->view('sidebar');
 				$this->load->view('admin/lgangguan_add');
 				$this->load->view('footer');
 			} else {
-				$no_tiket = $this->input->post('no_tiket');
-				$nama_service = $this->input->post('nama_service');
-				$sid = $this->input->post('sid');
-				$wilayah = $this->input->post('wilayah');
-				$layanan = $this->input->post('layanan');
-				$status_log = $this->input->post('status_log');
 				$tiket_open = $this->input->post('tiket_open');
 				$tiket_close = $this->input->post('tiket_close');
 				$stop_clock = $this->input->post('stop_clock');
-				$penyebab = $this->input->post('penyebab');
-				$action = $this->input->post('action');
-
+				
 				$before = date_create($tiket_open);
 				$after = date_create($tiket_close);
 				$diff = date_diff($before, $after, FALSE);
 				$printdiff = $diff->format("%Y-%m-%d %H:%i:%s");
 				$datediff = date_create($printdiff);
 				$diffminus = $datediff->modify("-{$stop_clock} minutes");
-				$durasi = $diffminus->format("H:i:s");
-
+				$time = $diffminus->format("H:i:s");
+				$timeArr = explode(':', $time);
+    			$durasi = ($timeArr[0]*60) + ($timeArr[1]) + ($timeArr[2]/60);
 
 				$data = array(
-					'no_tiket' => $no_tiket,
-					'nama_service' => $nama_service,
-					'sid' => $sid,
-					'wilayah' => $wilayah,
-					'layanan' => $layanan,
-					'status_log' => $status_log,
+					'no_tiket' => $this->input->post('no_tiket'),
+					'nama_service' => $this->input->post('nama_service'),
+					'sid' => $this->input->post('sid'),
+					'id_kantor_induk' => $this->input->post('id_kantor_induk'),
+					'asman' => $this->input->post('asman'),
+					'layanan' => $this->input->post('layanan'),
+					'scada' => $this->input->post('scada'),
+					'status_log' => $this->input->post('status_log'),
 					'tiket_open' => $tiket_open,
 					'tiket_close' => $tiket_close,
 					'stop_clock' => $stop_clock,
 					'durasi' => $durasi,
-					'penyebab' => $penyebab,
-					'action' => $action
+					'penyebab' => $this->input->post('penyebab'),
+					'action' => $this->input->post('action'),
+					'periode_tahun' => $this->input->post('periode_tahun'),
+					'periode_bulan' => $this->input->post('periode_bulan')
 				);
 
 				$insert = $this->admin_model->add_lgangguan_data($data);
@@ -2758,11 +2731,17 @@ class Admin extends CI_Controller
 			$this->form_validation->set_rules('sid', 'SID', 'required|numeric', [
 				'required' => 'SID harus di isi!'
 			]);
-			$this->form_validation->set_rules('wilayah', 'Wilayah', 'required', [
-				'required' => 'Wilayah harus di isi!'
+			$this->form_validation->set_rules('id_kantor_induk', 'ID Kantor Induk', 'required|numeric', [
+				'required' => 'ID Kantor Induk harus di isi!'
+			]);
+			$this->form_validation->set_rules('asman', 'Asman', 'required|numeric', [
+				'required' => 'Asman harus di isi!'
 			]);
 			$this->form_validation->set_rules('layanan', 'Layanan', 'required', [
 				'required' => 'Layanan harus di isi!'
+			]);
+			$this->form_validation->set_rules('scada', 'Scada', 'required|numeric', [
+				'required' => 'Scada harus di isi!'
 			]);
 			$this->form_validation->set_rules('status_log', 'Status Tiket', 'required', [
 				'required' => 'Status tiket harus di isi!'
@@ -2778,6 +2757,14 @@ class Admin extends CI_Controller
 				'required' => 'Action harus di isi!'
 			]);
 
+			$this->form_validation->set_rules('periode_tahun', 'Periode Tahun', 'required', [
+				'required' => 'Periode Tahun harus di isi!'
+			]);
+
+			$this->form_validation->set_rules('periode_bulan', 'Periode Bulan', 'required', [
+				'required' => 'Periode Bulan harus di isi!'
+			]);
+
 			if ($this->form_validation->run() == false) {
 				$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible text-center " role="alert">
 					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
@@ -2786,17 +2773,9 @@ class Admin extends CI_Controller
 					</div>');
 				redirect(base_url() . "admin/lgangguan_edit?log_id=" . $log_id);
 			} else {
-				$no_tiket = $this->input->post('no_tiket');
-				$nama_service = $this->input->post('nama_service');
-				$sid = $this->input->post('sid');
-				$wilayah = $this->input->post('wilayah');
-				$layanan = $this->input->post('layanan');
-				$status_log = $this->input->post('status_log');
 				$tiket_open = $this->input->post('tiket_open');
 				$tiket_close = $this->input->post('tiket_close');
 				$stop_clock = $this->input->post('stop_clock');
-				$penyebab = $this->input->post('penyebab');
-				$action = $this->input->post('action');
 
 				$before = date_create($tiket_open);
 				$after = date_create($tiket_close);
@@ -2804,22 +2783,27 @@ class Admin extends CI_Controller
 				$printdiff = $diff->format("%Y-%m-%d %H:%i:%s");
 				$datediff = date_create($printdiff);
 				$diffminus = $datediff->modify("-{$stop_clock} minutes");
-				$durasi = $diffminus->format("H:i:s");
-
+				$time = $diffminus->format("H:i:s");
+				$timeArr = explode(':', $time);
+    			$durasi = ($timeArr[0]*60) + ($timeArr[1]) + ($timeArr[2]/60);
 
 				$data = array(
-					'no_tiket' => $no_tiket,
-					'nama_service' => $nama_service,
-					'sid' => $sid,
-					'wilayah' => $wilayah,
-					'layanan' => $layanan,
-					'status_log' => $status_log,
+					'no_tiket' => $this->input->post('no_tiket'),
+					'nama_service' => $this->input->post('nama_service'),
+					'sid' => $this->input->post('sid'),
+					'id_kantor_induk' => $this->input->post('id_kantor_induk'),
+					'asman' => $this->input->post('asman'),
+					'layanan' => $this->input->post('layanan'),
+					'scada' => $this->input->post('scada'),
+					'status_log' => $this->input->post('status_log'),
 					'tiket_open' => $tiket_open,
 					'tiket_close' => $tiket_close,
 					'stop_clock' => $stop_clock,
 					'durasi' => $durasi,
-					'penyebab' => $penyebab,
-					'action' => $action
+					'penyebab' => $this->input->post('penyebab'),
+					'action' => $this->input->post('action'),
+					'periode_tahun' => $this->input->post('periode_tahun'),
+					'periode_bulan' => $this->input->post('periode_bulan')
 				);
 
 				$update = $this->admin_model->update_lgangguan($data, $log_id);

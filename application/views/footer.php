@@ -107,6 +107,39 @@
     .appendTo('#example1_wrapper .col-sm-6:eq(0)');
   })
   $(function() {
+    var table = $('#example4').DataTable({
+
+      lengthChange: true,
+      scrollX: true,
+      buttons: [
+       {
+           extend: 'pdf',
+           orientation: 'landscape',
+           pageSize: 'TABLOID',
+           footer: true,
+           exportOptions: {
+                columns: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]
+            }
+       },
+       {
+           extend: 'excel',
+           footer: false
+       }         
+    ]  
+      
+    });
+    $('#example2').DataTable({
+      'paging': true,
+      'lengthChange': false,
+      'searching': false,
+      'ordering': true,
+      'info': true,
+      'autoWidth': false
+    })
+    table.buttons().container()
+    .appendTo('#example4_wrapper .col-sm-6:eq(0)');
+  })
+  $(function() {
     var table = $('#example3').DataTable({
 
       lengthChange: true,
@@ -130,31 +163,7 @@
     table.buttons().container()
     .appendTo('#example3_wrapper .col-sm-6:eq(0)');
   })
-  $(function() {
-    var table = $('#example4').DataTable({
-
-      lengthChange: true,
-      scrollX : true,
-      buttons: [{
-        extend: 'excel',
-        text: '<i class="fa fa-file-excel-o"></i>&nbsp Export to Excel (*.xls)',
-        className: 'btn btn-sm',
-        exportOptions: {
-          columns: 'th:not(:last-child)'
-        },
-      }],
-    });
-    $('#example2').DataTable({
-      'paging': true,
-      'lengthChange': false,
-      'searching': false,
-      'ordering': true,
-      'info': true,
-      'autoWidth': false
-    })
-    table.buttons().container()
-    .appendTo('#example1_wrapper .col-sm-6:eq(0)');
-  })
+  
 </script>
 
 <!-- bootstrap datepicker -->
