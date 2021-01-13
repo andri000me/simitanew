@@ -1011,7 +1011,7 @@ class Admin_model extends CI_Model
     return $delete;
   }
 
-  public function lgangguan_filter($no_tiket, $wilayah, $layanan, $year, $month)
+  public function lgangguan_filter($no_tiket, $asman, $layanan, $year, $month)
   {
     $query = "SELECT a.* FROM log_gangguan a WHERE ";
     $requirement = 0;
@@ -1021,11 +1021,11 @@ class Admin_model extends CI_Model
       $requirement++;
     } 
 
-    if(!empty($wilayah)) {
+    if(!empty($asman)) {
       if($requirement > 0){
         $query .= "AND ";
       }
-      $query .= " a.wilayah = '$wilayah' ";  
+      $query .= " a.asman = '$asman' ";  
       $requirement++;
     } 
 

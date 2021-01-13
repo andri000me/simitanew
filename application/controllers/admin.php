@@ -2567,18 +2567,18 @@ class Admin extends CI_Controller
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
 			$no_tiket = $this->input->post('filter_no_tiket');
-			$wilayah = $this->input->post('filter_wilayah');
+			$asman = $this->input->post('filter_asman');
 			$layanan = $this->input->post('filter_layanan');
 			$year = $this->input->post('filter_year');
 			$month = $this->input->post('filter_month');
 			
-			if (empty($no_tiket) && empty($wilayah) && empty($layanan) && empty($year) && empty($month)) {
-				echo "<script>alert('Harap masukkan nomor tiket, wilayah, layanan, tahun, atau bulan untuk melakukan filter data log gangguan')</script>";
+			if (empty($no_tiket) && empty($asman) && empty($layanan) && empty($year) && empty($month)) {
+				echo "<script>alert('Harap masukkan nomor tiket, asman, layanan, tahun, atau bulan untuk melakukan filter data log gangguan')</script>";
 				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/lgangguan_view>";
 			} else {
-				$data['lgangguan_view'] = $this->admin_model->lgangguan_filter($no_tiket, $wilayah, $layanan, $year, $month);
+				$data['lgangguan_view'] = $this->admin_model->lgangguan_filter($no_tiket, $asman, $layanan, $year, $month);
 				$data['filter_no_tiket'] = $no_tiket;
-				$data['filter_wilayah'] = $wilayah;
+				$data['filter_asman'] = $asman;
 				$data['filter_layanan'] = $layanan;
 				$data['filter_year'] = $year;
 				$data['filter_month'] = $month;

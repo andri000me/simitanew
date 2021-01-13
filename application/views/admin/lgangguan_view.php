@@ -41,15 +41,15 @@
                      </td>
                      <td style="padding-right:10px; padding-top:10px">
                        <div class="form-group">
-                         <select class="form-control select2" name="filter_wilayah" id="filter_wilayah" style="width: 100%;">
-                           <?php if (!empty($filter_wilayah)){ ?>
-                             <option value="<?php echo $filter_wilayah; ?>" selected="selected"><?php echo $filter_wilayah; ?></option>
+                         <select class="form-control select2" name="filter_asman" id="filter_asman" style="width: 100%;">
+                           <?php if (!empty($filter_asman)){ ?>
+                             <option value="<?php echo $filter_asman; ?>" selected="selected">STI Sumut <?php echo $filter_asman; ?></option>
                              <option value=""> -- Pilih Asman -- </option>
                            <?php } else { ?>
                              <option value=""> -- Pilih Asman -- </option>
                            <?php } ?>
-                           <option value="STI Sumut 1">STI Sumut 1</option>
-                           <option value="STI Sumut 2">STI Sumut 2</option>
+                           <option value="1">STI Sumut 1</option>
+                           <option value="2">STI Sumut 2</option>
                          </select>
                        </div>
                      </td>
@@ -62,11 +62,11 @@
                            <?php } else { ?>
                              <option value=""> -- Pilih Layanan -- </option>
                            <?php } ?>
-                              <option value="IPVPN">IPVPN</option>
+                              <option value="IP VPN">IP VPN</option>
                               <option value="Metronet">Metronet</option>
-                              <option value="VSAT">VSAT</option>
+                              <option value="IP VSAT">IP VSAT</option>
                               <option value="Clear Channel">Clear Channel</option>
-                              <option value="Internet">Internet</option>
+                              <option value="Internet Corporate">Internet Corporate</option>
                          </select>
                        </div>
                      </td>

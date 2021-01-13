@@ -82,9 +82,9 @@
                                             <option selected="selected" value=""> -- Pilih Layanan -- </option>
                                             <option value="IP VPN">IP VPN</option>
                                             <option value="Metronet">Metronet</option>
-                                            <option value="VSAT">VSAT</option>
+                                            <option value="IP VSAT">IP VSAT</option>
                                             <option value="Clear Channel">Clear Channel</option>
-                                            <option value="Internet">Internet</option>
+                                            <option value="Internet Corporate">Internet Corporate</option>
                                         </select>
                                     </div>
                                 </div>
